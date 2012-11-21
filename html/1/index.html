@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!-- [START:head] -->
+<!-- [STOP:head] -->
+<body>
+  
+  <h1>Playground</h1>
+  
+  <div style="width: 100px; height: 100px; background: #f00; color: #fff" id="rotator">
+    Hi!
+  </div>
+  
+  <script type="text/javascript" charset="utf-8">
+    !function(){
+      var e = document.getElementById("rotator");
+      
+      var tiltLR, tiltFB, dir;
+      var lTiltLR, lTiltFB, lDir;
+      
+      var rX, rY, rZ;
+      
+      var devOrientHandler = function(eventData){
+        // gamma is the left-to-right tilt in degrees, where right is positive
+        tiltLR = eventData.gamma;
+
+        // beta is the front-to-back tilt in degrees, where front is positive
+        tiltFB = eventData.beta;
+
+        // alpha is the compass direction the device is facing in degrees
+        dir = eventData.alpha
+
+        // deviceorientation does not provide this data
+        var motUD = null;
+        
+        var change = false;
+        if(Math.abs(tiltLR - lTiltLR) > 1){
+          // console.log(tiltLR);          
+          rY = tiltLR;
+          change = true;
+        }
+
+        if(Math.abs(tiltFB - lTiltFB) > 1){
+          // console.log(tiltLR);          
+          rX = tiltFB;
+          change = true;          
+        }
+
+        if(Math.abs(dir - lDir) > 1){
+          // console.log(tiltLR);          
+          rZ = dir;
+          change = true;          
+        }
+
+        if(change)
+          e.style.webkitTransform = "rotateX("+rX+"deg) rotateY("+rY+"deg)  rotateZ("+rZ+"deg)";
+
+        
+        lTiltLR = tiltLR;
+        lTiltFB = tiltFB;
+        lDir = dir;
+        
+      }
+      
+      if (window.DeviceOrientationEvent) {
+        // Listen for the deviceorientation event and handle DeviceOrientationEvent object
+        window.addEventListener('deviceorientation', devOrientHandler, false);
+      } else if (window.OrientationEvent) {
+        // Listen for the MozOrientation event and handle OrientationData object
+        window.addEventListener('MozOrientation', mozDevOrientHandler, false);
+      }
+      
+      
+      
+    }();
+  </script>
+
+</body>
+</html>
