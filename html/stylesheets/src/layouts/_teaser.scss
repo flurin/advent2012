@@ -1,0 +1,51 @@
+.layout-teaser {
+  height: 100%;
+  background-color: #25002b;
+  background-image: -webkit-radial-gradient(center closest-side, 
+    #8b4f2a 9%,
+    #8b4f2a 16%,   
+    #854a2a 16%,
+    #854a2a 23%,   
+    #7d4429 23%,
+    #7d4429 30%,   
+    #773e2a 30%,
+    #773e2a 37%,
+    #70382b 37%,
+    #70382b 44%,
+    #68312a 44%,
+    #68312a 51%,
+    #5f2c29 51%,
+    #5f2c29 58%,
+    #58252a 58%,
+    #58252a 65%,
+    #4e1e2a 65%,
+    #4e1e2a 72%,
+    #46172b 72%,
+    #46172b 79%,
+    #3b102b 79%,
+    #3b102b 86%,    
+    #30082a 86%,
+    #30082a 93%,
+    #25002b    
+    );
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+/*  background-position: 0 -100px;*/
+}
+
+.layout-teaser {
+  
+  .comming-soon{
+    color: #fff;
+  }
+  
+  .comming-soon span{
+    display: inline-block;
+  }
+  
+  .comming-soon span:nth-child(1){
+    background: #f00;
+    -webkit-transform: rotateZ(-15deg);
+  }
+  
+}
