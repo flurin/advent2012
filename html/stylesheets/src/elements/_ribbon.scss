@@ -9,26 +9,34 @@ $ribbon_stripes_size: 7px;
   color: #fff;  
   font-size: 3.1rem;
   font-family: AlfaSlabOneRegular;
-  padding: 0.25em 0;
+  display: -webkit-flex;
+  -webkit-flex-direction: column;  
 }
 
-.ribbon,
-.ribbon:before,
-.ribbon:after{
+.ribbon .body,
+.ribbon .body:before,
+.ribbon .body:after{
   background-color: $c_ribbon_dark_bg;
-  background: -webkit-linear-gradient(top, $c_ribbon_light_bg 0%, $c_ribbon_dark_bg 100%);  
-  background: -moz-linear-gradient(top, $c_ribbon_light_bg 0%, $c_ribbon_dark_bg 100%);  
-  background: -ms-linear-gradient(top, $c_ribbon_light_bg 0%, $c_ribbon_dark_bg 100%);      
-  background: linear-gradient(top, $c_ribbon_light_bg 0%, $c_ribbon_dark_bg 100%);        
   border-top: 1px solid $c_ribbon_border_top;
   border-bottom: 1px solid $c_ribbon_border_bottom;    
 }
 
 .ribbon .body{
-  border-top: $ribbon_stripes_size solid $c_ribbon_stripes;
-  border-bottom: $ribbon_stripes_size solid $c_ribbon_stripes;  
-  padding: 0.5em 20px;
+  position: relative;
+  padding: 0.75em 20px;
   text-align: center;
+  -webkit-order: 1;
+  
+  background-image: 
+    -webkit-linear-gradient(top, $c_ribbon_stripes 0, $c_ribbon_stripes $ribbon_stripes_size, transparent $ribbon_stripes_size),
+    -webkit-linear-gradient(top, $c_ribbon_stripes 0, $c_ribbon_stripes $ribbon_stripes_size, transparent $ribbon_stripes_size),
+    -webkit-linear-gradient(top, $c_ribbon_light_bg 0%, $c_ribbon_dark_bg 100%);  
+  
+  background-position:
+    0 0.25em,
+    0 -15px, /* Too bad we have to use PX here, would love to use calc(-0.25em - 7px) */
+    0 0;    
+  
 }
 
 .ribbon .logo{
@@ -46,8 +54,8 @@ $ribbon_stripes_size: 7px;
 /* = Wing-tips = */
 /* ============= */
 
-.ribbon:before,
-.ribbon:after{
+.ribbon .body:before,
+.ribbon .body:after{
   content: "";
   position: absolute;
   z-index: -1;
@@ -55,6 +63,7 @@ $ribbon_stripes_size: 7px;
   width: 150px;
   left: -50px;
   top: -28px;
+  
   background-image: 
     -webkit-linear-gradient(top, $c_ribbon_stripes 0, $c_ribbon_stripes $ribbon_stripes_size, transparent $ribbon_stripes_size),
     -webkit-linear-gradient(top, $c_ribbon_stripes 0, $c_ribbon_stripes $ribbon_stripes_size, transparent $ribbon_stripes_size),  
@@ -86,7 +95,7 @@ $ribbon_stripes_size: 7px;
   -webkit-mask-size: auto 100%;
 }
 
-.ribbon:after{
+.ribbon .body:after{
   left: auto;
   right: -50px;
   
@@ -99,21 +108,43 @@ $ribbon_stripes_size: 7px;
 /* = The shadows = */
 /* =============== */
 
-.ribbon .body:after,
-.ribbon .body:before{
+/* 
+  Most unfortunately we have to hang these onto an inner element as we have to support the banner.
+  We can't hang 'm on .ribbon itself, because the banner makes the top/bottom variable.
+*/
+
+.ribbon h1:after,
+.ribbon h1:before{
   content: "";
   position: absolute;
   display: block;
   border-left: 100px solid transparent;
   border-bottom: 28px solid #550000;
-  top: -29px;
+  top: -28px - 1px; /* Wingtip top + 1px for border */
   left: 0;
 }
 
-.ribbon .body:after{
+.ribbon h1:after{
   border: 0;
   border-right: 100px solid transparent;
   border-bottom: 28px solid #550000;
   right: 0;
   left: auto;
+}
+
+/* ============== */
+/* = The banner = */
+/* ============== */
+  
+.ribbon .banner{  
+  -webkit-order: 0;
+  margin: 0.3em 120px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.ribbon .banner strong{
+  color: $c_ribbon_banner_strong;
 }
