@@ -2,6 +2,12 @@
  
 require 'sass/plugin/rack'
 
+require 'html_mockup/release/processors/sass'
+require 'html_mockup/release/processors/requirejs'
+require 'html_mockup/release/processors/yuicompressor'
+
+require File.dirname(__FILE__) + "/vendor/rsync_finalizer"
+
 Sass::Plugin.options[:style] = :expanded
 Sass::Plugin.options[:template_location] = {
   "./html/stylesheets" => "./html/stylesheets"
@@ -10,4 +16,23 @@ Sass::Plugin.options[:template_location] = {
 mockup.serve do |s|
   s.port = 9000  
   s.use Sass::Plugin::Rack
+end
+
+mockup.release do |r|
+  
+  r.use :sass
+  
+  # Inject banners
+  r.inject({ /\/\*\s*\[BANNER\]\s*\*\// => r.banner(:comment => :css)}, :into => %w{**/*.css})
+  
+  # Compress
+  r.use :yuicompressor
+  
+  # Cleanup on the build
+  r.cleanup "**/.DS_Store"
+  r.cleanup "**/.sass-cache"
+  r.cleanup "**/stylesheets/src"
+  
+  r.finalize RsyncFinalizer, :host => "venus.digitpaint.nl", :username => "admin", :remote_path => "vhome/digitpaint.nl/advent2012"
+  r.finalize :dir
 end
