@@ -26,15 +26,39 @@
     
     <p class="comming-soon">Starting December 1st!</p>
     
-    <script type="text/javascript" charset="utf-8">
-      $(".comming-soon").arctext({radius: 380})
-    </script>
-    
-    <p class="social">
+    <p class="social follow">
       <a href="https://twitter.com/intent/user?screen_name=digitpaint">
         Don't miss a single one! Follow us on @digitpaint!
       </a>
     </p>
-  </p>
+    
+    
+    <!-- AddThis Button BEGIN -->
+    <div class="social share">
+      <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+        <a class="addthis_button_preferred_1"></a>
+        <a class="addthis_button_preferred_2"></a>
+        <a class="addthis_button_preferred_3"></a>
+        <a class="addthis_button_preferred_4"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+      </div>
+    </div>
+    <!-- AddThis Button END -->
+  </div>
+  
+  <script>
+    $(".comming-soon").arctext({radius: 380});
+    
+    var addthis_share = { 
+      templates: {
+        twitter: 'Comming soon, the HTML and CSS Advent 2012 #dpadvent {{url}}'
+      }
+    }    
+    
+  </script>
+    
+  <!-- [START:javascripts] -->
+  <!-- [STOP:javascripts] -->    
 </body>
 </html>
