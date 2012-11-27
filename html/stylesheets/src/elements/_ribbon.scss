@@ -1,0 +1,114 @@
+/* ============= */
+/* = Variables = */
+/* ============= */
+
+$ribbon_stripes_size: 7px;
+
+.ribbon{
+  position: relative;
+  color: #fff;  
+  font-size: 3.1rem;
+  font-family: AlfaSlabOneRegular;
+  padding: 0.25em 0;
+}
+
+.ribbon,
+.ribbon:before,
+.ribbon:after{
+  background-color: $c_ribbon_dark_bg;
+  background: -webkit-linear-gradient(top, $c_ribbon_light_bg 0%, $c_ribbon_dark_bg 100%);  
+  background: -moz-linear-gradient(top, $c_ribbon_light_bg 0%, $c_ribbon_dark_bg 100%);  
+  background: linear-gradient(top, $c_ribbon_light_bg 0%, $c_ribbon_dark_bg 100%);      
+  border-top: 1px solid $c_ribbon_border_top;
+  border-bottom: 1px solid $c_ribbon_border_bottom;    
+}
+
+.ribbon .body{
+  border-top: $ribbon_stripes_size solid $c_ribbon_stripes;
+  border-bottom: $ribbon_stripes_size solid $c_ribbon_stripes;  
+  padding: 0.5em 20px;
+  text-align: center;
+}
+
+.ribbon .logo{
+  display: inline;
+  vertical-align: middle;
+}
+
+.ribbon h1{
+  display: inline;
+  text-shadow: 0 -1px 0 $c_ribbon_border_top, 0 3px 0 rgba(#510000, 0.4);
+  vertical-align: middle;  
+}
+
+/* ============= */
+/* = Wing-tips = */
+/* ============= */
+
+.ribbon:before,
+.ribbon:after{
+  content: "";
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  width: 150px;
+  left: -50px;
+  top: -28px;
+  background-image: 
+    -webkit-linear-gradient(top, $c_ribbon_stripes 0, $c_ribbon_stripes $ribbon_stripes_size, transparent $ribbon_stripes_size),
+    -webkit-linear-gradient(top, $c_ribbon_stripes 0, $c_ribbon_stripes $ribbon_stripes_size, transparent $ribbon_stripes_size),  
+    -webkit-linear-gradient(top, #AB0000 0%, #5E0000 100% );
+
+  background-image: 
+    -moz-linear-gradient(top, $c_ribbon_stripes 0, $c_ribbon_stripes $ribbon_stripes_size, transparent $ribbon_stripes_size),
+    -moz-linear-gradient(top, $c_ribbon_stripes 0, $c_ribbon_stripes $ribbon_stripes_size, transparent $ribbon_stripes_size),  
+    -moz-linear-gradient(top, #AB0000 0%, #5E0000 100% );
+
+  background-image: 
+    linear-gradient(top, $c_ribbon_stripes 0, $c_ribbon_stripes $ribbon_stripes_size, transparent $ribbon_stripes_size),
+    linear-gradient(top, $c_ribbon_stripes 0, $c_ribbon_stripes $ribbon_stripes_size, transparent $ribbon_stripes_size),  
+    linear-gradient(top, #AB0000 0%, #5E0000 100% );
+
+  
+  background-position:
+    0 0.25em,
+    0 -15px, /* Too bad we have to use PX here, would love to use calc(-0.25em - 7px) */
+    0 0;
+  
+  /* TODO: make DATA uri */
+  -webkit-mask: url(../assets/ribbon-mask-left.svg);
+  -webkit-mask-position: 0 0;
+  -webkit-mask-size: auto 100%;
+}
+
+.ribbon:after{
+  left: auto;
+  right: -50px;
+  
+  /* TODO: make DATA uri */
+  -webkit-mask: url(../assets/ribbon-mask-right.svg);
+  -webkit-mask-position: 100% 0;
+}
+
+/* =============== */
+/* = The shadows = */
+/* =============== */
+
+.ribbon .body:after,
+.ribbon .body:before{
+  content: "";
+  position: absolute;
+  display: block;
+  border-left: 100px solid transparent;
+  border-bottom: 28px solid #550000;
+  top: -29px;
+  left: 0;
+}
+
+.ribbon .body:after{
+  border: 0;
+  border-right: 100px solid transparent;
+  border-bottom: 28px solid #550000;
+  right: 0;
+  left: auto;
+}

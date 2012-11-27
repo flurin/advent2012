@@ -1,0 +1,17 @@
+.social{
+  background-color: $c_button_dark_bg;
+  background-image: -webkit-linear-gradient(top, $c_button_dark_bg 0, $c_button_light_bg 100%);
+  background-image: -moz-linear-gradient(top, $c_button_dark_bg 0, $c_button_light_bg 100%);
+  background-image: linear-gradient(top, $c_button_dark_bg 0, $c_button_light_bg 100%);    
+  color: #fff;
+  padding: 1em 3em;
+  font-size: 1.3rem;
+  border-radius: 0 0 5px 5px;
+  display: inline-block;
+  font-family: ClanWeb;
+}
+
+.social a{
+  color: inherit;
+  text-decoration: none;
+}

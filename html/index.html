@@ -2,18 +2,30 @@
 <!-- [START:head] -->
 <!-- [STOP:head] -->
 <body class="layout-teaser">
-  <header class="ribbon">
-    <h1>HTML &amp; CSS ADVENT 2012</h1>
-  </header>
-  <p class="comming-soon">
-    <span>S</span><span>t</span><span>a</span><span>r</span><span>t</span><span>i</span><span>n</span><span>g</span><span> </span>
-    <span>D</span><span>e</span><span>c</span><span>e</span><span>m</span><span>b</span><span>e</span><span>r</span><span> </span>
-    <span>1</span><span>s</span><span>t</span><span>!</span>
-  <p>  
-  <p class="follow twitter">
-    <a href="http://twitter.com/digitpaint">
-      Don't miss a single one! Follow us on @digitpaint!
-    </a>
+  <div class="main">
+    <header class="ribbon">
+      <div class="body">
+        <img class="logo" src="/assets/logo-ribbon.svg" alt="Digitpaint">
+        <h1>HTML &amp; CSS ADVENT 2012</h1>
+      </div>
+      <img src="/assets/teaser/alien.svg" alt="Bob the Alien welcomes you!" class="alien">
+    </header>
+    <!-- <p class="comming-soon">
+      <span>S</span><span>t</span><span>a</span><span>r</span><span>t</span><span>i</span><span>n</span><span>g</span><span>&nbsp;</span>
+      <span>D</span><span>e</span><span>c</span><span>e</span><span>m</span><span>b</span><span>e</span><span>r</span><span>&nbsp;</span>
+      <span>1</span><span>s</span><span>t</span><span>!</span>
+    </p> -->  
+    <p class="comming-soon">Starting December 1st!</p>
+    
+    <script type="text/javascript" charset="utf-8">
+      $(".comming-soon").arctext({radius: 380})
+    </script>
+    
+    <p class="social">
+      <a href="https://twitter.com/intent/user?screen_name=digitpaint">
+        Don't miss a single one! Follow us on @digitpaint!
+      </a>
+    </p>
   </p>
 </body>
 </html>
