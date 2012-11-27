@@ -2,6 +2,7 @@
   background-color: $c_button_dark_bg;
   background-image: -webkit-linear-gradient(top, $c_button_dark_bg 0, $c_button_light_bg 100%);
   background-image: -moz-linear-gradient(top, $c_button_dark_bg 0, $c_button_light_bg 100%);
+  background-image: -ms-linear-gradient(top, $c_button_dark_bg 0, $c_button_light_bg 100%);      
   background-image: linear-gradient(top, $c_button_dark_bg 0, $c_button_light_bg 100%);    
   color: #fff;
   padding: 1em 3em;
