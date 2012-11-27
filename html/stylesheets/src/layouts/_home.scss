@@ -1,0 +1,24 @@
+.layout-home{
+  @extend %page-background;
+  background-size: 100% 100%;
+  background-position: 0 -50%;
+}
+
+.layout-home{
+  
+  .main{
+    width: 650px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  .main > header{
+    margin: 10px -20px 0 -20px;
+  }
+  
+  .main > .body{
+    background: $c_main_body_bg;
+    padding: 20px;
+  }
+  
+}
