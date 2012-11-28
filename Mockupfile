@@ -7,10 +7,15 @@ require 'html_mockup/release/processors/requirejs'
 require 'html_mockup/release/processors/yuicompressor'
 
 require File.dirname(__FILE__) + "/vendor/rsync_finalizer"
+require File.dirname(__FILE__) + "/vendor/sass_inline_data"
 
 Sass::Plugin.options[:style] = :expanded
 Sass::Plugin.options[:template_location] = {
   "./html/stylesheets" => "./html/stylesheets"
+}
+
+Sass::Plugin.options[:custom] = {
+  :root => mockup.project.html_path
 }
 
 mockup.serve do |s|
