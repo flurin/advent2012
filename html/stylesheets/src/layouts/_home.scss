@@ -54,11 +54,10 @@
     height: $alien_beam_height;    
   }
 
-  /* TODO make data attribute */
   .main > .body:before{
     left: 0;
     width: 100% - $alien_position_right; 
-    background: url(../images/alien-ray-left.svg) no-repeat;
+    background: inline_image("/images/alien-ray-left.svg") no-repeat;
     background-position: 100% 100%;
     background-size: 100% 100%;
   }
@@ -66,7 +65,7 @@
   .main > .body:after{
     right: 0;
     width: $alien_position_right;
-    background: url(../images/alien-ray-right.svg) no-repeat;
+    background: inline_image("/images/alien-ray-right.svg") no-repeat;
     background-position: 100% 100%;
     background-size: 100% 100%;    
   }

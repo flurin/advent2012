@@ -120,8 +120,7 @@ $ribbon_stripes_size: 7px;
     0 -15px, /* Too bad we have to use PX here, would love to use calc(-0.25em - 7px) */
     0 0;
   
-  /* TODO: make DATA uri */
-  -webkit-mask: url(../assets/ribbon-mask-left.svg);
+  -webkit-mask: inline_image("/images/ribbon-mask-left.svg");
   -webkit-mask-position: 0 0;
   -webkit-mask-size: auto 100%;
 }
@@ -130,8 +129,7 @@ $ribbon_stripes_size: 7px;
   left: auto;
   right: -50px;
   
-  /* TODO: make DATA uri */
-  -webkit-mask: url(../assets/ribbon-mask-right.svg);
+  -webkit-mask: inline_image("/images/ribbon-mask-right.svg");
   -webkit-mask-position: 100% 0;
 }
 
