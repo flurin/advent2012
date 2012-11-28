@@ -40,9 +40,9 @@
   /* = Main = */
   /* ======== */
   
-  .main{
+  .page{
     display: table;
-    margin: 400px auto 0 auto;
+    margin: 300px auto 0 auto;
     position: relative;
   }
   
@@ -72,6 +72,30 @@
     margin-left: -100px;
   }
   
+  /* ============= */
+  /* = Subscribe = */
+  /* ============= */
+  .subscribe{
+    @extend %button-gradient-bg;
+    color: #fff;
+    width: 580px;
+    display: table;
+    margin: 0 auto;
+    padding: 15px;
+    border-radius: 0 0 15px 15px;
+    text-align: left;
+    line-height: 1.5;
+  }
+  
+  .subscribe h2{
+    @extend %font-h2;
+  }
+  
+  .subscribe a{
+    color: inherit;
+    font-weight: bold;
+  }
+    
   /* =========== */
   /* = Sharing = */
   /* =========== */
@@ -80,6 +104,25 @@
     width: 242px;
     margin: 0 auto;
     margin-top: 1.3em;
+    margin-bottom: 2em;
+  }
+  
+  /* ================ */
+  /* = Bottom links = */
+  /* ================ */
+  
+  .to-headquarters a{
+    @extend %font-h2;
+    color: #fff;
+    display: block;
+    margin-bottom: 1em;
+  }
+ 
+  .last-year a{
+    @extend %font-text;
+    color: #fff;
+    display: block;
+    margin-bottom: 1em;
   }
   
 }

@@ -15,7 +15,7 @@
   
 </head>
 <body class="layout-teaser">
-  <div class="main">
+  <div class="page">
     <header class="ribbon">
       <div class="body">
         <a href="http://www.digitpaint.nl" target="_blank"><img class="logo" src="/assets/logo-ribbon.svg" alt="Digitpaint"></a>
@@ -26,12 +26,36 @@
     
     <p class="comming-soon">Starting December 1st!</p>
     
-    <p class="social follow">
-      <a href="https://twitter.com/intent/user?screen_name=digitpaint">
-        Don't miss a single one! Follow @digitpaint on twitter!
-      </a>
-    </p>
-    
+    <section class="subscribe text">
+      <h2>Don't miss a single one! Get our daily update in your inbox!</h2>
+      <p>
+        Sign up for our e-mail digest, and get the daily update delivered straight to your inbox. We’ll only spam you until December 24th, scout’s honour (insert
+        evil grin here). Or get on Twitter and follow us there: <a href="https://twitter.com/digitpaint">@digitpaint</a>!
+      </p>
+                
+      <form action="http://subscribe.advent.digitpaint.nl" method="post">
+        <fieldset>
+              
+          <div class="input">
+            <label class="acc" for="subscribe_email">Your email address goes here</label>                
+            <input type="email" id="subscribe_email" placeholder="Your email address goes here...">
+          </div>
+          
+          <div class="button">
+            <button type="submit">
+              Subscribe
+            </button>
+          </div>
+        </fieldset>
+            
+        <p>
+          Do you want to unsubscribe? 
+          <a href="http://subscribe.advent.digitpaint.nl/subscribers/unsubscribe">
+            Click here so we can stop nagging you
+          </a>
+        </p>            
+      </form>
+    </section>
     
     <!-- AddThis Button BEGIN -->
     <div class="share">
@@ -46,6 +70,18 @@
     </div>
     <!-- AddThis Button END -->
   </div>
+  
+  <p class="to-headquarters">
+    <a href="http://www.digitpaint.nl" title="Back to Digitpaint Headquarters">www.digitpaint.nl</a>
+  </p>
+  
+  <p class="last-year">
+    <a href="http://html5advent2011.digitpaint.nl">
+      Want to be entertained while you wait for the 1st?
+      Check last year's HTML &amp; CSS Advent!
+    </a>
+  </p>
+  
   
   <script>
     $(".comming-soon").arctext({radius: 380});
