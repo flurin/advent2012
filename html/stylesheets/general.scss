@@ -8,14 +8,25 @@ html{
   font-size: 62.5%;
 }
 
+.acc{
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+
 /* ============ */
 /* = Elements = */
 /* ============ */
+@import 'src/elements/text';
+@import 'src/elements/code';
 @import 'src/elements/ribbon';
 @import 'src/elements/social';
+@import 'src/elements/subscribe';
 
 /* =========== */
 /* = Layouts = */
 /* =========== */
 @import 'src/layouts/teaser';
 @import 'src/layouts/home';
+@import 'src/layouts/article';

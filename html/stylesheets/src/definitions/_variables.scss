@@ -10,7 +10,11 @@ $c_button_light_bg: #AB0000;
 $c_button_dark_bg: #7A0000;
 
 /* Backgrounds */
-$c_main_body_bg: rgba(#FFFCE6, 0.9);
+$c_main_highlight_bg: #FFFCE6;
+$c_main_body_bg: rgba($c_main_highlight_bg, 0.9);
 
 /* Text */
 $c_ribbon_banner_strong: #E50000;
+$c_text_highlight: #BF0000;
+
+$c_corporate_dark: #35133D;

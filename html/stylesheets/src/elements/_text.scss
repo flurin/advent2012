@@ -1,0 +1,71 @@
+.text{
+  
+  @extend %font-text;
+  
+  p,
+  ul,
+  ol,
+  form,
+  pre.code{
+    margin-bottom: 1em;
+  }
+  
+  a{
+    color: $c_text_highlight;
+    text-decoration: underline;
+  }
+  
+  p.intro{
+    @extend %font-intro;
+  }
+  
+  /* ============ */
+  /* = Headings = */
+  /* ============ */
+  
+  h2{
+    @extend %font-h2;
+  }
+  
+  h3{
+    @extend %font-h3;
+  }
+  
+  /* =========================== */
+  /* = Bullet & Numbered lists = */
+  /* =========================== */
+
+  ul ul,
+  ol ol,
+  ul ol,
+  ol ul{
+    margin-bottom: 0;  
+  }
+
+  ul > li{
+    list-style: disc outside;
+    margin-left: 2em;    
+  }
+
+  /* Numbered lists */
+  ol{
+    counter-reset: numbered;
+  }
+
+  ol > li{
+    counter-increment: numbered;
+    position: relative;
+    margin-left: 2em;    
+  }
+
+  ol > li:before{
+    display: block;
+    content: counter(numbered) ".";
+    text-align: right;
+    width: 1.5em;
+    margin-right: 0.9em;
+    position: absolute;
+    left: -2em;
+  }  
+  
+}

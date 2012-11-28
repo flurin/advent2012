@@ -1,0 +1,64 @@
+.subscribe{
+  margin-bottom: 1em;
+}
+
+.subscribe fieldset{
+  display: table-row;  
+  width: 100%;
+  margin-bottom: 0.5em;
+}
+
+.subscribe fieldset > div{
+  display: table-cell;  
+  vertical-align: middle;
+}
+
+.subscribe fieldset > div.yes{
+  padding-right: 1em;
+}
+
+.subscribe fieldset > div.input{
+  width: 100%;
+  padding-right: 1em;
+}
+
+.subscribe input{
+  @extend %font-text;
+  padding: 0.2em 0.5em;
+  width: 100%;
+  border: 1px solid #E0C99D;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;    
+  box-sizing: border-box;
+
+}
+
+.subscribe input.invalid{
+  border: 1px solid #d00;
+}
+
+.subscribe button{
+  @extend %font-text;
+  @extend %button-gradient-bg;
+  border-radius: 6px;
+  color: #fff;
+  border: 0 none;
+  padding: 0.2em 1em;
+}
+
+.subscribe .error{
+  @extend %font-text;  
+  @extend %button-gradient-bg;
+  color: #fff;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+/* ============= */
+/* = Placement = */
+/* ============= */
+
+.body .subscribe{
+  background: $c_main_highlight_bg;
+  padding: 20px 15px;
+}

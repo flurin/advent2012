@@ -1,0 +1,49 @@
+.layout-article {
+  @extend %page-background;
+}
+
+.layout-article{
+  
+  .page{
+    padding-top: 20px;
+  }
+  
+  .ribbon,
+  .main > .header,
+  .main > .body{
+    width: 650px;
+    margin: 0 auto;
+    text-align: left;
+    position: relative;
+  }
+  
+  .main > .header{
+    @extend %font-main-header;
+    margin-top: -5px;    
+    background: $c_main_highlight_bg;
+    color: $c_corporate_dark;
+  }
+  
+  /* ================== */
+  /* = Smaller ribbon = */
+  /* ================== */
+  .ribbon{
+    font-size: 2.3rem;
+    z-index: 1;
+  }
+  
+  .ribbon .banner{
+    font-size: 1.4rem;
+  }
+  
+  .main > .body,
+  .main > .header{
+    padding: 20px;
+  }
+  
+  .main > .body{
+    background: $c_main_body_bg;
+    position: relative;
+  }  
+  
+}
