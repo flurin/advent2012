@@ -10,15 +10,65 @@
     width: 650px;
     margin: 0 auto;
     text-align: left;
+    position: relative;
   }
   
   .main > header{
     margin: 10px -20px 0 -20px;
   }
   
+  .main > .social{
+    
+  }
+  
+  
+  /* =========================== */
+  /* = The alien and it's beam = */
+  /* =========================== */
+  
+  $alien_position_right: 30%;
+  $alien_beam_height: 90px;
+  
+  .main > .alien{
+    position: absolute;
+    margin-top: -30px;
+    right: -webkit-calc(30% - 60px);
+    right: -moz-calc(30% - 60px);
+    right: calc(30% - 60px);        
+    z-index: 1;
+  }
+
   .main > .body{
     background: $c_main_body_bg;
     padding: 20px;
+    position: relative;
+    margin-top: $alien_beam_height - 25px;
+  }
+  
+  /* The light cone */
+  .main > .body:before,
+  .main > .body:after{
+    content: "";
+    position: absolute;
+    top: -1 * $alien_beam_height;
+    height: $alien_beam_height;    
+  }
+
+  /* TODO make data attribute */
+  .main > .body:before{
+    left: 0;
+    width: 100% - $alien_position_right; 
+    background: url(../images/alien-ray-left.svg) no-repeat;
+    background-position: 100% 100%;
+    background-size: 100% 100%;
+  }
+  
+  .main > .body:after{
+    right: 0;
+    width: $alien_position_right;
+    background: url(../images/alien-ray-right.svg) no-repeat;
+    background-position: 100% 100%;
+    background-size: 100% 100%;    
   }
   
 }

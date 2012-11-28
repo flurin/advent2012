@@ -1,0 +1,11 @@
+.days{
+  counter-reset: days 24;
+}
+
+.days li > a{
+  counter-increment: days -1;
+}
+
+.days li > a:before{
+  content: counter(days);
+}
