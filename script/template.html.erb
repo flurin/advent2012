@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <!-- [START:head] -->
+  <!-- [STOP:head] -->
+  <title><%= item[:title] %> - HTML and CSS Advent 2012 by Digitpaint</title>
+  <meta name="description" content="24 days of HTML/CSS tips, brought to you by the front-end experts at Digitpaint.">
+  <meta name="author" content="All of us at Digitpaint">
+
+  
+</head>
+<body class="layout-article">
+  <div class="page">
+
+    <!-- [START:layout/ribbon] -->
+    <!-- [STOP:layout/ribbon] -->    
+        
+    <article class="main">
+      
+      <header class="header">
+        <div class="body">
+          <span class="day-number">
+            <%= "%02d" % item[:day] %>
+          </span>
+          <h1>
+            <%= item[:title] %>
+          </h1>
+        </div>
+        
+        <nav class="browse">
+          <% if item[:yesterday] %>
+            <a href="/<%= item[:yesterday][:file] %>" class="previous">
+              <span class="acc">Previous</span>
+            </a>
+          <% end %>
+          <% if item[:tomorrow] %>
+            <a href="/<%= item[:tomorrow][:file] %>" class="next not-yet">
+              <span class="acc">Next</span>
+            </a>
+          <% end %>
+        </nav>
+      </header>
+      
+      <div class="body text">
+        <%= item[:body] %>
+      </div>
+    </article>
+        
+  </div>
+    
+  <!-- [START:javascripts] -->
+  <!-- [STOP:javascripts] -->    
+</body>
+</html>

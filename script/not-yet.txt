@@ -1,0 +1,97 @@
+1 Patience, patience!
+<p>For now, we’re working hard on this demonstration of spiffy new CSS3 or HTML5 technology. Come check it out on December 1st!</p>
+----
+2 Time flies like an arrow, fruit flies like a banana...
+<p>...but it certainly isn’t December 2nd yet.</p>
+----
+3 Get back in your DeLorean, McFly.
+<p>Seriously. This is the future. And we demand you wait until the 3rd. Of January, 1955.</p>
+----
+4 VISITOR — Y U NO WAIT?
+<p>This page will be worth it. Just come back on the 4th.</p>
+----
+5 Lorem ipsum sit dolor...
+<p>That’s all we got so far. We’ll have more by the 5th, promise.</p>
+----
+6 Lost: Content page for December 6th.
+<p>Smallish, kind of scruffy looking. Goes by the name of “/6/index.html”. Definitely not housetrained. We’re sure it’ll turn up on the 6th.</p>
+----
+7 Just missed it.
+<p>This page left just a few minutes ago. Sorry about that, but the wife phoned the bar and told it to come home this instant. But it said it’ll be back on the 7th.</p>
+----
+8 Sneaky hobbitses!
+<p>Sneaky hobbitses tries to tricks us! Try to see the 8th before it is the 8th...sneaky sneaky hobbitses.</p>
+----
+9 Trololo-lolo-lolo-lolo-lolo-loooo
+<p>We’re not trying to troll you, but you have to wait a little longer.</p>
+<p><a href="http://www.youtube.com/watch?v=YLczcnld8eU&feature=fvwrel" target="_blank">This should kill a few minutes...</a></p>
+----
+10 “Erroneous Time Sync Error -13324985” has occurred
+<p>Quick, reboot the universe and check back on the 10th!</p>
+----
+11 You know what’s a fun game?
+<p>Sitting here and watching the hours pass until it is the 11th of December. Or just head outside, enjoy the fresh air, and come back later. Your choice.</p>
+----
+12 BRB
+<p>Skippng ahed? 2EZ! U HV 2 W8! It ll b gr8 on Dec 12! TTYL</p>
+----
+13 Don’t you know that skipping ahead to the 13th is bad luck?
+<p>The only remedy is to check back on the 13th to see what’s really on this page!</p>
+----
+14 Here’s a cool $ 1’000’000’000’000 for you!
+<p>But not really. While we wait, we thought we’d rent this space out to known spammers. They promised to leave on the 14th. Maybe we should’ve thought this through...</p>
+----
+15 :(
+<p>Nope. Not yet.</p>
+----
+16 Paper jam
+<p>Why does it say paper jam when there is no paper jam...?</p>
+<p>We’ll fix this, no problem. Might be a while though. You should come back on the 16th.</p>
+----
+17 Wait, you must.
+<p>Since you spend about 5 years during your lifetime waiting for stuff, we thought these few extra days wouldn’t matter much.</p>
+----
+18 Halt! Zhis is ein secret area!
+<p>&lt;German accent&gt; How zhid zou get here? Zou should not be here! Zhis secret bunker is off limits until the 18th! Guard! Schnell, Kartoffelstock! &lt;/German accent&gt;</p>
+----
+19 Waiting sucks
+<p>Yes it does. So do empty pages. We’ll fill it by December 19th.</p>
+----
+20 Still trying, eh?
+<p>You must be bored if you kept clicking. May we offer you some refreshing <a href="http://nyan.cat/" target="_blank">Nyan Cat</a> while you wait? We’re all out of everything else at the moment...</p>
+----
+21 “Infinity is a very long time, especially towards the end.”
+<p>No worries though. This post is just a few days away. Until then, read some of <a href="http://www.totalfilm.com/features/50-funniest-woody-allen-quotes" target="_blank">Woody Allen’s best quotes</a>.</p>
+----
+22 user@computer:~$ sudo comeback.later
+<pre class="code"><code>date --date='22 Dec' +%A</code>
+----
+23 You asked for it.
+<iframe width="420" height="315" src="http://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+<p>You should’ve waited until it was actually the 23d to visit this page.</p>
+----
+24 List of things that you could do until the 24th
+<ul>
+  <li>Get in touch with yourself</li>
+  <li>Rake the leaves</li>
+  <li>Start a baboon farm</li>
+  <li>Put up the Christmas lights</li>
+  <li>Go home, see your folks.</li>
+  <li>Read a book in one sitting</li>
+  <li>Write letters to random people</li>
+  <li>Clean out the attic</li>
+  <li>Try the Cinnamon Challenge (not recommended)</li>
+  <li>Learn Swahili</li>
+  <li>Get really, really, really drunk</li>
+  <li>Read all 24 404-pages on this calendar</li>
+  <li>Try every pizza topping Domino’s has to offer (definitely not recommended)</li>
+  <li>Get lost in the endless depths of YouTube</li>
+  <li>Build a working sequential transmission out of Lego</li>
+  <li>Eat cake</li>
+  <li>Volunteer somewhere. Anywhere.</li>
+  <li>Troll employees at the Genius Bar</li>
+  <li>Go to the dentist</li>
+  <li>Sleep</li>
+  <li>Check out all the other entries in our HTML & CSS Advent calendar</li>
+</ul>
+<p>Have fun!</p>
