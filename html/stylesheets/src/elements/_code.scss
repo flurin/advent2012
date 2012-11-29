@@ -1,6 +1,21 @@
 pre.code{
   padding: 20px 40px;
   background: $c_main_highlight_bg;
+  position: relative;
+}
+
+pre.code:before{
+  @extend %font-icon;
+  content: "\E025";
+  color: #fff;
+  background: $c_corporate_light;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1rem;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
 }
 
 .text code{
