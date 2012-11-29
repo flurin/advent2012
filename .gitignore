@@ -5,3 +5,4 @@ html/stylesheets/**/*.css
 html/custom/**/rel/stylesheet/*.css
 releases/*
 /.bundle/
+script/build
