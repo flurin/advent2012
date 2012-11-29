@@ -42,7 +42,8 @@ mockup.release do |r|
   r.cleanup "**/.sass-cache"
   r.cleanup "**/stylesheets/src"
   r.cleanup "styleguide/"  
+  r.cleanup "preparation/"  
   
-  r.finalize RsyncFinalizer, :host => "venus.digitpaint.nl", :username => "admin", :remote_path => "vhome/digitpaint.nl/advent2012"
+  # r.finalize RsyncFinalizer, :host => "venus.digitpaint.nl", :username => "admin", :remote_path => "vhome/digitpaint.nl/advent2012"
   r.finalize :dir
 end
