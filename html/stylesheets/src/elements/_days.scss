@@ -9,3 +9,30 @@
 .days li > a:before{
   content: counter(days);
 }
+
+/* ============== */
+/* = Day number = */
+/* ============== */
+
+.day-number{
+  float: left;
+  position: relative;
+  font-size: 10.4rem;
+  line-height: 10.4rem;
+  font-family: AlfaSlabOneRegular;
+  letter-spacing: 0.05em;
+  color: $c_corporate_deep;
+  margin-right: 15px;
+
+  /* Webkit only gimmick; Doesn't work in combination with the shadow */
+/*  background: -webkit-linear-gradient(top, $c_corporate_deep, $c_corporate_superdark);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;*/
+
+  text-shadow: 0 3px 0 rgba(#352906, 0.5), 0 -3px 0 #FEFFF3;
+
+}
+
+.day-number + h1{
+  overflow: hidden;
+}
