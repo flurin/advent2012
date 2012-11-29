@@ -23,6 +23,7 @@
   }
   
   .main > .header .body{
+    @extend %autoclear;    
     @extend %font-main-header;
     margin-top: -5px;    
     background: $c_main_highlight_bg;
