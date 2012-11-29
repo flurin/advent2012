@@ -2,7 +2,7 @@ module InlineDataFunctions
 
   def inline_image(path, mime_type = nil)
     path = path.value
-    real_path = File.join(self.options[:custom][:root], path)
+    real_path = File.join(self.options[:custom] && self.options[:custom][:root] || ::HTML_ROOT, path)
     inline_image_string(data(real_path), compute_mime_type(path, mime_type))
   end
 

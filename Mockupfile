@@ -14,9 +14,13 @@ Sass::Plugin.options[:template_location] = {
   "./html/stylesheets" => "./html/stylesheets"
 }
 
+# Set as constant here so it can be accessed by release too
+::HTML_ROOT = mockup.project.html_path 
+
 Sass::Plugin.options[:custom] = {
-  :root => mockup.project.html_path
+  :root => HTML_ROOT
 }
+
 
 mockup.serve do |s|
   s.port = 9000  
