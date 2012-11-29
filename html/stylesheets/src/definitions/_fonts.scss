@@ -13,6 +13,18 @@
 }
 
 @font-face {
+    font-family: 'DpIcons';
+    src: url('../fonts/dp-icons/dpicons-regular-webfont.eot');
+    src: url('../fonts/dp-icons/dpicons-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/dp-icons/dpicons-regular-webfont.woff') format('woff'),
+         url('../fonts/dp-icons/dpicons-regular-webfont.ttf') format('truetype'),
+         url('../fonts/dp-icons/dpicons-regular-webfont.svg#dp_iconsregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
   font-family: "ClanWeb";
   font-weight: normal;
   font-style: normal;
@@ -30,6 +42,12 @@
 
 html{
   font-family: verdana, helvetica, arial, sans-serif;
+}
+
+%font-icon{
+  font-family: DpIcons;
+  font-size: 1.6rem;
+  line-height: 1.6rem;
 }
 
 %font-main-header{
