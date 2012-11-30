@@ -1,0 +1,19 @@
+<header class="header">
+  <div class="body">
+    <span class="day-number"><%= @nr %></span>
+    <h1><%= @title %></h1>
+  </div>
+        
+  <nav class="browse">
+    <% if @previous %>
+      <a href="<%= @previous %>" class="previous">
+        <span class="acc">Previous</span>
+      </a>
+    <% end %>
+    <% if @next %>
+      <a href="<%= @next %>" class="next not-yet">
+        <span class="acc">Next</span>
+      </a>
+    <% end %>
+  </nav>
+</header>
