@@ -23,6 +23,7 @@
 }
 
 .days article{
+  @extend %autoclear;
   margin-left: 17rem;
 }
 
