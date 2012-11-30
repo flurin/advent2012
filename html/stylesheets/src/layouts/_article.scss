@@ -10,6 +10,7 @@
   
   .ribbon,
   .main > .header .body,
+  .main > .footer,
   .main > .body{
     width: 650px;
     margin: 0 auto;
@@ -93,13 +94,23 @@
   }
   
   .main > .body,
-  .main > .header .body{
+  .main > .header .body,
+  .main > .footer{
     padding: 20px;
   }
   
-  .main > .body{
+  .main > .body,
+  .main > .footer{
     background: $c_main_body_bg;
     position: relative;
   }  
+  
+  /* ========== */
+  /* = Footer = */
+  /* ========== */
+  
+  .main > .footer{
+    border-top: 1px dashed $c_corporate_light;
+  }
   
 }
