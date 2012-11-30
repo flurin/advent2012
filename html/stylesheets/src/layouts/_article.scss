@@ -122,4 +122,20 @@
     border-top: 1px dashed $c_corporate_light;
   }
   
+  /* =========== */
+  /* = Sharing = */
+  /* =========== */
+  
+  .share{
+    @extend %autoclear;  
+    margin-top: 2rem;
+  }
+  
+  .share > p{
+    @extend %font-h2;
+    float: left;
+    margin-right: 2em;
+    line-height: 32px; /* Height of the share buttons */
+  } 
+  
 }
