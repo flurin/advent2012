@@ -45,17 +45,6 @@
   border: 1px solid #d00;
 }
 
-.subscribe button{
-  @extend %font-text;
-  @extend %button-gradient-bg;
-  border-radius: 6px;
-  color: #fff;
-  border: 0 none;
-  padding: 0.4em 1em;
-  font-weight: bold;
-  border: 1px solid #6C0F11;
-}
-
 .subscribe .error{
   @extend %font-text;  
   @extend %button-gradient-bg;
