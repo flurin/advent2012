@@ -1,0 +1,43 @@
+.examples{
+  margin-bottom: 2rem;
+}
+
+.examples .row{
+  width: 100%;
+  display: table;
+  margin-top: 2rem;
+}
+
+.examples .example{
+  display: table-cell;
+  padding: 0.5rem;
+}
+
+/* one item */
+.examples .example:first-child:nth-last-child(1) {
+	width: 100%;
+}
+
+/* two items */
+.examples .example:first-child:nth-last-child(2),
+.examples .example:first-child:nth-last-child(2) ~ .example {
+	width: 50%;
+}
+
+/* three items */
+.examples .example:first-child:nth-last-child(3),
+.examples .example:first-child:nth-last-child(3) ~ .example {
+	width: 33.3333%;
+}
+
+/* four items */
+.examples .example:first-child:nth-last-child(4),
+.examples .example:first-child:nth-last-child(4) ~ .example {
+	width: 25%;
+}
+
+.example figcaption{
+  background: $c_main_highlight_bg;
+  padding: 1rem;
+  margin-top: 1rem;
+}
