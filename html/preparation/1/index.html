@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <!-- [START:head] -->
+  <!-- [STOP:head] -->
+  <title>TITLE - HTML and CSS Advent 2012 by Digitpaint</title>
+  <meta name="author" content="All of us at Digitpaint">
+  
+  <meta property="og:title" content="TITLE - HTML &amp; CSS Advent 2012">
+  <meta property="og:url" content="http://advent2012.digitpaint.nl/1">
+  <meta property="og:image" content="/assets/opengraph/01.png">
+  <meta property="og:description" content="With the Notifications API you can notify a user with an important message even if the browser isn't currently being used.">  
+  <meta name="description" content="With the Notifications API you can notify a user with an important message even if the browser isn't currently being used.">
+  
+  <script src="1.js"></script>
+  
+</head>
+<body class="layout-article">
+  <div class="page">
+
+    <!-- [START:layout/ribbon] -->
+    <!-- [STOP:layout/ribbon] -->    
+        
+    <article class="main">
+
+      <!-- [START:layout/article-header?nr=01&title=&next=/2/] -->
+      <!-- [STOP:layout/article-header] -->    
+
+      <div class="body text">
+        <p class="intro">
+          Wouldn't it be swell if you could notify a user with an important message even if the browser isn't currently in use? Drumroll
+          please: enter the Notifications API!
+        </p>
+        
+        <section class="examples">
+          <h2>Here are some examples</h2>
+        
+          <div class="row">
+            <figure class="example">
+              <button id="one-notification">Show me a notification!</button>
+            
+              <figcaption>
+                A single notification (everytime you click the button).
+              </figcaption>
+            </figure>
+
+            <figure class="example">
+            
+              <button id="start-multiple-notification">Start!</button>
+              <button id="stop-multiple-notification">Stop!</button>
+                      
+              <figcaption>
+                Receive a notification every 5 seconds
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+        
+        <h2>How does it work?</h2>          
+        <p>
+          To send notifications from a page you have to call <code>requestPermission()</code> first. This will make the browser bar pop up. After you've
+          requested permission you can check if you have been granted permissions to send notifications by calling <code>checkPermission()</code>.
+        </p>
+        <p>
+          After the initial bootstrapping, you can create a notification with <code>createNotification(icon, title, content)</code>. You can even
+          attach callbacks, for instance when the notification is shown or when it's dismissed by the user. To show the notification, you
+          call <code>show()</code> on the created notification object.
+        </p>
+
+        
+        <h2>Useful?</h2>
+        <p>
+          We'd say so! We love the fact that you now have the ability to notify a user, even when your application isn't in the topmost
+          window. The user still has to open your page for it to work, but even if it's in the background, the notifications will pop up.
+        </p>
+        
+        <p>
+          Here are some more practical applications:
+        </p>
+        
+        <ul>
+          <li>Message notification during online chat</li>
+          <li>Notify a user that there are is new mail</li>
+          <li>Get notifications of server status, if for instance your server is going haywire</li>
+          <li>Notify online shoppers after 20 minutes that they have added things to their cart but not checked out yet</li>
+        </ul>
+        
+        <h2>Great, but can I use it today?</h2>
+        <p>
+          These examples currently work in Chrome and should work in Safari on Mountain Lion, but Mozilla is working on notifications too. The spec is still being
+          drafted and is subject to change. The only version that's currently usable is actually based on an outdated spec.
+        </p>
+        
+        <h2>Show me the source!</h2>
+        <p>
+          Feel free to look around the differente source files we used for this example.
+        </p>
+        <ul>
+          <li><a href="1.js">The javascripts</a></li>
+        </ul>
+      </div>
+      
+      <footer class="footer text">
+          
+        <h2>Attribution</h2>
+        
+        
+        <p>
+          See the <a href="http://www.w3.org/TR/notifications/" target="_blank" rel="nofollow"> Notification API spec</a> at W3C
+        </p>
+        <p>
+          This entry was inspired by the article 
+          <a href="http://www.html5rocks.com/en/tutorials/notifications/quick/" target="_blank" rel="nofollow">
+            "Using the notifications API"
+          </a> over at HTML5 Rocks
+        </p>
+        
+        
+        <!-- [START:share] -->
+        <!-- [STOP:share] -->
+          
+      </footer>
+      
+      <!-- [START:layout/site-navigation] --> 
+      <!-- [STOP:layout/site-navigation] -->
+      
+    </article>
+        
+  </div>
+    
+  <script>  
+    var addthis_share = { 
+      templates: {
+        twitter: 'Awesome! The HTML and CSS Advent 2012 #dpadvent {{url}}'
+      }
+    }
+  </script>
+  
+  <!-- [START:javascripts] -->
+  <!-- [STOP:javascripts] -->    
+</body>
+</html>
