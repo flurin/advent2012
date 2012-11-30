@@ -28,6 +28,7 @@ html{
 /* =========== */
 /* = Layouts = */
 /* =========== */
+@import 'src/layouts/shared/site-nav';
 @import 'src/layouts/teaser';
 @import 'src/layouts/home';
 @import 'src/layouts/article';
