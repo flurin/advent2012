@@ -11,12 +11,31 @@
   .ribbon,
   .main > .header .body,
   .main > .footer,
-  .main > .body{
+  .main > .body,
+  .main > .site-nav{
     width: 650px;
     margin: 0 auto;
     text-align: left;
     position: relative;
   }
+  
+  .main > .body,
+  .main > .header .body,
+  .main > .footer,
+  .main > .site-nav{
+    padding: 20px;
+  }
+  
+  .main > .site-nav{
+    padding-bottom: 0;
+  }
+  
+  .main > .body,
+  .main > .footer,
+  .main > .site-nav{
+    background: $c_main_body_bg;
+    position: relative;
+  }  
   
   .main > .header{
     background: rgba($c_corporate_deep, 0.6);
@@ -36,6 +55,7 @@
   /* ================== */
   /* = Smaller ribbon = */
   /* ================== */
+  
   .ribbon{
     font-size: 2.3rem;
     z-index: 1;
@@ -101,27 +121,7 @@
     margin-left: 1em;
     right: 0;
   }
-  
-  .main > .body,
-  .main > .header .body,
-  .main > .footer{
-    padding: 20px;
-  }
-  
-  .main > .body,
-  .main > .footer{
-    background: $c_main_body_bg;
-    position: relative;
-  }  
-  
-  /* ========== */
-  /* = Footer = */
-  /* ========== */
-  
-  .main > .footer{
-    border-top: 1px dashed $c_corporate_light;
-  }
-  
+    
   /* =========== */
   /* = Sharing = */
   /* =========== */
@@ -136,6 +136,8 @@
     float: left;
     margin-right: 2em;
     line-height: 32px; /* Height of the share buttons */
-  } 
+  }
+  
+
   
 }

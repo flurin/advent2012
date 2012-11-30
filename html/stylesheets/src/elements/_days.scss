@@ -1,13 +1,38 @@
+/* ============ */
+/* = Day list = */
+/* ============ */
+
 .days{
-  counter-reset: days 24;
+  @extend %font-text;
 }
 
-.days li > a{
-  counter-increment: days -1;
+.days li{
+  clear: both;
+  margin-bottom: 3rem;
+  position: relative;
 }
 
-.days li > a:before{
-  content: counter(days);
+.days li.not-yet{
+  opacity: 0.3;
+  -webkit-mask: -webkit-linear-gradient(top, transparent, #000);
+}
+
+.days a{
+  text-decoration: none;
+  color: #000;
+}
+
+.days article{
+  margin-left: 17rem;
+}
+
+.days .day-number{
+  margin-left: -17rem;
+}
+
+.days h2{
+  @extend %font-days-h2;
+  color: $c_corporate_dark;
 }
 
 /* ============== */

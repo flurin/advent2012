@@ -60,11 +60,27 @@ html{
   font-size: 1.2rem;
 }
 
-%font-h2{
+%font-days-h2,
+%font-h2,
+%font-share{
   font-family: ClanWeb;
   font-weight: bold;
   font-size: 1.8rem;
 }
+
+%font-share{
+  font-size: 1.3rem;
+}
+
+%font-countdown{
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+
+%font-days-h2{
+  font-size: 3rem;
+}
+
 
 %font-h3{
   font-weight: bold;

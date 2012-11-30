@@ -6,7 +6,7 @@
 
 .layout-home{
   
-  .main{
+  .page{
     width: 650px;
     margin: 0 auto;
     text-align: left;
@@ -17,9 +17,44 @@
     margin: 10px -20px 0 -20px;
   }
   
-  .main > .social{
+  .main > .share{
     
   }
+  
+  .main > .body,
+  .main > .site-nav,
+  .main > .footer{
+    background: $c_main_body_bg;
+    padding: 20px;    
+  }
+  
+  .main > .site-nav{
+    padding-bottom: 0;
+  }
+  
+  /* =========== */
+  /* = Sharing = */
+  /* =========== */
+  
+  .share{
+    position: relative;
+    @extend %autoclear;  
+    padding: 1rem;
+    z-index: 1;
+  }
+  
+  .share .buttons{
+    float: left;
+    width: 140px;
+  }
+  
+  .share > p{
+    @extend %font-share;
+    float: left;
+    margin-right: 1em;
+    line-height: 16px; /* Height of the share buttons */
+  }
+
   
   
   /* =========================== */
@@ -39,10 +74,8 @@
   }
 
   .main > .body{
-    background: $c_main_body_bg;
-    padding: 20px;
     position: relative;
-    margin-top: $alien_beam_height - 25px;
+    margin-top: $alien_beam_height - 40px;
   }
   
   /* The light cone */
@@ -68,6 +101,22 @@
     background: inline_image("/images/alien-ray-right.svg") no-repeat;
     background-position: 100% 100%;
     background-size: 100% 100%;    
+  }
+  
+  /* ============= */
+  /* = Countdown = */
+  /* ============= */
+  
+  .countdown{
+    @extend %font-countdown;
+    color: $c_corporate_dark;
+    background: $c_main_highlight_bg;
+    padding: 0.5em;
+    margin-bottom: 3rem;
+  }
+  
+  .countdown strong{
+    color: $c_ribbon_banner_strong;
   }
   
 }

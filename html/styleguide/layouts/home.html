@@ -4,48 +4,69 @@
   <!-- [START:head] -->
   <!-- [STOP:head] -->
   <title>Coming soon! - HTML and CSS Advent 2012 by Digitpaint</title>
-  <meta name="description" content="Starting December 1st: 24 days of HTML/CSS tips, brought to you by the front-end experts at Digitpaint.">
+  <meta name="description" content="24 daily nuggets of HTML/CSS knowledge, brought to you by the front-end specialists at Digitpaint.">
   <meta name="author" content="All of us at Digitpaint">
 
   
   <meta property="og:title" content="Starting December 1st! - HTML &amp; CSS Advent 2012">
   <meta property="og:url" content="http://advent2012.digitpaint.nl/">
   <meta property="og:image" content="/assets/opengraph/teaser.png">
-  <meta property="og:description" content="Starting December 1st: 24 days of HTML/CSS tips, brought to you by the front-end experts at Digitpaint.">
+  <meta property="og:description" content="24 daily nuggets of HTML/CSS knowledge, brought to you by the front-end specialists at Digitpaint.">
   
 </head>
 <body class="layout-home">
-  <div class="main">
-    <header class="ribbon">
-      <div class="body">
-        <a href="http://www.digitpaint.nl" target="_blank"><img class="logo" src="/assets/logo-ribbon.svg" alt="Digitpaint"></a>
-        <h1>HTML &amp; CSS ADVENT 2012</h1>
-      </div>
-      <a class="banner" href="">Get daily updates via <strong>@digitpaint</strong> on Twitter</a>
-    </header>
+  <div class="page main">
+    
+    <!-- [START:layout/ribbon] -->
+    <!-- [STOP:layout/ribbon] -->    
 
     <div class="social share">
-      Don't forget to spread the joy!
+      <p>Don't forget to spread the joy!</p>
         
-      <!-- <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-        <a class="addthis_button_preferred_1"></a>
-        <a class="addthis_button_preferred_2"></a>
-        <a class="addthis_button_preferred_3"></a>
-        <a class="addthis_button_preferred_4"></a>
-        <a class="addthis_button_compact"></a>
-        <a class="addthis_counter addthis_bubble_style"></a>
-      </div> -->
-    </div>
+      <div class="buttons">
+        <div class="addthis_toolbox addthis_default_style addthis_16x16_style">
+          <a class="addthis_button_preferred_1"></a>
+          <a class="addthis_button_preferred_2"></a>
+          <a class="addthis_button_preferred_3"></a>
+          <a class="addthis_button_preferred_4"></a>
+          <a class="addthis_button_compact"></a>
+          <a class="addthis_counter addthis_bubble_style"></a>
+        </div>
+      </div>
 
-    
+    </div>
+        
     <img src="/assets/home/alien.svg" alt="Bob the Alien welcomes you!" class="alien">
     
     <div class="body">
-      <ol class="days" reversed>
+      
+      <h1 class="countdown">
+        <strong>21</strong>
+        days of daily treats to go!
+      </h1>
+      
+      <ol class="days" reversed="reversed">
+        <li class="not-yet">
+          <a href="#">
+            <article>
+              <header>
+                <span class="day-number">01</span>
+                <h2>Element, may we style a number of your children?</h2>
+              </header>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              </p>
+            </article>
+          </a>
+        </li>        
         <li>
           <a href="#">
             <article>
-              <h2>Element, may we style a number of your children?</h2>
+              <header>
+                <span class="day-number">23</span>
+                <h2>Element, may we style a number of your children?</h2>
+              </header>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
                 magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -59,13 +80,13 @@
         <li>
           <a href="#">
             <article>
-              <h2>Element, may we style a number of your children?</h2>
+              <header>
+                <span class="day-number">01</span>
+                <h2>Element, may we style a number of your children?</h2>
+              </header>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
                 magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                est laborum.
               </p>
             </article>
           </a>
@@ -73,7 +94,10 @@
         <li>
           <a href="#">
             <article>
-              <h2>Element, may we style a number of your children?</h2>
+              <header>
+                <span class="day-number">20</span>
+                <h2>Element, may we style a number of your children?</h2>
+              </header>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
                 magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -86,32 +110,53 @@
         </li>        
       </ol>
       
-      <section>
-        <h2>Get your daily fix of HTML &amp; CSS goodness in you inbox!</h2>
+      <section class="subscribe text">
+        <h2>Don't miss a single one! Get our daily update in your inbox!</h2>
         <p>
-          Sign up...
+          By signing up to our e-mail digest, you'll get the daily update delivered straight to your inbox. 
+          We’ll only spam you until December 24th, scout’s honour (insert evil grin here). 
         </p>
-        
-        <form action="#">
-          <input type="email">
-          <button type="submit">
-            (Un)Subscribe
-          </button>
+        <p>
+          Or, if newsletters aren't your thing, follow us on Twitter        
+           <a href="http://twitter.com/digitpaint">@digitpaint</a>!
+        </p>
+                
+        <form action="http://subscribe.advent.digitpaint.nl/subscriptions" method="post">
+          <fieldset>
+              
+            <div class="input">
+              <label class="acc" for="subscribe_email">Your email address goes here</label>                
+              <input type="email" id="subscribe_email" name="subscription[email]" placeholder="Your email address goes here...">
+            </div>
+          
+            <div class="button">
+              <button type="submit">
+                Subscribe
+              </button>
+            </div>
+          </fieldset>
+            
+          <p>
+            Wanna unsubscribe?
+            <a href="http://subscribe.advent.digitpaint.nl/subscribers/unsubscribe">
+              Click here to make us stop nagging you
+            </a>
+          </p>            
         </form>
       </section>
+
     </div>
     
-    <footer class="about">
+    <footer class="footer text">
       <h2>So who are these Digitpaint chaps?</h2>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        We wanted show off some of the cool new features in CSS3 and HTML5, that we haven’t had a chance to use in “real” work just yet. These pages are meant to be a
+        showcase of what has yet to come. We hope you get inspired by our examples and have as much fun playing with this stuff as we had making it. Season's greetings from
+        us <a href="http://twitter.com/digitpaint">@digitpaint</a>!
       </p>
     </footer>
     
-    <nav class="footer-nav">
+    <nav class="site-nav">
       <ul>
         <li>
           <a href="#">
