@@ -2,6 +2,10 @@
   @extend %page-background;
 }
 
+.no-flexbox .page{
+  border-top: 10px solid #f00;
+}
+
 .layout-article{
   
   .page{
@@ -13,7 +17,7 @@
   .main > .footer,
   .main > .body,
   .main > .site-nav{
-    width: 650px;
+    max-width: 650px;
     margin: 0 auto;
     text-align: left;
     position: relative;
