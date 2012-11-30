@@ -3,99 +3,135 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>Coming soon! - HTML and CSS Advent 2012 by Digitpaint</title>
-  <meta name="description" content="Starting December 1st: 24 days of HTML/CSS tips, brought to you by the front-end experts at Digitpaint.">
+  <title>HTML and CSS Advent 2012 by Digitpaint</title>
+  <meta name="description" content="24 daily nuggets of HTML/CSS knowledge, brought to you by the front-end specialists at Digitpaint.">
   <meta name="author" content="All of us at Digitpaint">
 
   
-  <meta property="og:title" content="Starting December 1st! - HTML &amp; CSS Advent 2012">
+  <meta property="og:title" content="HTML &amp; CSS Advent 2012 by Digitpaint">
   <meta property="og:url" content="http://advent2012.digitpaint.nl/">
   <meta property="og:image" content="/assets/opengraph/teaser.png">
-  <meta property="og:description" content="Starting December 1st: 24 days of HTML/CSS tips, brought to you by the front-end experts at Digitpaint.">
+  <meta property="og:description" content="24 daily nuggets of HTML/CSS knowledge, brought to you by the front-end specialists at Digitpaint.">
   
 </head>
-<body class="layout-teaser">
-  <div class="page">
-    <header class="ribbon">
-      <div class="body">
-        <a href="http://www.digitpaint.nl" target="_blank"><img class="logo" src="/assets/logo-ribbon.svg" alt="Digitpaint"></a>
-        <h1>HTML &amp; CSS ADVENT 2012</h1>
+<body class="layout-home">
+  <div class="page main">
+    
+    <!-- [START:layout/ribbon] -->
+    <!-- [STOP:layout/ribbon] -->    
+
+    <div class="social share">
+      <p>Don't forget to spread the joy!</p>
+        
+      <div class="buttons">
+        <div class="addthis_toolbox addthis_default_style addthis_16x16_style">
+          <a class="addthis_button_preferred_1"></a>
+          <a class="addthis_button_preferred_2"></a>
+          <a class="addthis_button_preferred_3"></a>
+          <a class="addthis_button_preferred_4"></a>
+          <a class="addthis_button_compact"></a>
+          <a class="addthis_counter addthis_bubble_style"></a>
+        </div>
       </div>
-      <img src="/assets/teaser/alien.svg" alt="Bob the Alien welcomes you!" class="alien">
-    </header>
-    
-    <p class="comming-soon">Starting December 1st!</p>
-    
-    <section class="subscribe text">
-      <h2>Don't miss a single one! Get our daily update in your inbox!</h2>
-      <p>
-        By signing up to our e-mail digest, you'll get the daily update delivered straight to your inbox. 
-        We’ll only spam you until December 24th, scout’s honour (insert evil grin here). 
-      </p>
-      <p>
-        Or, if newsletters aren't your thing, follow us on Twitter        
-         <a href="http://twitter.com/digitpaint">@digitpaint</a>!
-      </p>
-                
-      <form action="http://subscribe.advent.digitpaint.nl/subscriptions" method="post">
-        <fieldset>
-              
-          <div class="input">
-            <label class="acc" for="subscribe_email">Your email address goes here</label>                
-            <input type="email" id="subscribe_email" name="subscription[email]" placeholder="Your email address goes here...">
-          </div>
-          
-          <div class="button">
-            <button type="submit">
-              Subscribe
-            </button>
-          </div>
-        </fieldset>
-            
-        <p>
-          Wanna unsubscribe?
-          <a href="http://subscribe.advent.digitpaint.nl/subscribers/unsubscribe">
-            Click here to make us stop nagging you
-          </a>
-        </p>            
-      </form>
-    </section>
-    
-    <!-- AddThis Button BEGIN -->
-    <div class="share">
-      <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-        <a class="addthis_button_preferred_1"></a>
-        <a class="addthis_button_preferred_2"></a>
-        <a class="addthis_button_preferred_3"></a>
-        <a class="addthis_button_preferred_4"></a>
-        <a class="addthis_button_compact"></a>
-        <a class="addthis_counter addthis_bubble_style"></a>
-      </div>
+
     </div>
-    <!-- AddThis Button END -->
+        
+    <img src="/assets/home/alien.svg" alt="Bob the Alien welcomes you!" class="alien">
+    
+    <div class="body">
+      
+      <h1 class="countdown">
+        <strong>23</strong>
+        days of daily treats to go!
+      </h1>
+      
+      <ol class="days" reversed="reversed">
+        <li class="not-yet">
+          <a href="/2/">
+            <article>
+              <header>
+                <span class="day-number">02</span>
+                <h2> Time flies like an arrow, fruit flies like a banana...</h2>
+              </header>
+              <p>
+                ...but it certainly isn’t December 2nd yet.
+              </p>
+            </article>
+          </a>
+        </li>        
+        <li>
+          <a href="/1/">
+            <article>
+              <header>
+                <span class="day-number">01</span>
+                <h2>Notifications</h2>
+              </header>
+              <p>
+                Wouldn't it be swell if you could notify a user with an important message even if the browser isn't currently in use? Drumroll
+                please: enter the Notifications API!
+              </p>
+            </article>
+          </a>
+        </li>              
+      </ol>
+      
+      <section class="subscribe text">
+        <h2>Don't miss a single one! Get our daily update in your inbox!</h2>
+        <p>
+          By signing up to our e-mail digest, you'll get the daily update delivered straight to your inbox. 
+          We’ll only spam you until December 24th, scout’s honour (insert evil grin here). 
+        </p>
+        <p>
+          Or, if newsletters aren't your thing, follow us on Twitter        
+           <a href="http://twitter.com/digitpaint">@digitpaint</a>!
+        </p>
+                
+        <form action="http://subscribe.advent.digitpaint.nl/subscriptions" method="post">
+          <fieldset>
+              
+            <div class="input">
+              <label class="acc" for="subscribe_email">Your email address goes here</label>                
+              <input type="email" id="subscribe_email" name="subscription[email]" placeholder="Your email address goes here...">
+            </div>
+          
+            <div class="button">
+              <button type="submit">
+                Subscribe
+              </button>
+            </div>
+          </fieldset>
+            
+          <p>
+            Wanna unsubscribe?
+            <a href="http://subscribe.advent.digitpaint.nl/subscribers/unsubscribe">
+              Click here to make us stop nagging you
+            </a>
+          </p>            
+        </form>
+      </section>
+
+    </div>
+    
+    <footer class="footer text">
+      <h2>So who are these Digitpaint chaps?</h2>
+      <p>
+        We wanted show off some of the cool new features in CSS3 and HTML5, that we haven’t had a chance to use in “real” work just yet. These pages are meant to be a
+        showcase of what has yet to come. We hope you get inspired by our examples and have as much fun playing with this stuff as we had making it. Season's greetings from
+        us <a href="http://twitter.com/digitpaint">@digitpaint</a>!
+      </p>
+    </footer>
+    
+    <!-- [START:layout/site-navigation] --> 
+    <!-- [STOP:layout/site-navigation] -->
+        
   </div>
   
-  <p class="to-headquarters">
-    <a href="http://www.digitpaint.nl" title="Back to Digitpaint Headquarters">www.digitpaint.nl</a>
-  </p>
-  
-  <p class="last-year">
-    <a href="http://html5advent2011.digitpaint.nl">
-      Want to be entertained while you wait for the 1st?
-      Check last year's HTML &amp; CSS Advent!
-    </a>
-  </p>
-  
-  
-  <script>
-    $(".comming-soon").arctext({radius: 380});
-    
+  <script>  
     var addthis_share = { 
       templates: {
-        twitter: 'Comming soon, the HTML and CSS Advent 2012 #dpadvent {{url}}'
+        twitter: 'Awesome! The HTML and CSS Advent 2012 #dpadvent {{url}}'
       }
-    }    
-    
+    }
   </script>
     
   <!-- [START:javascripts] -->
