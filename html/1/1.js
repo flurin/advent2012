@@ -34,8 +34,17 @@ document.addEventListener('DOMContentLoaded', function(){
         var notification = window.webkitNotifications.createNotification(icon, title, content);
       
         // Attach event listeners
-        notification.addEventListener("close", function(){ console.log("You closed the notification!" )});
-        notification.addEventListener("click", function(){ console.log("You clicked the notification!" )});
+        notification.addEventListener("close", function(){ 
+          if(window.console && window.console.log){
+            console.log("You closed the notification!" );
+          }
+        });
+        notification.addEventListener("click", function(){ 
+          if(window.console && window.console.log){
+            console.log("You clicked the notification!" );
+          }
+        });
+            
 
         // Show the notification
         notification.show();
@@ -63,8 +72,16 @@ document.addEventListener('DOMContentLoaded', function(){
         });
         
         // Attach event listeners
-        notification.addEventListener("close", function(){ console.log("You closed the notification!" )});
-        notification.addEventListener("click", function(){ console.log("You clicked the notification!" )});
+        notification.addEventListener("close", function(){ 
+          if(window.console && window.console.log){
+            console.log("You closed the notification!" );
+          }
+        });
+        notification.addEventListener("click", function(){ 
+          if(window.console && window.console.log){
+            console.log("You clicked the notification!" );
+          }
+        });
         
         // Show the notification
         notification.show();
