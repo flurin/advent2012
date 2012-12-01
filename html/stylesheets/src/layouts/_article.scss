@@ -132,7 +132,7 @@
   
   .share{
     @extend %autoclear;  
-    margin-top: 2rem;
+    margin-top: 3.6rem;
   }
   
   .share > p{
@@ -142,7 +142,11 @@
     line-height: 32px; /* Height of the share buttons */
   }
   
-
+  .share .fb{
+    margin-top: 5px; /* Align center with rest of the buttons */
+    float: left;
+  }
+  
   /* =============== */
   /* = Attribution = */
   /* =============== */
