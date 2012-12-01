@@ -143,5 +143,19 @@
   }
   
 
+  /* =============== */
+  /* = Attribution = */
+  /* =============== */
+  
+  .attribution{
+    padding: 2rem;
+    background: $c_main_highlight_bg;
+  }
+  
+  .attribution p:last-child{
+    margin-bottom: 0;
+  }
+    
+
   
 }
