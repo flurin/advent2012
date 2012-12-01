@@ -29,21 +29,23 @@ end
 
 mockup.release do |r|
   
+  r.cleanup "preparation/"  
+  
   r.use :sass
   
   # Inject banners
   r.inject({ /\/\*\s*\[BANNER\]\s*\*\// => r.banner(:comment => :css)}, :into => %w{**/*.css})
   
   # Compress
-  r.use :yuicompressor
+  r.use :yuicompressor, :skip => [/javascripts\/vendor\/.*\.js\Z/, /_doc\/.*/, /\/\d+\/.*\Z/]
   
   # Cleanup on the build
   r.cleanup "**/.DS_Store"
   r.cleanup "**/.sass-cache"
   r.cleanup "**/stylesheets/src"
   r.cleanup "styleguide/"  
-  r.cleanup "preparation/"  
   
-  # r.finalize RsyncFinalizer, :host => "venus.digitpaint.nl", :username => "admin", :remote_path => "vhome/digitpaint.nl/advent2012"
+  
+  r.finalize RsyncFinalizer, :host => "venus.digitpaint.nl", :username => "admin", :remote_path => "vhome/digitpaint.nl/advent2012"
   r.finalize :dir
 end
