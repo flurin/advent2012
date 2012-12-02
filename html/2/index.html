@@ -3,10 +3,22 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>Time flies like an arrow, fruit flies like a banana... - HTML and CSS Advent 2012 by Digitpaint</title>
-  <meta name="description" content="24 days of HTML/CSS tips, brought to you by the front-end experts at Digitpaint.">
+  <title>Live events from the server side - HTML and CSS Advent 2012 by Digitpaint</title>
   <meta name="author" content="All of us at Digitpaint">
-
+  
+  <meta property="og:title" content="Live events from the server side - HTML &amp; CSS Advent 2012">
+  <meta property="og:url" content="http://advent2012.digitpaint.nl/2">
+  <meta property="og:image" content="/assets/opengraph/02.png">
+  <meta property="og:description" content="With EventSource (a.k.a. Server-Side Events) you can setup live serverside updates in about 5 lines of code.">  
+  <meta name="description" content="With EventSource (a.k.a. Server-Side Events) you can setup live serverside updates in about 5 lines of code.">
+  
+  
+  <link rel="stylesheet" href="2.css" />
+  
+  <script src="flot/jquery.js"></script>
+  <script src="flot/jquery.flot.js"></script>  
+  
+  <script src="2.js"></script>
   
 </head>
 <body class="layout-article">
@@ -16,39 +28,136 @@
     <!-- [STOP:layout/ribbon] -->    
         
     <article class="main">
-      
-      <header class="header">
-        <div class="body">
-          <span class="day-number">
-            02
-          </span>
-          <h1>
-            Time flies like an arrow, fruit flies like a banana...
-          </h1>
-        </div>
-        
-        <nav class="browse">
-          
-            <a href="/1/index.html" class="previous">
-              <span class="acc">Previous</span>
-            </a>
-          
-          
-            <a href="/3/index.html" class="next not-yet">
-              <span class="acc">Next</span>
-            </a>
-          
-        </nav>
-      </header>
-      
-      <div class="body text">
-        <p>...but it certainly isn’t December 2nd yet.</p>
 
+      <!-- [START:layout/article-header?nr=02&title=Live+events+from+the+server+side&previous=/1/&next=/3/] -->
+      <!-- [STOP:layout/article-header] -->    
+
+      <div class="body text">
+        <p class="intro">
+          Live updates have always been kind of a hassle — you had to deal with long polling, flash components or, if you
+          went the HTML5 route, you'd have chosen WebSockets. That's no longer the case, you can set up EventSource in
+          about 5 lines of code and it works over standard HTTP. One small caveat though: the client can only receive data, not
+          send it.
+        </p>
+        
+        <section class="examples">
+          <h2>Here is an example</h2>
+          <div class="row">
+            <figure class="example">
+              <div id="loadavg-chart">
+                
+              </div>
+              <figcaption>
+                A live updated stat of load averages on this site's server.
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+        
+        <h2>Holy smokes Batman, how does it work?</h2>
+        <p>
+          We created a new EventSource object with a simple <code>var source = new EventSource(URL)</code>. This opens a long-standing
+          connection to the specified URL (if you want to be precise about it, it closes and re-opens the connection every
+          60 seconds). As we want to do something with the data that's coming in, we've added an event listener to retrieve
+          our messages. This is done with <code>source.addEventListener("message", function(data){ ... })</code>.
+        </p>
+        <p>
+          That's it basically. It's very easy as you just send text over the line and your browser handles all the resuming
+          and error recovery for you.
+        </p>
+        <p>
+          Serverside we send messages over the opened connection in plain text. Each message is separated with two newline characters and
+          consists of one or more lines of text with every line haveing a field name. The data we use for the example above
+          looks like this:
+        </p>
+        
+<pre class="code"><code>data: [1.2, 1.3, 0.8]</code></pre>
+
+        <p>
+          The <a href="https://developer.mozilla.org/en-US/docs/Server-sent_events/Using_server-sent_events" target="_blank" rel="nofollow">docs at the Mozilla Developer Network</a> explain the data format pretty well.
+        </p>
+        
+        <h2>Useful?</h2>
+        <p>
+          Oh yes! The example above is just a small demo, but imagine what you could do with more "eventful" data which you
+          offer in real-time to your visitors. It's really easy to set up on the client side, and it isn't that hard on the
+          server side either.
+        </p>
+        
+        <p>
+          So what could we do with this?
+        </p>
+        
+        <ul>
+          <li>Create a kick-ass server monitoring application (Think of what we could do if combined with <a href="/1/">yesterday's notifications</a>!)</li>
+          <li>Have live stock data displayed</li>
+          <li>Push live flight data to a map so you could follow an aircraft's flight path</li>
+          <li>Push live sports stats and other data to a visitor</li>
+          <li>Less useful but fun: create a live chart of tweets with the word "Xmas" in it</li>
+        </ul>
+        
+        <h2>Great, but can I use it today?</h2>
+        <p>
+          The support for this is <a href="http://caniuse.com/#search=eventsource" target="_blank" rel="nofollow">pretty widespread nowadays</a>. The only browser not supporting this is IE10 (who'd have
+          guessed?). But given that it's all plain HTTP, there are several Javascript polyfills out there to bridge the gap.
+        </p>
+        
+        <h2>Show me the source!</h2>
+        <p>
+          Feel free to look around the differente source files we used for this example.
+        </p>
+        <ul>
+          <li><a href="#">The javascripts</a></li>
+        </ul>
       </div>
+      
+      <footer class="footer text">
+          
+        <section class="attribution">
+          <h2>Attribution</h2>
+        
+          <p>
+            There is a plethora of sources on EventSource out there and they're all quite useful. Here are some we used:
+          </p>
+          <ul>
+            <li>
+              "<a href="https://developer.mozilla.org/en-US/docs/Server-sent_events/Using_server-sent_events" target="_blank" rel="nofollow">Using server-sent events</a>" from the Mozilla Developer Network
+            </li>
+            <li>
+              "<a href="http://html5doctor.com/server-sent-events/" target="_blank" rel="nofollow">Server-Sent Events</a>" by Remy Sharp of html5 Doctor
+            </li>
+          </ul>
+          
+          <p>
+            The back-end application is a simple <a href="http://cramp.in" target="_blank" rel="nofollow">Cramp application</a>
+            we built. You can find <a href="http://github.com/digitpaint/advent2012-eventserver/">the source on Github</a>
+          </p>
+          
+          <p>
+            We used <a href="" target="_blank" rel="nofollow">Flot</a> for the Canvas based chart.
+          </p>
+        </section>
+        
+        <!-- [START:share] -->
+        <!-- [STOP:share] -->
+          
+      </footer>
+      
+      <!-- [START:layout/site-navigation] --> 
+      <!-- [STOP:layout/site-navigation] -->
+      
     </article>
         
   </div>
     
+  <script>  
+    var addthis_share = { 
+      templates: {
+        twitter: 'Awesome! The HTML and CSS Advent 2012 #dpadvent {{url}}'
+      }
+    }
+  </script>
+  
   <!-- [START:javascripts] -->
   <!-- [STOP:javascripts] -->    
 </body>
