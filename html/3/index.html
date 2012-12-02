@@ -3,10 +3,17 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>Get back in your DeLorean, McFly. - HTML and CSS Advent 2012 by Digitpaint</title>
-  <meta name="description" content="24 days of HTML/CSS tips, brought to you by the front-end experts at Digitpaint.">
+  <title>TITLE - HTML and CSS Advent 2012 by Digitpaint</title>
   <meta name="author" content="All of us at Digitpaint">
-
+  
+  <meta property="og:title" content="TITLE - HTML &amp; CSS Advent 2012">
+  <meta property="og:url" content="http://advent2012.digitpaint.nl/3">
+  <meta property="og:image" content="/assets/opengraph/03.png">
+  <meta property="og:description" content="">  
+  <meta name="description" content="">
+  
+  <link rel="stylesheet" href="3.css" />
+  <script src="3.js"></script>
   
 </head>
 <body class="layout-article">
@@ -16,39 +23,171 @@
     <!-- [STOP:layout/ribbon] -->    
         
     <article class="main">
-      
-      <header class="header">
-        <div class="body">
-          <span class="day-number">
-            03
-          </span>
-          <h1>
-            Get back in your DeLorean, McFly
-          </h1>
-        </div>
-        
-        <nav class="browse">
-          
-            <a href="/2/index.html" class="previous">
-              <span class="acc">Previous</span>
-            </a>
-          
-          
-            <a href="/4/index.html" class="next not-yet">
-              <span class="acc">Next</span>
-            </a>
-          
-        </nav>
-      </header>
-      
-      <div class="body text">
-        <p>Seriously. This is the future. And we demand you wait until the 3rd. Of January, 1955.</p>
 
+      
+
+      <!-- [START:layout/article-header?nr=03&title=&previous=/2/&next=/4/] -->
+      <!-- [STOP:layout/article-header] -->    
+
+      <div class="body text">
+        <p class="intro">
+          This one is for you typophiles out there. For a long time web-typography was pretty borked, this changed with
+          wide-spread support for <code>@font-face</code>. But still you couldn't really properly use the fonts you had
+          to their full extend: you couldn't use small-caps, ligatures, old-style figures and swashes. With the css property
+          <code>font-feature-settings</code> you now can.
+        </p>
+        
+        <section class="examples">
+          <h2>Here are some examples</h2>
+          
+          <div class="row">
+            <figure class="example">
+              <div class="sample megalopolis">
+                Sheffield or Cardiff
+              </div>
+              <div class="sample megalopolis liga">
+                Sheffield or Cardiff
+              </div>              
+              <figcaption>
+                We can turn on ligatures (check the ff)
+              </figcaption>
+            </figure>   
+            
+            <figure class="example">
+              <div class="sample megalopolis">
+                DISCRETIONARY christmas
+              </div>
+              <div class="sample megalopolis dlig">
+                DISCRETIONARY christmas
+              </div>              
+              <figcaption>
+                Discretionary ligatures turned on
+              </figcaption>
+            </figure>                        
+          </div>
+          
+          <div class="row">
+            <figure class="example">
+              <div class="sample megalopolis">
+                Stylistic Set Five
+              </div>              
+              <div class="sample megalopolis ss05">
+                Stylistic Set Five
+              </div>            
+              <figcaption>
+                With stylistic set 5 enabled
+              </figcaption>
+            </figure>
+
+            <figure class="example">
+              <div class="sample megalopolis">
+                1/4 + 1/4 equals 1/2
+              </div>
+
+              <div class="sample megalopolis frac">
+                1/4 + 1/4 equals 1/2
+              </div>
+            
+              <figcaption>
+                Automatic fractions
+              </figcaption>
+            </figure>
+          </div>
+          <div class="row">
+          
+            <figure class="example">
+              <table class="sample">
+                <thead>
+                  <tr>
+                    <th colspan="2">Lining numerals</th>
+                    <th colspan="2">Old-style numerals</th>
+                  </tr>
+                  <tr>
+                    <th>Proportional</th>
+                    <th>Tabular</th>
+                    <th>Proportional</th>
+                    <th>Tabular</th>                  
+                  </tr>
+                </thead>
+                <tr>
+                  <td class="megalopolis lnum pnum">14.55</td>
+                  <td class="megalopolis lnum tnum">14.55</td>
+                  <td class="megalopolis onum pnum">14.55</td>
+                  <td class="megalopolis onum tnum">14.55</td>                  
+                </tr>
+                <tr>
+                  <td class="megalopolis lnum pnum">129.11</td>
+                  <td class="megalopolis lnum tnum">129.11</td>
+                  <td class="megalopolis onum pnum">129.11</td>
+                  <td class="megalopolis onum tnum">129.11</td>                  
+                </tr>
+              </table>
+              <figcaption>
+                Old-style and lining numerals in a proportional and tabular variant (see the position of the .)
+              </figcaption>
+            </figure>          
+          </div>
+        </section>
+        
+        <h2>How does it work?</h2>          
+        <p>
+          The <code>font-feature-settings</code> CSS property gives us access to popular OpenType features. This gives
+          us the power to enable or disable certain font features whenever we need it. To enable old-style numerals we
+          set <code>font-feature-settings: "onum"</code>. You can combine multiple features by appending them, so if
+          we wanted to use old-style numerals like in the table above we'd use: <code>font-feature-settings: "onum", "lnum"</code>. 
+        </p>
+        
+        <h2>Useful?</h2>
+        <p>
+          This is a great tool for designers
+        </p>
+        
+        <h2>Great, but can I use it today?</h2>
+        <p>
+        </p>
+        
+        <h2>Show me the source!</h2>
+        <p>
+          Feel free to look around the differente source files we used for this example.
+        </p>
+        <ul>
+          <li><a href="#">The javascripts</a></li>
+          <li><a href="#">The stylesheet</a></li>
+        </ul>
       </div>
+      
+      <footer class="footer text">
+          
+        <h2>Attribution</h2>
+        
+        <p>
+          http://opentype.info/blog/2010/08/14/better-web-typography-with-opentype-features/
+          http://www.smeltery.net/fonts/megalopolis-extra
+          https://hacks.mozilla.org/2009/10/font-control-for-designers/
+          http://blog.fontdeck.com/post/15777165734/opentype-1
+        </p>
+        
+        
+        <!-- [START:share] -->
+        <!-- [STOP:share] -->
+          
+      </footer>
+      
+      <!-- [START:layout/site-navigation] --> 
+      <!-- [STOP:layout/site-navigation] -->
+      
     </article>
         
   </div>
     
+  <script>  
+    var addthis_share = { 
+      templates: {
+        twitter: 'Awesome! The HTML and CSS Advent 2012 #dpadvent {{url}}'
+      }
+    }
+  </script>
+  
   <!-- [START:javascripts] -->
   <!-- [STOP:javascripts] -->    
 </body>

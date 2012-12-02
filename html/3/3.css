@@ -1,0 +1,121 @@
+/*
+
+Digitpaint HTML and CSS Advent 2012
+
+8""""8                                             eeee               
+8    8 eeee eeee eeee eeeeeee eeeee  eeee eeeee       8  eeeee  eeeee 
+8e   8 8    8  8 8    8  8  8 8   8  8    8   8       8  8   8  8   8 
+88   8 8eee 8e   8eee 8e 8  8 8eee8e 8eee 8eee8e   eee8  8eee8e 8e  8 
+88   8 88   88   88   88 8  8 88   8 88   88   8      88 88   8 88  8 
+88eee8 88ee 88e8 88ee 88 8  8 88eee8 88ee 88   8   eee88 88   8 88ee8 
+                                                                      
+
+Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
+
+*/  
+
+@font-face {
+    font-family: 'im_fell_french_canon_proRg';
+    src: url('fonts/IMFell/imfefcrm29c.eot');
+    src: url('fonts/IMFell/imfefcrm29c.eot?#iefix') format('embedded-opentype'),
+         url('fonts/IMFell/imfefcrm29c.woff') format('woff'),
+         url('fonts/IMFell/imfefcrm29c.ttf') format('truetype'),
+         url('fonts/IMFell/imfefcrm29c.svg#im_fell_french_canon_proRg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'megalopolis_extraregular';
+    src: url('fonts/megalopolis/megalopolisextra-webfont.eot');
+    src: url('fonts/megalopolis/megalopolisextra-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/megalopolis/megalopolisextra-webfont.woff') format('woff'),
+         url('fonts/megalopolis/megalopolisextra-webfont.ttf') format('truetype'),
+         url('fonts/megalopolis/megalopolisextra-webfont.svg#megalopolis_extraregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.megalopolis{
+  font-family: megalopolis_extraregular;
+  font-size: 2rem;
+}
+
+/* Ligatures */
+.liga{
+  -webkit-font-feature-settings: "liga";  
+}
+
+/* Discretionary ligatures */
+.dlig{
+  -webkit-font-feature-settings: "dlig";    
+}
+
+/* Stylistic set 5 */
+.ss05{
+  -webkit-font-feature-settings: "ss05";    
+}
+
+/* Fractions */
+.frac{
+  -webkit-font-feature-settings: "frac";
+}
+
+/* Lining numerals */
+.lnum{
+  -webkit-font-feature-settings: "lnum";
+}
+
+/* Old-style numerals */
+.onum{
+  -webkit-font-feature-settings: "onum";
+}
+
+
+/* Lining numerals with tabular spacing*/
+.lnum.tnum{
+  -webkit-font-feature-settings: "lnum", "tnum";    
+}
+
+/* Lining numerals with proportional spacing */
+.lnum.pnum{
+  -webkit-font-feature-settings: "lnum", "pnum";    
+}
+
+/* Old-style numerals with tabular spacing*/
+.onum.tnum{
+  -webkit-font-feature-settings: "onum", "tnum";    
+}
+
+/* Old-style numerals with proportional spacing */
+.onum.pnum{
+  -webkit-font-feature-settings: "onum", "pnum";    
+}
+
+
+/* ========================================== */
+/* = Styling for the display of the example = */
+/* ========================================== */
+
+.example table{
+  width: 100%;
+}
+
+.example td,
+.example th{
+  padding: 0.2rem 0.5rem;
+  border: 1px solid rgba(0,0,0,0.3);
+}
+
+.example th{
+  font-weight: bold;
+}
+
+.example td{
+  text-align: right;
+}
+
+.sample{
+  margin-bottom: 1rem;
+}
