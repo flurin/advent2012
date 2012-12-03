@@ -49,6 +49,7 @@
           background: #fff;
           padding-top: 30px;
           position: relative;
+          z-index: 100;
         }
         #block{
           width: 10px;
@@ -87,13 +88,18 @@
             var acceleration = 0;
             var angle = 0;
             var curPos = 0;
+            var dir = 0;
             
             var slide = function(a){              
-              angle = a * (Math.PI/180);
+              angle = Math.abs(a * (Math.PI/180));
+              if(a > 0){
+                dir = 1;
+              } else {
+                dir = -1;
+              }
               box.style.webkitTransform = "rotateZ("+angle+"rad)";
               
               acceleration = (Math.sin(angle) * gravity)  - Math.cos(angle) * friction;
-              
                
               console.log("A", acceleration, "S", Math.sin(angle));              
               
@@ -106,17 +112,19 @@
               
               var speedIncrease = acceleration * (curUpdate - lastUpdate)/1000;
               
+              
               // Stop if we go through zero
-              if(angle == 0 && ((curSpeed <= 0 && curSpeed + speedIncrease > 0) || (curSpeed >= 0 && curSpeed + speedIncrease < 0)) ){
+              if(curSpeed + speedIncrease < 0){
                 // console.log("STOP", curSpeed, acceleration, speedIncrease) ;
                 curSpeed = 0;
+                dir = -1 * dir;
               } else {
                 console.log(curSpeed, acceleration, speedIncrease);
                 curSpeed += speedIncrease;
               }
     
               var moveBy = (curUpdate - lastUpdate)/1000 * curSpeed;
-              curPos += moveBy;
+              curPos += moveBy * dir;
               
               // console.log(curPos);
               block.style.left = curPos + "px";
