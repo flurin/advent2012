@@ -24,6 +24,7 @@
         
     <article class="main">
 
+
       
 
       <!-- [START:layout/article-header?nr=04&title=&previous=/3/&next=/5/] -->
@@ -35,7 +36,148 @@
         </p>
         
         <h2>Here are some examples</h2>
-        ...
+        <div id="box">
+        
+          <div id="block">&nbsp;</div>
+          <div id="bar">&nbsp;</div>
+        
+        </div>
+      
+        <style type="text/css" media="screen">
+        #box{
+          width: 100%;
+          background: #fff;
+          padding-top: 30px;
+          position: relative;
+        }
+        #block{
+          width: 10px;
+          height: 10px;
+          background: #f00;
+          position: absolute;
+          bottom: 5px;
+          left: 50%;       
+        }
+      
+        #bar{
+          width: 100%;
+          height: 5px;
+          background: #000;
+          
+        }
+        </style>
+
+      
+        <script type="text/javascript" charset="utf-8">
+          // !function(){
+            var box = document.getElementById("box");
+            var block = document.getElementById("block");
+      
+            var tiltLR, tiltFB, dir;
+            var lTiltLR, lTiltFB, lDir;
+      
+            var rX, rY, rZ;
+            
+            var lastUpdate = new Date();
+            var curUpdate;
+            var curSpeed = 0;
+            
+            var gravity = 9.8;
+            var res = 2;
+            var acceleration = 0;
+            var angle = 0;
+            var curPos = 0;
+            
+            var slide = function(a){              
+              angle = a * (Math.PI/180);
+              box.style.webkitTransform = "rotateZ("+angle+"rad)";
+              
+              acceleration = Math.sin(angle) * gravity  - res;
+              
+               
+              console.log("A", acceleration, "S", Math.sin(angle));              
+              
+            }
+            
+            slide(0);
+            
+            var updatePos = function(){
+              var curUpdate = new Date();
+              
+              curSpeed += (acceleration * (curUpdate - lastUpdate)/1000);
+              
+              if(curSpeed < gravity/10 && curSpeed > -1 * gravity/10){
+                // console.log(curSpeed);
+                curSpeed = 0;
+              }
+    
+              var moveBy = (curUpdate - lastUpdate)/1000 * curSpeed;
+              curPos += moveBy;
+              
+              // console.log(curPos);
+              block.style.left = curPos + "px";
+              
+              lastUpdate = curUpdate;
+            }
+            
+            var i = setInterval(updatePos, 100);
+            
+      
+            var devOrientHandler = function(eventData){
+              // gamma is the left-to-right tilt in degrees, where right is positive
+              tiltLR = eventData.gamma;
+
+              // beta is the front-to-back tilt in degrees, where front is positive
+              tiltFB = eventData.beta;
+
+              // alpha is the compass direction the device is facing in degrees
+              dir = eventData.alpha
+
+              // deviceorientation does not provide this data
+              var motUD = null;
+        
+              var change = false;
+              if(Math.abs(tiltLR - lTiltLR) > 1){
+                // console.log(tiltLR);          
+                rY = tiltLR;
+                change = true;
+              }
+
+              if(Math.abs(tiltFB - lTiltFB) > 1){
+                // console.log(tiltLR);          
+                rX = tiltFB;
+                change = true;          
+              }
+
+              if(Math.abs(dir - lDir) > 1){
+                // console.log(tiltLR);          
+                rZ = dir;
+                change = true;          
+              }
+
+              if(change)
+                box.style.webkitTransform = "rotateX("+rX+"deg) rotateY("+rY+"deg)  rotateZ("+rZ+"deg)";
+
+        
+              lTiltLR = tiltLR;
+              lTiltFB = tiltFB;
+              lDir = dir;
+        
+            }
+      
+            if (window.DeviceOrientationEvent) {
+              // Listen for the deviceorientation event and handle DeviceOrientationEvent object
+              window.addEventListener('deviceorientation', devOrientHandler, false);
+            } else if (window.OrientationEvent) {
+              // Listen for the MozOrientation event and handle OrientationData object
+              window.addEventListener('MozOrientation', mozDevOrientHandler, false);
+            }
+      
+      
+      
+          // }();
+        </script>
+
         
         <h2>How does it work?</h2>          
         <p>
