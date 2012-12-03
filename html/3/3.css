@@ -15,17 +15,6 @@ Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
 */  
 
 @font-face {
-    font-family: 'im_fell_french_canon_proRg';
-    src: url('fonts/IMFell/imfefcrm29c.eot');
-    src: url('fonts/IMFell/imfefcrm29c.eot?#iefix') format('embedded-opentype'),
-         url('fonts/IMFell/imfefcrm29c.woff') format('woff'),
-         url('fonts/IMFell/imfefcrm29c.ttf') format('truetype'),
-         url('fonts/IMFell/imfefcrm29c.svg#im_fell_french_canon_proRg') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'megalopolis_extraregular';
     src: url('fonts/megalopolis/megalopolisextra-webfont.eot');
     src: url('fonts/megalopolis/megalopolisextra-webfont.eot?#iefix') format('embedded-opentype'),
@@ -33,8 +22,7 @@ Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
          url('fonts/megalopolis/megalopolisextra-webfont.ttf') format('truetype'),
          url('fonts/megalopolis/megalopolisextra-webfont.svg#megalopolis_extraregular') format('svg');
     font-weight: normal;
-    font-style: normal;
-
+    font-style: normal
 }
 
 .megalopolis{
@@ -44,53 +32,72 @@ Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
 
 /* Ligatures */
 .liga{
-  -webkit-font-feature-settings: "liga";  
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga";
+  font-feature-settings: "liga"
 }
 
 /* Discretionary ligatures */
 .dlig{
-  -webkit-font-feature-settings: "dlig";    
+  -webkit-font-feature-settings: "dlig";
+  -moz-font-feature-settings: "dlig";
+  font-feature-settings: "dlig";    
 }
 
 /* Stylistic set 5 */
 .ss05{
-  -webkit-font-feature-settings: "ss05";    
+  -webkit-font-feature-settings: "ss05";
+  -moz-font-feature-settings: "ss05";
+  font-feature-settings: "ss05";    
 }
 
 /* Fractions */
 .frac{
   -webkit-font-feature-settings: "frac";
+  -moz-font-feature-settings: "frac";
+  font-feature-settings: "frac";
 }
 
 /* Lining numerals */
 .lnum{
   -webkit-font-feature-settings: "lnum";
+  -moz-font-feature-settings: "lnum";
+  font-feature-settings: "lnum";
 }
 
 /* Old-style numerals */
 .onum{
   -webkit-font-feature-settings: "onum";
+  -moz-font-feature-settings: "onum";
+  font-feature-settings: "onum";
 }
-
 
 /* Lining numerals with tabular spacing*/
 .lnum.tnum{
-  -webkit-font-feature-settings: "lnum", "tnum";    
+  -webkit-font-feature-settings: "lnum", "tnum";
+  -moz-font-feature-settings: "lnum", "tnum";
+  font-feature-settings: "lnum", "tnum";
 }
 
 /* Lining numerals with proportional spacing */
 .lnum.pnum{
-  -webkit-font-feature-settings: "lnum", "pnum";    
+  -webkit-font-feature-settings: "lnum", "pnum";
+  -moz-font-feature-settings: "lnum", "pnum";
+  font-feature-settings: "lnum", "pnum";
 }
 
 /* Old-style numerals with tabular spacing*/
 .onum.tnum{
-  -webkit-font-feature-settings: "onum", "tnum";    
+  -webkit-font-feature-settings: "onum", "tnum";
+  -moz-font-feature-settings: "onum", "tnum";
+  font-feature-settings: "onum", "tnum";
 }
 
 /* Old-style numerals with proportional spacing */
 .onum.pnum{
-  -webkit-font-feature-settings: "onum", "pnum";    
+  -webkit-font-feature-settings: "onum", "pnum";
+  -moz-font-feature-settings: "onum", "pnum";
+  font-feature-settings: "onum", "pnum";
 }
 
 

@@ -3,10 +3,10 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>TITLE - HTML and CSS Advent 2012 by Digitpaint</title>
+  <title>Swashbuckling with swashes &amp; other ligatures - HTML and CSS Advent 2012 by Digitpaint</title>
   <meta name="author" content="All of us at Digitpaint">
   
-  <meta property="og:title" content="TITLE - HTML &amp; CSS Advent 2012">
+  <meta property="og:title" content="Swashbuckling with swashes &amp; other ligatures - HTML &amp; CSS Advent 2012">
   <meta property="og:url" content="http://advent2012.digitpaint.nl/3">
   <meta property="og:image" content="/assets/opengraph/03.png">
   <meta property="og:description" content="">  
@@ -24,17 +24,15 @@
         
     <article class="main">
 
-      
-
-      <!-- [START:layout/article-header?nr=03&title=&previous=/2/&next=/4/] -->
+      <!-- [START:layout/article-header?nr=03&title=Swashbuckling+with+swashes+%26amp%3B+other+ligatures&previous=/2/&next=/4/] -->
       <!-- [STOP:layout/article-header] -->    
 
       <div class="body text">
         <p class="intro">
-          This one is for you typophiles out there. For a long time web-typography was pretty borked, this changed with
-          wide-spread support for <code>@font-face</code>. But still you couldn't really properly use the fonts you had
-          to their full extend: you couldn't use small-caps, ligatures, old-style figures and swashes. With the css property
-          <code>font-feature-settings</code> you now can.
+          This one is for all you typophiles out there. For a long time web-typography was an unsightly, borked mess. Luckily, this changed with wide-spread
+          support for <code>@font-face</code>. But still you couldn't use the fonts you had to their full extent: all the cool OpenType features like small-caps,
+          ligatures, old-style figures and swashes were reserved for those who used these fonts in print. With the CSS property <code>font-feature-settings</code>, that
+          has changed quite a bit.
         </p>
         
         <section class="examples">
@@ -61,7 +59,7 @@
                 DISCRETIONARY christmas
               </div>              
               <figcaption>
-                Discretionary ligatures turned on
+                Or enable discretionary ligatures
               </figcaption>
             </figure>                        
           </div>
@@ -123,50 +121,70 @@
                 </tr>
               </table>
               <figcaption>
-                Old-style and lining numerals in a proportional and tabular variant (see the position of the .)
+                Old-style and lining numerals in a proportional and tabular variant (see the position of the decimal mark)
               </figcaption>
             </figure>          
           </div>
         </section>
         
-        <h2>How does it work?</h2>          
+        <h2>Tell me more, tell me more!</h2>          
         <p>
-          The <code>font-feature-settings</code> CSS property gives us access to popular OpenType features. This gives
-          us the power to enable or disable certain font features whenever we need it. To enable old-style numerals we
-          set <code>font-feature-settings: "onum"</code>. You can combine multiple features by appending them, so if
-          we wanted to use old-style numerals like in the table above we'd use: <code>font-feature-settings: "onum", "lnum"</code>. 
-        </p>
-        
+          The <code>font-feature-settings</code> CSS property gives us access to popular OpenType features. This gives us the power to enable or disable certain font
+          features whenever we need to. To enable old-style numerals we set <code>font-feature-settings: "onum"</code>. You can combine multiple features by appending
+          them — eg. if we wanted to use old-style numerals like in the table above, we'd use: <code>font-feature-settings: "onum", "lnum".</code> </p>
+        </div>
         <h2>Useful?</h2>
         <p>
-          This is a great tool for designers
+          This is truly great news for designers and typgraphers alike, who've often seen their work butchered when it was transformed for use on the web. It
+          is especially great if you're working with fonts that have different stylistic swashes. Apart from looking swanky, it also means that you can
+          properly typeset text in a language like Turkish, where you have dotted i's and dotless i's which needs to be preserved when rendering ligatures
+          and small caps.
         </p>
         
         <h2>Great, but can I use it today?</h2>
         <p>
+          This is by no means a new feature, and with the release of IE10 all major desktop browsers (except Opera) support it. 
         </p>
         
         <h2>Show me the source!</h2>
         <p>
-          Feel free to look around the differente source files we used for this example.
+          Feel free to snoop around the different source files we used for this example (no flash photography please).
         </p>
         <ul>
-          <li><a href="#">The javascripts</a></li>
-          <li><a href="#">The stylesheet</a></li>
+          <li><a href="3.css">The stylesheet</a></li>
         </ul>
       </div>
       
       <footer class="footer text">
+        <section class="attribution">
           
-        <h2>Attribution</h2>
+          <h2>Attribution</h2>
         
-        <p>
-          http://opentype.info/blog/2010/08/14/better-web-typography-with-opentype-features/
-          http://www.smeltery.net/fonts/megalopolis-extra
-          https://hacks.mozilla.org/2009/10/font-control-for-designers/
-          http://blog.fontdeck.com/post/15777165734/opentype-1
-        </p>
-        
+          <p>
+            There are a couple of excellent articles about this subject, we took our inspiration from the following:
+          </p>
+          <ul>
+            <li>
+              "<a href="http://opentype.info/blog/2010/08/14/better-web-typography-with-opentype-features/" target="_blank">
+                Better web typography with OpenType features 
+              </a>" by Ralf Herrmann
+            </li>
+            <li>
+              "<a href="https://hacks.mozilla.org/2009/10/font-control-for-designers/" target="_blank">
+                New font control features for designers
+              </a>" over at Mozilla Hacks
+            </li>
+            <li>
+              "<a href="http://blog.fontdeck.com/post/15777165734/opentype-1" target="_blank">
+                Using OpenType font features with CSS 3: Part 1
+              </a>" from the Fontdeck blog
+            </li>
+          </ul>
+          
+          <p>
+            The font used is Megalopolis Extra by SMeltery and can be found on <a href="http://www.smeltery.net/fonts/megalopolis-extra" target="_blank">their website</a>.
+          </p>
+        </section>
         
         <!-- [START:share] -->
         <!-- [STOP:share] -->
@@ -183,7 +201,7 @@
   <script>  
     var addthis_share = { 
       templates: {
-        twitter: 'Awesome! The HTML and CSS Advent 2012 #dpadvent {{url}}'
+        twitter: 'Swashbuckling with swashes & other ligatures in The HTML and CSS Advent 2012 #dpadvent {{url}}'
       }
     }
   </script>
