@@ -17,10 +17,6 @@
     margin: 10px -20px 0 -20px;
   }
   
-  .main > .share{
-    
-  }
-  
   .main > .body,
   .main > .site-nav,
   .main > .footer{
@@ -117,4 +113,29 @@
     color: $c_ribbon_banner_strong;
   }
   
+}
+
+@media($mq_mobile){
+  .layout-home{
+    
+    .main > .alien{
+      margin-top: -10px
+    }
+    
+    .main > .body {
+      margin-top: 90px + 25px;
+    }
+    
+    .main > header{
+      margin-left: 0;
+      margin-right: 0;
+    }
+    
+    
+    .share{
+      display: block;
+      position: static;
+    }
+    
+  }
 }

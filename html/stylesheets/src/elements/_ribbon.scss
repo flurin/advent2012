@@ -206,3 +206,31 @@ $ribbon_stripes_size: 7px;
   -moz-box-sizing: border-box;    
   box-sizing: border-box;
 }
+
+
+@media($mq_mobile){
+  .ribbon{
+    display: block;
+  }
+      
+  .ribbon .body:before,
+  .ribbon .body:after{
+    width: 100px;
+    -webkit-mask: none;
+  }
+  
+  .ribbon .body:before{
+    left: 0;
+  }
+
+  .ribbon .body:after{
+    right: 0;
+  }
+
+  .ribbon .banner{
+    display: none;
+    position: static;
+  }
+
+  
+}

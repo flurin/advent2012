@@ -62,3 +62,17 @@
 .day-number + h1{
   overflow: hidden;
 }
+
+@media($mq_mobile){
+  
+  .days article{
+    margin-left: 0;
+  }
+  
+  .days .day-number{
+    float: none;
+    margin: 0;
+    display: block;
+    text-align: center;
+  }
+}
