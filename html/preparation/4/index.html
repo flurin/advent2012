@@ -23,8 +23,6 @@
     <!-- [STOP:layout/ribbon] -->    
         
     <article class="main">
-
-
       
 
       <!-- [START:layout/article-header?nr=04&title=&previous=/3/&next=/5/] -->
@@ -92,28 +90,31 @@
             var slide = function(a){              
               angle = (a * (Math.PI/180));
               box.style.webkitTransform = "rotateZ("+a+"deg)";
-              
-              acceleration = (gravity * Math.sin(angle)) - Math.min((Math.cos(angle) * friction), curSpeed + (gravity * Math.sin(angle)));
-               
-              console.log("A", acceleration, "S", Math.sin(angle));              
-              
             }
             
             slide(0);
             
             var updatePos = function(){
               var curUpdate = new Date();
+              var timeDelta = (curUpdate - lastUpdate)/1000;
               
-              var speedIncrease = acceleration * (curUpdate - lastUpdate)/1000;
+              var accConstant = gravity * Math.sin(angle);
               
-              // if(angle == 0 && (speedIncrease <= 0 && curSpeed + speedIncrease <= 0 || speedIncrease >= 0 && curSpeed + speedIncrease >= 0)){
-              //   console.log("stopped", speedIncrease, curSpeed);
-              //   curSpeed = 0;
-              // } else {
-                curSpeed += speedIncrease;                              
-              // }
-                  
-              var moveBy = (curUpdate - lastUpdate)/1000 * curSpeed;
+              if(angle > 0){
+                acceleration = accConstant - Math.min((Math.cos(angle) * friction), curSpeed + accConstant);
+              } else {
+                if(curSpeed > 0){
+                  acceleration = accConstant - Math.max((-1 * Math.cos(angle) * friction), -1 * curSpeed + gravity * Math.sin(angle));
+                } else {
+                  acceleration = accConstant - Math.max((-1 * Math.cos(angle) * friction), curSpeed + gravity * Math.sin(angle));
+                }
+              }
+              
+              console.log(acceleration, accConstant, curSpeed);
+
+              var speedIncrease = acceleration * timeDelta;
+              curSpeed += speedIncrease;
+              var moveBy = curSpeed * timeDelta;
               curPos += moveBy;
               
               // console.log(curPos);
@@ -122,7 +123,7 @@
               lastUpdate = curUpdate;
             }
             
-            var i = setInterval(updatePos, 100);
+            var i = setInterval(updatePos, 1000);
             
       
             var devOrientHandler = function(eventData){
