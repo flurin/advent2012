@@ -1,0 +1,77 @@
+/*
+
+Digitpaint HTML and CSS Advent 2012
+
+  _ \                          |                  | |  |    |    
+  |  |  -_)   _|   -_)   ` \    _ \   -_)   _|   __ _|  _|    \  
+ ___/ \___| \__| \___| _|_|_| _.__/ \___| _|       _| \__| _| _| 
+                                                                 
+
+Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
+
+*/  
+
+
+/* ============= */
+/* = Tiltshift = */
+/* ============= */
+
+.tiltshift{
+  background: url(images/people.jpg);
+  background-size: 100% 100%;
+  -webkit-filter: saturate(150%);
+}
+          
+.tiltshift img{
+  max-width: 100%;
+  -webkit-filter: blur(3px) saturate(150%);
+  -webkit-mask-box-image: -webkit-linear-gradient(260deg, black 35%, transparent 50%, transparent 65%, black 75%);
+}
+
+/* =========== */
+/* = Filters = */
+/* =========== */
+
+.filter img{
+  width: 100%;
+}
+
+.blur{
+  -webkit-filter: blur(3px);
+}
+
+.grayscale{
+  -webkit-filter: grayscale(100%);  
+}
+
+.sepia{
+  -webkit-filter: sepia(100%);  
+}
+
+.brightness{
+  -webkit-filter: brightness(20%);    
+}
+
+.contrast{
+  -webkit-filter: contrast(150%);    
+}
+
+.hue-rotate{
+  -webkit-filter: hue-rotate(220deg);
+}
+
+.invert{
+  -webkit-filter: invert(100%);  
+}
+
+.saturate{
+  -webkit-filter: saturate(200%);
+}
+
+.opacity{
+  -webkit-filter: opacity(50%);
+}
+
+.drop-shadow{
+  -webkit-filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.5));
+}

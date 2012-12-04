@@ -3,10 +3,17 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>VISITOR — Y U NO WAIT? - HTML and CSS Advent 2012 by Digitpaint</title>
-  <meta name="description" content="24 days of HTML/CSS tips, brought to you by the front-end experts at Digitpaint.">
+  <title>More effects than a Hollywood movie - HTML and CSS Advent 2012 by Digitpaint</title>
   <meta name="author" content="All of us at Digitpaint">
-
+  
+  <meta property="og:title" content="More effects than a Hollywood movie - HTML &amp; CSS Advent 2012">
+  <meta property="og:url" content="http://advent2012.digitpaint.nl/4">
+  <meta property="og:image" content="/assets/opengraph/04.png">
+  <meta property="og:description" content="Demonstrating the CSS Filter Effect property in all it's full glory.">  
+  <meta name="description" content="Demonstrating the CSS Filter Effect property in all it's full glory.">
+  
+  <link rel="stylesheet" href="4.css" />
+  <script src="4.js"></script>
   
 </head>
 <body class="layout-article">
@@ -16,39 +23,252 @@
     <!-- [STOP:layout/ribbon] -->    
         
     <article class="main">
-      
-      <header class="header">
-        <div class="body">
-          <span class="day-number">
-            04
-          </span>
-          <h1>
-            VISITOR — Y U NO WAIT?
-          </h1>
-        </div>
-        
-        <nav class="browse">
-          
-            <a href="/3/index.html" class="previous">
-              <span class="acc">Previous</span>
-            </a>
-          
-          
-            <a href="/5/index.html" class="next not-yet">
-              <span class="acc">Next</span>
-            </a>
-          
-        </nav>
-      </header>
-      
-      <div class="body text">
-        <p>This page will be worth it. Just come back on the 4th.</p>
 
+      <!-- [START:layout/article-header?nr=04&title=More+effects+than+a+Hollywood+movie&previous=/3/&next=/5/] -->
+      <!-- [STOP:layout/article-header] -->    
+
+      <div class="body text">
+        <p class="intro">
+          The web has evolved from a very text-oriented structure into the interactive, experience-rich digital environment we all know and love today. With the waning of Flash
+          (which none of us are mourning, FYI), CSS has had to fill quite a few voids left in web-effects. Enter visual effects, made from scratch in CSS. And while it's not exactly
+          a web-based Photoshop, it's starting to deliver some very interesting results.
+        </p>
+                
+        <section class="examples">
+          <h2>Here's a few examples</h2>
+          <p class="warning">
+            Sorry these examples only work in Webkit (Chrome/Safari) at the moment.
+          </p>          
+          <div class="row">
+            <figure class="example">
+              <div class="tiltshift">
+                <img src="images/people.jpg" alt="Tiltshift in tokyo">
+              </div>
+              <figcaption>
+                Tilt-Shift effect built entirely in CSS
+              </figcaption>
+            </figure>
+            
+          </div>
+                    
+          <h2>Here is the full set of filters</h2>
+          <div class="row">
+            <figure class="example">
+              <div class="filter blur">
+                <img src="images/alien.svg" alt="Bob the blurred alien">
+              </div>
+              <figcaption>
+                Blur
+                <div class="range">
+                  <input type="range" min="0" max="5" value="3" data-filter="blur(VALpx)">
+                </div>
+              </figcaption>
+            </figure>            
+            <figure class="example">
+              <div class="filter grayscale">
+                <img src="images/alien.svg" alt="Bob the gray-ish alien">
+              </div>            
+              <figcaption>
+                Grayscale
+                <div class="range">
+                  <input type="range" value="100" min="0" max="100" data-filter="grayscale(VAL%)">
+                </div>                
+              </figcaption>
+            </figure>  
+            <figure class="example">
+              <div class="filter sepia">
+                <img src="images/alien.svg" alt="Bob the old-skool sepia alien">
+              </div>            
+              <figcaption>
+                Sepia
+                <div class="range">
+                  <input type="range" value="100" min="0" max="100" data-filter="sepia(VAL%)">
+                </div>                
+              </figcaption>
+            </figure>              
+          </div>
+          
+          <div class="row">
+            <figure class="example">
+              <div class="filter brightness">
+                <img src="images/alien.svg" alt="Bob the bright alien">
+              </div>            
+              <figcaption>
+                Brightness
+                <div class="range">
+                  <input type="range" value="20" min="-100" max="100" data-filter="brightness(VAL%)">
+                </div>                
+                
+              </figcaption>
+            </figure>              
+            <figure class="example">
+              <div class="filter contrast">
+                <img src="images/alien.svg" alt="Bob the contrast-y alien">
+              </div>            
+              <figcaption>
+                Contrast
+                <div class="range">
+                  <input type="range" value="150" min="0" max="300" data-filter="contrast(VAL%)">
+                </div>                                
+              </figcaption>
+            </figure>            
+            <figure class="example">
+              <div class="filter hue-rotate">
+                <img src="images/alien.svg" alt="Bob the freaky alien">
+              </div>            
+              <figcaption>
+                Hue-rotate
+                <div class="range">
+                  <input type="range" value="220" min="0" max="360" data-filter="hue-rotate(VALdeg)">
+                </div>                                
+              </figcaption>
+            </figure>  
+
+          </div>
+          
+          <div class="row">
+            <figure class="example">
+              <div class="filter invert">
+                <img src="images/alien.svg" alt="Bob the inverted alien">
+              </div>            
+              <figcaption>
+                Invert
+                <div class="range">
+                  <input type="range" value="100" min="0" max="100" data-filter="invert(VAL%)">
+                </div>                                
+              </figcaption>
+            </figure>  
+            <figure class="example">
+              <div class="filter saturate">
+                <img src="images/alien.svg" alt="Bob the saturated alien">
+              </div>            
+              <figcaption>
+                Saturate
+                <div class="range">
+                  <input type="range" value="200" min="0" max="300" data-filter="saturate(VAL%)">
+                </div>                
+              </figcaption>
+            </figure>
+                        
+            <figure class="example">
+              <div class="filter drop-shadow">
+                <img src="images/alien.svg" alt="Bob the dropshadowy alien">
+              </div>            
+              <figcaption>
+                Drop-shadow
+                <div class="range">
+                  <input type="range" value="8" min="0" max="20" data-filter="drop-shadow(VALpx VALpx 3px rgba(0,0,0,0.5))">
+                </div>                                
+              </figcaption>
+            </figure>
+            
+          </div>          
+                    
+        </section>
+        
+        <h2>How's this plan gonna come together?</h2>          
+        <p>
+          The whole thing is rather simple. With the CSS proprty <code>filter: ...</code> we can add a hardware accelerated filter to any HTML object we like. If need be, we can even combine
+          them. The tilt-shift effect above is a combination of filter: <code>filter: blur(3px) saturate(150%);</code>, we applied a mask to the image and set the same image as background for
+          the wrapping div (this time without the blur).
+
+        </p>
+        
+        <p>
+          We can hear you thinking: "Yeah, that's cool and all, but the <code>filter: drop-shadow(...)</code> filter is kind of the same as <code>box-shadow: ...</code>." Nope, that's not exactly true. A
+          <code>box-shadow</code> would give a shadow of the box (ie. it'd be square), but this nifty filter actually obeys transparency in the image (see for yourself!).
+        </p>
+        
+        <h2>Useful?</h2>
+        <p>
+          More or less, it has some potential to enrich the user experience while maintaining load speeds. Always wanted to blur the background while you have a lightbox open? Now
+          you can do that by applying the filter to the HTML element.
+        </p>
+        <p>
+          Some other stuff you could do with it:
+        </p>
+        <ul>
+          <li>Create a nice image gallery with grayed out images</li>
+          <li>Proper grayed-out buttons, without the need for extra images</li>
+          <li>Annoy everyone by blurring the HTML element by just 1px  (<a href="#" onclick="blurHTML()">click here to try</a>)</li>
+        </ul>
+        
+        
+        <h2>Sold! Can I get it today?</h2>
+        <p>
+          Short answer: not really.
+        </p>
+        <p>
+          Long answer: support is very limited at this time. Only Webkit browsers (Chrome and Safari) support these filters. And even then there are some odd quirks: currently
+          filters on hardware accelerated content are still a work in progress in Chrome. The <a href="http://www.w3.org/TR/filter-effects/" target="_blank">spec</a> is still considered to be a draft version, but it looks very promising!
+        </p>
+        
+        <h2>Show me the source!</h2>
+        <p>
+          Feel free to look around the differente source files we used for this example.
+        </p>
+        <ul>
+          <li><a href="4.js">The javascripts</a></li>
+          <li><a href="4.css">The stylesheet</a></li>
+        </ul>
       </div>
+      
+      <footer class="footer text">
+          
+        <section class="attribution">
+          <h2>Attribution</h2>
+        
+          <p>
+            The tilt-shift effect was inspired by Joshua Johnson's article 
+            "<a href="http://designshack.net/articles/css/csstiltshift/" target="_blank">How to Pull Off a Tilt Shift Effect With Webkit CSS Filters</a>" on design shack.
+          </p>
+          
+          <p>
+            These are some of the other articles we used:
+          </p>
+          
+          <ul>
+            <li>
+              <a href="http://html5-demos.appspot.com/static/css/filters/index.html" target="_blank">
+                CSS Filter Effects
+              </a>
+               from HTML5-demo's 
+            </li>
+            <li>
+              <a href="http://www.html5rocks.com/en/tutorials/filters/understanding-css/" target="_blank">
+                Understanding CSS Filter Effects
+              </a>
+               by Alex Danilo on HTML5 Rocks
+            </li>
+            
+          </ul>
+          
+          <p>
+            The photograph is copyrighted by <a href="http://ilmeccani.co" target="_blank">Adrian Egger</a>, taken in Shibuya, Tokyo.
+          </p>
+            
+        </section>
+        
+        <!-- [START:share] -->
+        <!-- [STOP:share] -->
+          
+      </footer>
+      
+      <!-- [START:layout/site-navigation] --> 
+      <!-- [STOP:layout/site-navigation] -->
+      
     </article>
         
   </div>
     
+  <script>  
+    var addthis_share = { 
+      templates: {
+        twitter: 'More effects than a Hollywood movie in The HTML and CSS Advent 2012 #dpadvent {{url}}'
+      }
+    }
+  </script>
+  
   <!-- [START:javascripts] -->
   <!-- [STOP:javascripts] -->    
 </body>
