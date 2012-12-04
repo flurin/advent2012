@@ -6,3 +6,4 @@ gem "sass"
 gem "yui-compressor"
 
 gem "artii"
+gem "builder"
