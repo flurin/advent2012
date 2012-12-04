@@ -3,3 +3,5 @@ RewriteCond %{THE_REQUEST} ^.*\/index\.html?\ HTTP/
 RewriteRule ^(.*)index\.html?$ "/$1" [R=301,L]
 
 ErrorDocument 404 /404.html
+
+AddType application/rss+xml .rss
