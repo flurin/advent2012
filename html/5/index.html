@@ -3,10 +3,17 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>Lorem ipsum sit dolor... - HTML and CSS Advent 2012 by Digitpaint</title>
-  <meta name="description" content="24 days of HTML/CSS tips, brought to you by the front-end experts at Digitpaint.">
+  <title>TITLE - HTML and CSS Advent 2012 by Digitpaint</title>
   <meta name="author" content="All of us at Digitpaint">
-
+  
+  <meta property="og:title" content="TITLE - HTML &amp; CSS Advent 2012">
+  <meta property="og:url" content="http://advent2012.digitpaint.nl/5">
+  <meta property="og:image" content="/assets/opengraph/05.png">
+  <meta property="og:description" content="">  
+  <meta name="description" content="">
+  
+  <link rel="stylesheet" href="5.css" />
+  <script src="5.js"></script>
   
 </head>
 <body class="layout-article">
@@ -16,39 +23,120 @@
     <!-- [STOP:layout/ribbon] -->    
         
     <article class="main">
-      
-      <header class="header">
-        <div class="body">
-          <span class="day-number">
-            05
-          </span>
-          <h1>
-            Lorem ipsum sit dolor...
-          </h1>
-        </div>
-        
-        <nav class="browse">
-          
-            <a href="/4/index.html" class="previous">
-              <span class="acc">Previous</span>
-            </a>
-          
-          
-            <a href="/6/index.html" class="next not-yet">
-              <span class="acc">Next</span>
-            </a>
-          
-        </nav>
-      </header>
-      
-      <div class="body text">
-        <p>That’s all we got so far. We’ll have more by the 5th, promise.</p>
 
+      
+
+      <!-- [START:layout/article-header?nr=05&title=&previous=/4/&next=/6/] -->
+      <!-- [STOP:layout/article-header] -->    
+
+      <div class="body text">
+        <p class="intro">
+          With the CSS <code>columns</code> property we can create mult-column layouts. And I don't mean the kind where
+          you have to create a div for every column and you'd never quite get the right balancing, whatever tricks you
+          were using. With <code>columns</code> you can create real columns that automatically balance and the content flows
+          nicely from one column to another!
+        </p>
+        
+        <section class="examples">
+          <h2>Here is an example</h2>
+          <div class="row">
+            <figure class="example">
+              <div class="columns col-3" id="columns">
+                <h3>
+                  This heading should span all columns
+                </h3>
+                
+                <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+              </p>
+                
+                <h4>
+                  This subheading should not span columns
+                </h4>
+                
+                <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                </p>
+                
+                <h3>Another spanning heading</h3>
+                <p>
+                Beginning of paragraph commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                mollit anim id est laborum.
+                </p>
+                
+              </div>
+              <figcaption>
+                The block above has
+                <select id="column-count-modifier">
+                  <option value="col-3">3 columns</option>
+                  <option value="col-4">4 columns</option>
+                  <option value="col-5">5 columns</option>
+                  <option value="col-fixed">100px wide columns</option>
+                </select>
+                and 
+                <select id="column-fill-modifier">
+                  <option value="fill-balance">does</option>
+                  <option value="fill-auto">does not</option>
+                </select>
+                balance the columns
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+                
+        <h2>How does it work?</h2>          
+        <p>
+        </p>
+        
+        <h2>Useful?</h2>
+        <p>
+        </p>
+        
+        <h2>Great, but can I use it today?</h2>
+        <p>
+        </p>
+        
+        <h2>Show me the source!</h2>
+        <p>
+          Feel free to look around the differente source files we used for this example.
+        </p>
+        <ul>
+          <li><a href="#">The javascripts</a></li>
+          <li><a href="#">The stylesheet</a></li>
+        </ul>
       </div>
+      
+      <footer class="footer text">
+          
+        <h2>Attribution</h2>
+        
+        <p>
+        </p>
+        
+        
+        <!-- [START:share] -->
+        <!-- [STOP:share] -->
+          
+      </footer>
+      
+      <!-- [START:layout/site-navigation] --> 
+      <!-- [STOP:layout/site-navigation] -->
+      
     </article>
         
   </div>
     
+  <script>  
+    var addthis_share = { 
+      templates: {
+        twitter: 'Awesome! The HTML and CSS Advent 2012 #dpadvent {{url}}'
+      }
+    }
+  </script>
+  
   <!-- [START:javascripts] -->
   <!-- [STOP:javascripts] -->    
 </body>
