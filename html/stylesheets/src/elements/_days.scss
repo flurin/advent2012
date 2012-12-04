@@ -69,10 +69,14 @@
     margin-left: 0;
   }
   
-  .days .day-number{
+  .day-number{
     float: none;
     margin: 0;
     display: block;
     text-align: center;
+  }
+  
+  .day-number + h1{
+    margin-top: 1rem;
   }
 }
