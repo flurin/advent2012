@@ -11,8 +11,7 @@
   .ribbon,
   .main > .header .body,
   .main > .footer,
-  .main > .body,
-  .main > .site-nav{
+  .main > .body{
     max-width: 650px;
     margin: 0 auto;
     text-align: left;
@@ -21,18 +20,12 @@
   
   .main > .body,
   .main > .header .body,
-  .main > .footer,
-  .main > .site-nav{
+  .main > .footer{
     padding: 20px;
   }
-  
-  .main > .site-nav{
-    padding-bottom: 0;
-  }
-  
+    
   .main > .body,
-  .main > .footer,
-  .main > .site-nav{
+  .main > .footer{
     background: $c_main_body_bg;
     position: relative;
   }  

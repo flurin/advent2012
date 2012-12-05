@@ -18,16 +18,11 @@
   }
   
   .main > .body,
-  .main > .site-nav,
   .main > .footer{
     background: $c_main_body_bg;
     padding: 20px;    
   }
-  
-  .main > .site-nav{
-    padding-bottom: 0;
-  }
-  
+    
   /* =========== */
   /* = Sharing = */
   /* =========== */

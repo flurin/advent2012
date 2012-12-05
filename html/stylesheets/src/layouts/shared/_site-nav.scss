@@ -1,15 +1,24 @@
 .site-nav{
   @extend %autoclear;
+  padding: 20px;
+  display: table;
+  margin: 0 auto 0 auto;
+  position: relative;
+
+}
+
+.site-nav li{
+  display: inline-block;
 }
   
 .site-nav li a{
   @extend %button-gradient-bg;
   @extend %font-text;
   font-weight: bold;
-  float: left;
-  border-radius: 6px 6px 0 0;
+  border-radius: 6px;
   margin-right: 1rem;
   color: #fff;
-  padding: 1.2rem;
+  padding: 0.8rem 1.2rem;
+  display: inline-block;
   text-decoration: none;
 }
