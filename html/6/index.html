@@ -3,10 +3,17 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>Lost: Content page for December 6th. - HTML and CSS Advent 2012 by Digitpaint</title>
-  <meta name="description" content="24 days of HTML/CSS tips, brought to you by the front-end experts at Digitpaint.">
+  <title>TITLE - HTML and CSS Advent 2012 by Digitpaint</title>
   <meta name="author" content="All of us at Digitpaint">
-
+  
+  <meta property="og:title" content="TITLE - HTML &amp; CSS Advent 2012">
+  <meta property="og:url" content="http://advent2012.digitpaint.nl/6">
+  <meta property="og:image" content="/assets/opengraph/06.png">
+  <meta property="og:description" content="">  
+  <meta name="description" content="">
+  
+  <link rel="stylesheet" href="6.css" />
+  <script src="6.js"></script>
   
 </head>
 <body class="layout-article">
@@ -16,39 +23,86 @@
     <!-- [STOP:layout/ribbon] -->    
         
     <article class="main">
-      
-      <header class="header">
-        <div class="body">
-          <span class="day-number">
-            06
-          </span>
-          <h1>
-            Lost: Content page for December 6th.
-          </h1>
-        </div>
-        
-        <nav class="browse">
-          
-            <a href="/5/index.html" class="previous">
-              <span class="acc">Previous</span>
-            </a>
-          
-          
-            <a href="/7/index.html" class="next not-yet">
-              <span class="acc">Next</span>
-            </a>
-          
-        </nav>
-      </header>
-      
-      <div class="body text">
-        <p>Smallish, kind of scruffy looking. Goes by the name of “/6/index.html”. Definitely not housetrained. We’re sure it’ll turn up on the 6th.</p>
 
+      
+
+      <!-- [START:layout/article-header?nr=06&title=&previous=/5/&next=/7/] -->
+      <!-- [STOP:layout/article-header] -->    
+
+      <div class="body text">
+        <p class="intro">
+          
+        </p>
+        
+        <section class="examples">
+          <h2>Here are some examples</h2>
+          <div class="row">
+            <figure class="example">
+            
+              <video autoplay="autoplay" id="cam" style="display:none"></video>
+              <canvas id="canvas"></canvas>
+            
+              <div id="video-reel"></div>
+            
+              <figcaption>
+                <button id="video-start">Start</button>
+                <button id="video-stop">Stop</button>
+                <button id="video-snapshot">Take a snapshot!</button>
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+        
+        <h2>How does it work?</h2>          
+        <p>
+        </p>
+        
+        <h2>Useful?</h2>
+        <p>
+        </p>
+        
+        <h2>Great, but can I use it today?</h2>
+        <p>
+        </p>
+        
+        <h2>Show me the source!</h2>
+        <p>
+          Feel free to look around the differente source files we used for this example.
+        </p>
+        <ul>
+          <li><a href="#">The javascripts</a></li>
+          <li><a href="#">The stylesheet</a></li>
+        </ul>
       </div>
+      
+      <footer class="footer text">
+          
+        <h2>Attribution</h2>
+        
+        <p>
+        </p>
+        
+        
+        <!-- [START:share] -->
+        <!-- [STOP:share] -->
+          
+      </footer>
+      
+      <!-- [START:layout/site-navigation] --> 
+      <!-- [STOP:layout/site-navigation] -->
+      
     </article>
         
   </div>
     
+  <script>  
+    var addthis_share = { 
+      templates: {
+        twitter: 'Awesome! The HTML and CSS Advent 2012 #dpadvent {{url}}'
+      }
+    }
+  </script>
+  
   <!-- [START:javascripts] -->
   <!-- [STOP:javascripts] -->    
 </body>
