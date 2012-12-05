@@ -28,12 +28,12 @@ Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
   -moz-column-rule: 1px solid rgba(0,0,0,0.3);
   column-rule: 1px solid rgba(0,0,0,0.3);
 
+  /* Hyphenate to get better justification */
   -webkit-hyphens: auto;
   -moz-hyphens: auto;  
   hyphens: auto;
+
   
-/*  -moz-text-align-last: right;*/
-  -moz-justify: distributed;
   text-align: justify;
   
 }

@@ -3,14 +3,14 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>TITLE - HTML and CSS Advent 2012 by Digitpaint</title>
+  <title>Go column-crazy with CSS multi-column layout! - HTML and CSS Advent 2012 by Digitpaint</title>
   <meta name="author" content="All of us at Digitpaint">
   
-  <meta property="og:title" content="TITLE - HTML &amp; CSS Advent 2012">
+  <meta property="og:title" content="Go column-crazy with CSS multi-column layout! - HTML &amp; CSS Advent 2012">
   <meta property="og:url" content="http://advent2012.digitpaint.nl/5">
   <meta property="og:image" content="/assets/opengraph/05.png">
-  <meta property="og:description" content="">  
-  <meta name="description" content="">
+  <meta property="og:description" content="Using CSS Multi-column Layout Module to create balancing columns">  
+  <meta name="description" content="Using CSS Multi-column Layout Module to create balancing columns">
   
   <link rel="stylesheet" href="5.css" />
   <script src="5.js"></script>
@@ -24,17 +24,15 @@
         
     <article class="main">
 
-      
 
-      <!-- [START:layout/article-header?nr=05&title=&previous=/4/&next=/6/] -->
+      <!-- [START:layout/article-header?nr=05&title=Go+column-crazy!&previous=/4/&next=/6/] -->
       <!-- [STOP:layout/article-header] -->    
 
       <div class="body text">
         <p class="intro">
-          With the CSS <code>columns</code> property we can create mult-column layouts. And I don't mean the kind where
-          you have to create a div for every column and you'd never quite get the right balancing, whatever tricks you
-          were using. With <code>columns</code> you can create real columns that automatically balance and the content flows
-          nicely from one column to another!
+          With the CSS columns property we can create mult-column layouts. And we don't mean the kind that you have to create a separate div for every column, and you'd never quite
+          get the right balancing — regardless of the home-grown tricks you were using. With CSS columns you can create real columns that automatically balance, and the content
+          flows nicely from one to another!
         </p>
         
         <section class="examples">
@@ -43,7 +41,7 @@
             <figure class="example">
               <div class="columns col-3" id="columns">
                 <h3>
-                  This heading should span all columns
+                  This heading spans all columns
                 </h3>
                 
                 <p>
@@ -52,7 +50,7 @@
               </p>
                 
                 <h4>
-                  This subheading should not span columns
+                  This subheading doesn't span columns
                 </h4>
                 
                 <p>
@@ -87,35 +85,70 @@
           </div>
         </section>
                 
-        <h2>How does it work?</h2>          
+        <h2>But...how does it work?</h2>          
         <p>
+          It's relatively straightforward and easy to apply. Basically, we have 2 options to define the columns: we can either set the number of columns, which will automatically
+          calculate heights and widths for us (using <code>columns: 5</code>). Alternatively we can set columns widths: eg. 100px to get 100px wide columns (using <code>columns: 100px</code>). To make the latter option work we have to set a height
+          as well, or we would end up with just one 100px column. Column rules (the lines between the columns) and the column gap (the space between the columns) can be set with
+          <code>column-rule: 1px solid #000</code> and <code>column-gap: 2em</code>.
+        </p>
+        <p>
+          As you see in the example above you can also have elements that span all columns (and effectively split the columns) by setting <code>column-span: all</code>. Unfortunately there is
+          no standard way to make an element span a specific number of columns (yet?).
+        </p>
+        <p>
+          To spruce things up we've added <code>hypens: auto</code> to get automatic hyphenation in the text, this makes the much dreaded <code>text-align: justify</code> look a lot better. The CSS column
+          module also give you fine-tuning control on how elements flow from one column into another. In the example above, we've didn't want the h4 tag to be divided over two
+          columns, and we didn't want there to be a column break right after. Breaking can be defined by setting <code>break-before</code>, <code>break-inside</code> and <code>break-after</code>. We set both
+          <code>break-inside: avoid-column</code> and <code>break-after: avoid-column</code>  in the example.
         </p>
         
         <h2>Useful?</h2>
         <p>
+          Given that designers love columns (a common pattern we find is lists placed in multiple columns), we'd say yes. Before these CSS columns we had to hack our way around
+          that by creating multiple lists, float them side-by side and so on. All in all, this clean-cut code replaces a bunch of unruly junk.
         </p>
         
-        <h2>Great, but can I use it today?</h2>
+        <h2>Great, but should I break out the champale quite yet?</h2>
         <p>
+          Surprisingly, IE10 (it actually is a great browser!) and Opera have the best support for the CSS Multi-column Layout Module. Chrome, Safari and Firefox support most of
+          the spec, but have trouble with <code>column-span</code> or <code>break-*</code>.
         </p>
         
-        <h2>Show me the source!</h2>
+        <h2>Gimme the source!</h2>
         <p>
           Feel free to look around the differente source files we used for this example.
         </p>
         <ul>
-          <li><a href="#">The javascripts</a></li>
-          <li><a href="#">The stylesheet</a></li>
+          <li><a href="5.js">The javascripts</a></li>
+          <li><a href="5.css">The stylesheet</a></li>
         </ul>
       </div>
       
       <footer class="footer text">
           
-        <h2>Attribution</h2>
+        <section>
+          <h2>Attribution</h2>
         
-        <p>
-        </p>
-        
+          <p>
+            Believe it or not, the <a href="http://www.w3.org/TR/css3-multicol/" target="_blank">CSS3 Multi-column layout spec</a> helped us the most while writing this entry (we
+            did have to do some browser testing, but we're used to that :).
+          </p>
+          
+          <p>
+            These articles were useful too:
+          </p>
+          
+          <ul>
+            <li>
+              "<a href="http://dev.opera.com/articles/view/css3-multi-column-layout/" target="_blank">CSS3 Multi-column layout</a>" by Molly E. Holzschlag on DEV.OPERA.
+            </li>
+            <li>
+              "<a href="http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/an-introduction-to-the-css3-multiple-column-layout-module/" target="_blank">An Introduction To The CSS3 Multiple Column Layout Module</a>"
+              by Aaron Lumsden on Tuts+
+            </li>
+          </ul>
+        </section>
         
         <!-- [START:share] -->
         <!-- [STOP:share] -->
@@ -132,7 +165,7 @@
   <script>  
     var addthis_share = { 
       templates: {
-        twitter: 'Awesome! The HTML and CSS Advent 2012 #dpadvent {{url}}'
+        twitter: 'Go column-crazy with CSS multi-column layout! Today in the HTML and CSS Advent 2012 #dpadvent {{url}}'
       }
     }
   </script>
