@@ -58,7 +58,7 @@
   
   .ribbon{
     font-size: 2.3rem;
-    z-index: 1;
+    z-index: 3;
   }
   
   .ribbon .banner{
@@ -121,6 +121,10 @@
     margin-left: 1em;
     right: 0;
   }
+  
+  .browse .acc{
+    @extend %font-text;    
+  }
     
   /* =========== */
   /* = Sharing = */
@@ -158,4 +162,63 @@
     
 
   
+}
+
+
+@media($mq_mobile){
+  .layout-article{
+    
+    .page{
+      padding-top: 0;
+    }    
+    
+    .main > .header .body{
+      margin-top: 0;
+    }
+    
+    /* Make room for the prev/next */
+    .main > .header{
+      margin-top: 32px;
+    }
+    
+    .browse{
+      top: -32px;
+      height: 32px;
+      background: rgba($c_corporate_deep, 0.6);
+      position: absolute;
+      left: 0;
+      right: 0;      
+    }
+    
+    .browse .acc{
+      position: static;
+      left: 0;
+      line-height: 32px;
+      vertical-align: middle;
+    }
+
+    .browse .previous,
+    .browse .next{
+      top: 0;
+      bottom: auto;
+      padding-top: 0;
+      display: block;
+    }
+    
+    .browse .previous:before,
+    .browse .next:after{
+      top: 0;
+    }
+    
+    
+    .browse .previous{
+      text-align: left;
+      padding-left: 40px;
+    }
+    
+    .browse .next{
+      text-align: right;
+      padding-right: 40px;      
+    }
+  }
 }
