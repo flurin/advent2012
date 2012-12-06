@@ -42,15 +42,11 @@ document.addEventListener("DOMContentLoaded", function(){
   // Load viewfinder images
   var viewFinders = [];  
   var viewFinderImages = ["/6/viewfinders/vf1.jpg", "/6/viewfinders/vf2.jpg"];
+  
   for(var i=0; i < viewFinderImages.length; i++){
-    // Encapsulate this so I stays in scope
-    !function(i){
-      var img = new Image();
-      img.onload = function(){
-        viewFinders[i] = this;
-      } 
-      img.src = viewFinderImages[i];
-    }(i)
+    var img = new Image();
+    img.src = viewFinderImages[i];
+    viewFinders[i] = img;
   }
   
   // Show an error on screen
@@ -58,6 +54,7 @@ document.addEventListener("DOMContentLoaded", function(){
     if(window.console && window.console.log){
       console.log(err);
     }
+    teaser.innerText = err;
   }
   
   var streamStart = function(stream){
