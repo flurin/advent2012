@@ -3,14 +3,14 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>TITLE - HTML and CSS Advent 2012 by Digitpaint</title>
+  <title>Lights, camera, action with getUserMedia!  - HTML and CSS Advent 2012 by Digitpaint</title>
   <meta name="author" content="All of us at Digitpaint">
   
-  <meta property="og:title" content="TITLE - HTML &amp; CSS Advent 2012">
+  <meta property="og:title" content="Lights, camera, action with getUserMedia! - HTML &amp; CSS Advent 2012">
   <meta property="og:url" content="http://advent2012.digitpaint.nl/6">
   <meta property="og:image" content="/assets/opengraph/06.png">
-  <meta property="og:description" content="">  
-  <meta name="description" content="">
+  <meta property="og:description" content="Demos of live video effects with canvas and getUserMedia">  
+  <meta name="description" content="Demos of live video effects with canvas and getUserMedia">
   
   <link rel="stylesheet" href="6.css" />
   <script src="6.js"></script>
@@ -26,62 +26,148 @@
 
       
 
-      <!-- [START:layout/article-header?nr=06&title=&previous=/5/&next=/7/] -->
+      <!-- [START:layout/article-header?nr=06&title=Lights,+camera,+action+with+getUserMedia!&previous=/5/&next=/7/] -->
       <!-- [STOP:layout/article-header] -->    
 
       <div class="body text">
         <p class="intro">
-          
+          While webcams, video chat and other camera-related stuff has been around for a pretty respectable time, until now
+          we had to rely on Flash or other native tools to put them to work. On of the things the WebRTC API offers us is
+          access to video and audio input from a user's webcam/microphone. Combined with the powerful canvas element (all
+          kneel before the canvas element please) we can do some really sweet stuff.
         </p>
         
         <section class="examples">
           <h2>Here are some examples</h2>
+          
+          <p class="warning"> This example only works in Chrome (and Firefox if you enable the
+          <code>media.navigator.enabled</code> option in <code>about:config</code>). And it helps if you have a working webcam. :) </p>
+          
           <div class="row">
             <figure class="example">
             
+              <div id="teaser">
+                Click "Start video" to use your webcam.
+              </div>
+              
               <video autoplay="autoplay" id="cam" style="display:none"></video>
               <canvas id="canvas"></canvas>
-            
-              <div id="video-reel"></div>
-            
+                        
               <figcaption>
-                <button id="video-start">Start</button>
-                <button id="video-stop">Stop</button>
+                <button id="video-control">Start video</button>
                 <button id="video-snapshot">Take a snapshot!</button>
+                
+                <label for="video-filter">
+                  Apply a filter:
+                </label>
+                <select id="video-filter">
+                  <option value="">no filter</option>
+                  <option value="threshold">Threshold!</option>
+                  <option value="vintage1">Vintage effect 1</option>
+                  <option value="vintage2">Vintage effect 2</option>
+                  <option value="grayscale">Just plain gray</option>
+                </select>
+                
               </figcaption>
             </figure>
           </div>
+          <div id="video-reel"></div>          
         </section>
         
-        <h2>How does it work?</h2>          
+        <h2>Wait wait wait. How does that work again?</h2>          
         <p>
+          You add a <code>&lt;video autoplay="autoplay"&gt;&lt;/video&gt;</code> tag and use Javascript to stream the webcam data to your video
+          element, comme ça:          
         </p>
+        
+<pre class="code"><code>// Get the video dom element
+var video = document.getElementById("video");
+  
+// Handle video start
+function videoStart(stream){
+  if (window.URL) {
+    video.src = window.URL.createObjectURL(stream);
+  } else {
+    video.src = stream; // Opera.
+  };
+};
+  
+// Handle video error
+function videoError(error){
+  // ... handle the error here ...
+};
+
+// Get the user media, we only want video.
+// Calls the videoStart callback if succeeded (the browser asks for permission)
+// Calls the videoError callback if it failed
+navigator.getUserMedia({ video: true}, videoStart, videoError);</code></pre>
+        
+        <p>
+          Now the really cool stuff is happening when we combine this with all the might of the <code>&lt;canvas&gt;&lt;/canvas&gt</code> element.
+          We can directly draw video frame to a canvas with <code>context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);</code>. And with that
+          you can do whatever you like with the pixel data.
+        </p>
+        
         
         <h2>Useful?</h2>
         <p>
+          Yes! Think of all the options we have now in the browser, with no additional software needed! We could:
         </p>
+        <ul>
+          <li>Build a VOIP webapp</li>
+          <li>Stream webcam data directly to a server for live analysis</li>
+          <li>Build augmented reality games, applications and so on</li>
+          <li>Build an Instagram-type app in your browser</li>
+          <li>Create live animated gifs (using a <a href="https://github.com/antimatter15/jsgif" target="_blank">javascript gif encoder</a>)</li>
+        </ul>
         
-        <h2>Great, but can I use it today?</h2>
+        <h2>Sounds good, sounds good. But can I use this today?</h2>
         <p>
+          For most browsers, this shouldn't be a problem as there are polyfills available. Opera has unprefixed native
+          support for <code>getUserMedia</code>, in Webkit it's available with a vendor prefix and it's available in FireFox, although
+          you have to enable it first (see above on how to enable it).
         </p>
         
-        <h2>Show me the source!</h2>
+        <h2>Soooouuurrrrce...need sooooourrrrce...</h2>
         <p>
           Feel free to look around the differente source files we used for this example.
         </p>
         <ul>
-          <li><a href="#">The javascripts</a></li>
-          <li><a href="#">The stylesheet</a></li>
+          <li><a href="6.js">The javascript</a></li>
+          <li><a href="6.css">The stylesheet</a></li>
         </ul>
       </div>
       
       <footer class="footer text">
+        
+        <section class="attribution">
+          <h2>Attribution</h2>
+          <p>
+            This post was inspired by:
+          </p>
+          <p>
+            "<a href="http://html5doctor.com/getusermedia/" target="_blank">It's Curtains for Marital Strife Thanks to getUserMedia</a>" by Bruce Lawson on html5doctor
+          </p>
           
-        <h2>Attribution</h2>
-        
-        <p>
-        </p>
-        
+          <p>
+            "<a href="http://www.html5rocks.com/en/tutorials/getusermedia/intro/" target="_blank">
+              Capturing Audio &amp; Video in HTML5</a>" by Eric Bidelman on HTML5 Rocks
+          </p>
+          
+          <p>
+            The ideas for the effects are extracted from <a href="http://vintagejs.com/" target="_blank">the VintagJS jQuery library</a> (nope, no jQuery here).
+          </p>
+          
+          <p>
+            The images for the two image overlays are by <a href="http://www.flickr.com/photos/nesster/" target="_blank">Nesster</a>:
+          </p>
+          
+          <ul>
+            <li><a href="http://www.flickr.com/photos/nesster/409875082/">WF DSCF6570</a></li>
+            <li><a href="http://www.flickr.com/photos/nesster/409875085/">WF DSCF6574</a></li>            
+          </ul>
+          
+        </section>
         
         <!-- [START:share] -->
         <!-- [STOP:share] -->
@@ -98,7 +184,7 @@
   <script>  
     var addthis_share = { 
       templates: {
-        twitter: 'Awesome! The HTML and CSS Advent 2012 #dpadvent {{url}}'
+        twitter: 'Lights, camera, action with getUserMedia in The HTML and CSS Advent 2012 #dpadvent {{url}}'
       }
     }
   </script>
