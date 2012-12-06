@@ -46,10 +46,10 @@ document.addEventListener("DOMContentLoaded", function(){
     // Encapsulate this so I stays in scope
     !function(i){
       var img = new Image();
-      img.src = viewFinderImages[i];
       img.onload = function(){
         viewFinders[i] = this;
-      }      
+      } 
+      img.src = viewFinderImages[i];
     }(i)
   }
   
@@ -211,7 +211,7 @@ document.addEventListener("DOMContentLoaded", function(){
         black: 0.6,
         white: 0.1
       },
-      viewFinder :  function(){ return viewFinders[0] },
+      viewFinder :  function(){ return viewFinders[0]; }, // We need to call this one deferred, as image may not be loaded yet
       pixelFilters : [
         function(pixels, i){ PixelFilters.desaturate(pixels, i, -0.5); },
         function(pixels, i){ PixelFilters.noise(pixels, i, 30)},
@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", function(){
         black: 0.8,
         white: 0
       },
-      viewFinder : function(){ return viewFinders[1] }, // We need to call this one deferred, as image may not be loaded yet
+      viewFinder : function(){ return viewFinders[1]; }, // We need to call this one deferred, as image may not be loaded yet
       pixelFilters : [
         function(pixels, i){ PixelFilters.curve(pixels, i, PixelFilters.VINTAGE_CURVE)},
         function(pixels, i){ PixelFilters.noise(pixels, i, 30)},
