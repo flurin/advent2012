@@ -15,7 +15,7 @@ Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
 
 */  
 
-.example{
+.row{
   position: relative;
   padding: 0;
 }
@@ -31,10 +31,11 @@ Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
 #teaser{
   position: absolute;
   background: #fffce6;
-  display: table-cell;
+  display: block;
   width: 100%;
   padding-top: 140px;
   
+  -moz-box-sizing: border-box;  
   box-sizing: border-box;
   
   font-size: 2rem;
