@@ -138,7 +138,7 @@ Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
     #489C00 100%
   );
   
-  background-size: 650px 100%; /* Background size will be adjusted by the JS to match the bar size */
+  background-size: 440px 100%; /* Best guess background, can't use 100% as it will only be the width of the progress bar */
   background-repeat: no-repeat;
 }
 
@@ -146,7 +146,7 @@ Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
   background-color: #489C00;
   background-image: -webkit-linear-gradient(left,#A2122A 0%,#A2122A 12%,#fff 12%,#fff 12.57%,#C53831 12.57%,#C53831 24.57%,#fff 24.57%,#fff 25.14%,#DE5C00 25.14%,#DE5C00 37.14%,#fff 37.14%,#fff 37.71%,#FF9F00 37.71%,#FF9F00 49.71%,#fff 49.71%,#fff 50.28%,#F7E939 50.28%,#F7E939 62.28%,#fff 62.28%,#fff 62.85%,#CFDD04 62.85%,#CFDD04 74.85%,#fff 74.85%,#fff 75.42%,#99BD00 75.42%,#99BD00 87.42%,#fff 87.42%,#fff 88%,#489C00 88%,#489C00 100%);
   
-  background-size: 650px 100%; /* Background size will be adjusted by the JS to match the bar size */
+  background-size: 440px 100%;
   background-repeat: no-repeat;
 }
 
@@ -154,7 +154,7 @@ Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
   background-color: #489C00;
   background-image: linear-gradient(left,#A2122A 0%,#A2122A 12%,#fff 12%,#fff 12.57%,#C53831 12.57%,#C53831 24.57%,#fff 24.57%,#fff 25.14%,#DE5C00 25.14%,#DE5C00 37.14%,#fff 37.14%,#fff 37.71%,#FF9F00 37.71%,#FF9F00 49.71%,#fff 49.71%,#fff 50.28%,#F7E939 50.28%,#F7E939 62.28%,#fff 62.28%,#fff 62.85%,#CFDD04 62.85%,#CFDD04 74.85%,#fff 74.85%,#fff 75.42%,#99BD00 75.42%,#99BD00 87.42%,#fff 87.42%,#fff 88%,#489C00 88%,#489C00 100%);
   
-  background-size: 650px 100%; /* Background size will be adjusted by the JS to match the bar size */
+  background-size: 440px 100%;
   background-repeat: no-repeat;
 }
 
