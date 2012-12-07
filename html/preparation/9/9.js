@@ -12,3 +12,46 @@ Digitpaint HTML and CSS Advent 2012
 Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
 
 */  
+
+document.addEventListener("DOMContentLoaded", function(){
+  // Find the right method, call on correct element
+  function launchFullScreen(element) {
+    if(element.requestFullScreen) {
+      element.requestFullScreen();
+    } else if(element.mozRequestFullScreen) {
+      element.mozRequestFullScreen();
+    } else if(element.webkitRequestFullScreen) {
+      element.webkitRequestFullScreen();
+    }
+  }
+  
+  function cancelFullScreen(){
+    if (document.cancelFullScreen) {
+      document.cancelFullScreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitCancelFullScreen) {
+      document.webkitCancelFullScreen();
+    }  
+  }
+
+  document.getElementById("make-fullscreen").addEventListener("click", function(){
+    // Launch fullscreen for browsers that support it!
+    launchFullScreen(document.getElementById("fullscreen")); // any individual element    
+  });
+  
+  document.getElementById("make-page-fullscreen").addEventListener("click", function(){
+    launchFullScreen(document.documentElement); // any individual element        
+  });
+  
+  
+  
+  document.getElementById("cancel-fullscreen").addEventListener("click", function(){
+    cancelFullScreen();
+  });
+  
+  document.addEventListener("webkitfullscreenchange", function(){
+    console.log("Yeah something changed", document.webkitFullscreenElement);
+  })
+  
+});

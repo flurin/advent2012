@@ -12,3 +12,23 @@ Digitpaint HTML and CSS Advent 2012
 Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
 
 */  
+
+html:-webkit-full-screen{
+  width: 100%;
+  height: 100%;
+}
+
+#fullscreen:-webkit-full-screen{
+  width: 100%;
+  height: 100%;
+  background: #f00;
+}
+
+#fullscreen button{
+  display: none;
+}
+
+#fullscreen:-webkit-full-screen  button,
+:-webkit-full-screen #fullscreen button{
+  display: inline-block;
+}
