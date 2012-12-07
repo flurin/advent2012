@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function(){
     time.push(Math.floor(secondsLeft/3600));
     secondsLeft = secondsLeft % 3600
     time.push(Math.floor(secondsLeft/60));
-    time.push(secondsLeft % 60);
+    time.push(Math.round(secondsLeft % 60)
     return time.map(function(v){ return v < 10 ? "0" + v : "" + v}).join(":");
   }
   
