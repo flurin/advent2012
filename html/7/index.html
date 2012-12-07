@@ -3,10 +3,17 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>Just missed it. - HTML and CSS Advent 2012 by Digitpaint</title>
-  <meta name="description" content="24 days of HTML/CSS tips, brought to you by the front-end experts at Digitpaint.">
+  <title>TITLE - HTML and CSS Advent 2012 by Digitpaint</title>
   <meta name="author" content="All of us at Digitpaint">
-
+  
+  <meta property="og:title" content="TITLE - HTML &amp; CSS Advent 2012">
+  <meta property="og:url" content="http://advent2012.digitpaint.nl/7">
+  <meta property="og:image" content="/assets/opengraph/07.png">
+  <meta property="og:description" content="">  
+  <meta name="description" content="">
+  
+  <link rel="stylesheet" href="7.css" />
+  <script src="7.js"></script>
   
 </head>
 <body class="layout-article">
@@ -16,39 +23,123 @@
     <!-- [STOP:layout/ribbon] -->    
         
     <article class="main">
-      
-      <header class="header">
-        <div class="body">
-          <span class="day-number">
-            07
-          </span>
-          <h1>
-            Just missed it.
-          </h1>
-        </div>
-        
-        <nav class="browse">
-          
-            <a href="/6/index.html" class="previous">
-              <span class="acc">Previous</span>
-            </a>
-          
-          
-            <a href="/8/index.html" class="next not-yet">
-              <span class="acc">Next</span>
-            </a>
-          
-        </nav>
-      </header>
-      
-      <div class="body text">
-        <p>This page left just a few minutes ago. Sorry about that, but the wife phoned the bar and told it to come home this instant. But it said it’ll be back on the 7th.</p>
 
+      
+
+      <!-- [START:layout/article-header?nr=07&title=Juicy+battery+status&previous=/6/&next=/8/] -->
+      <!-- [STOP:layout/article-header] -->    
+
+      <div class="body text">
+        <p class="intro">
+          While not really a very fancy-pants API, the Battery API is quite useful, especially if you're building
+          an offline web-app. We can read out the charging status, battery level, charge and discharge time, all within the browser.
+        </p>
+
+        <section class="examples">
+          <h2>Here is your current battery state</h2>
+          <p class="warning">
+            Currently only works in Firefox 11+ on Windows and Firefox Aurora on OS X
+          </p>
+          <div class="row">
+            <figure class="example">
+            
+              <div class="battery" id="battery">
+                <meter class="level" min="0" max="1"></meter>
+                <div class="status"></div>
+                
+                <div class="charge-status"></div>
+                <div class="percentage-status">
+                  <div class="percentage"></div>
+                  remaining
+                </div>
+                
+              </div>
+            
+              <figcaption>
+                Connect and disconnect your charger to see what's happening.
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+        
+        <h2>How does it work?</h2>          
+        <p>
+          The Battery API is a clean and simple api (it does have it's quirks though). You can ask for battery information
+          on the <code>navigator.battery</code> object. The <code>navigator.battery</code> object exposes: the <code>level</code>
+          (a value between 0 and 1), the <code>chargeTime</code> (Time until fully charged in seconds, Infinity if full), the
+          <code>dischargeTime</code> (Time until empty, Infinity if plugged in) and <code>charging</code> (wether we're currently charging or not, is false if the battery is full)
+        </p>
+        <p>
+          Other than just reading out values, the <code>navigator.battery</code> object also has a couple of events:
+        </p>
+        <ul>
+          <li>
+            The <code>chargingchange</code> event is triggered when the charging state is changed.
+          </li>
+          <li>
+            The <code>levelchange</code> event is triggered if the battery level has changed.
+          </li>
+          <li>
+            The <code>chargingtimechange</code> event is triggered when the chargingtime changed.
+          </li>
+          <li>
+            The <code>dischargingtimechange</code> event is triggered when the dischargingtime changed.
+          </li>
+        </ul>
+        
+        <h2>Useful?</h2>
+        <p>
+          Sure, but only in some edge cases. You could disable certain effects or other CPU intensive tasks that
+          aren't required at the moment. If you'd had to store data on the server you could detect the battery status and
+          if it's less than 10% send the data more frequently.
+        </p>        
+        
+        <h2>Great, but can I use it today?</h2>
+        <p>
+          At the moment only Firefox for Windows and Firefox Aurora on OS X have proper support for the Battery API. There used
+          to be support in Chrome (somewhere in 2012) but it has been removed again.
+        </p>
+        
+        <h2>Show me the source!</h2>
+        <p>
+          Feel free to look around the differente source files we used for this example.
+        </p>
+        <ul>
+          <li><a href="7.js">The javascripts</a></li>
+          <li><a href="7.css">The stylesheet</a></li>
+        </ul>
       </div>
+      
+      <footer class="footer text">
+          
+        <section class="attribution">
+          <h2>Attribution</h2>
+        
+          <p>
+            David Walsh has an extensive blog post titled "<a href="http://davidwalsh.name/battery-api" target="_blank">JavaScript Battery API</a>" which explains most of the basics.
+          </p>
+        </section>
+        
+        <!-- [START:share] -->
+        <!-- [STOP:share] -->
+          
+      </footer>
+      
+      <!-- [START:layout/site-navigation] --> 
+      <!-- [STOP:layout/site-navigation] -->
+      
     </article>
         
   </div>
     
+  <script>  
+    var addthis_share = { 
+      templates: {
+        twitter: 'Awesome! The HTML and CSS Advent 2012 #dpadvent {{url}}'
+      }
+    }
+  </script>
+  
   <!-- [START:javascripts] -->
   <!-- [STOP:javascripts] -->    
 </body>
