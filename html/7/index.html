@@ -3,14 +3,14 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>TITLE - HTML and CSS Advent 2012 by Digitpaint</title>
+  <title>Power up the Battery API - HTML and CSS Advent 2012 by Digitpaint</title>
   <meta name="author" content="All of us at Digitpaint">
   
-  <meta property="og:title" content="TITLE - HTML &amp; CSS Advent 2012">
+  <meta property="og:title" content="Power up the Battery API - HTML &amp; CSS Advent 2012">
   <meta property="og:url" content="http://advent2012.digitpaint.nl/7">
   <meta property="og:image" content="/assets/opengraph/07.png">
-  <meta property="og:description" content="">  
-  <meta name="description" content="">
+  <meta property="og:description" content="Checking your battery status with Battery API">  
+  <meta name="description" content="Checking your battery status with Battery API">
   
   <link rel="stylesheet" href="7.css" />
   <script src="7.js"></script>
@@ -24,21 +24,21 @@
         
     <article class="main">
 
-      
-
-      <!-- [START:layout/article-header?nr=07&title=Juicy+battery+status&previous=/6/&next=/8/] -->
+      <!-- [START:layout/article-header?nr=07&title=Power+up+the+Battery+API&previous=/6/&next=/8/] -->
       <!-- [STOP:layout/article-header] -->    
 
       <div class="body text">
         <p class="intro">
-          While not really a very fancy-pants API, the Battery API is quite useful, especially if you're building
-          an offline web-app. We can read out the charging status, battery level, charge and discharge time, all within the browser.
+          While not really one of the fancy-pants APIs, the Battery API is quite useful. Especially if you're building an
+          offline web-app. We can read out the charging status, battery level, charge and discharge time, all within the
+          browser.
         </p>
 
         <section class="examples">
-          <h2>Here is your current battery state</h2>
+          <h2>Your current battery status</h2>
           <p class="warning">
-            Currently only works in Firefox 11+ on Windows and Firefox Aurora on OS X
+            Currently only works in Firefox (Note: on OS X it's slightly wonky and
+            sometimes doesn't trigger events, Firefox Aurora seems to work fine).
           </p>
           <div class="row">
             <figure class="example">
@@ -62,15 +62,16 @@
           </div>
         </section>
         
-        <h2>How does it work?</h2>          
+        <h2>Mister, could you explain this to me?</h2>          
         <p>
-          The Battery API is a clean and simple api (it does have it's quirks though). You can ask for battery information
-          on the <code>navigator.battery</code> object. The <code>navigator.battery</code> object exposes: the <code>level</code>
-          (a value between 0 and 1), the <code>chargeTime</code> (Time until fully charged in seconds, Infinity if full), the
-          <code>dischargeTime</code> (Time until empty, Infinity if plugged in) and <code>charging</code> (wether we're currently charging or not, is false if the battery is full)
+          The Battery API is generally a clean and well-behaved API, although it does have it's quirks :). The API allows
+          you to request battery information on the <code>navigator.battery</code> object. The <code>navigator.battery</code> object exposes: the
+          <code>level</code> (a value between 0 and 1), the <code>chargeTime</code> (time until fully charged in seconds, 0 when full), the
+          <code>dischargeTime</code> (time until empty, infinity when plugged in) and <code>charging</code> (wether we're currently charging or not —
+          this value is false if the battery is full)          
         </p>
         <p>
-          Other than just reading out values, the <code>navigator.battery</code> object also has a couple of events:
+          Other than just reading out values, the <code>navigator.battery</code> object also has a couple of events:          
         </p>
         <ul>
           <li>
@@ -89,15 +90,15 @@
         
         <h2>Useful?</h2>
         <p>
-          Sure, but only in some edge cases. You could disable certain effects or other CPU intensive tasks that
-          aren't required at the moment. If you'd had to store data on the server you could detect the battery status and
-          if it's less than 10% send the data more frequently.
-        </p>        
+          Sort of, but only in some fringe cases. You could disable certain effects or other CPU intensive tasks that
+          aren't vital to conserve a user's battery life. If you had to store data on a server, you could detect the
+          battery status and when it drops under 10% send the data more frequently. 
+        </p>
         
-        <h2>Great, but can I use it today?</h2>
+        <h2>Nice! Can I have it?</h2>
         <p>
-          At the moment only Firefox for Windows and Firefox Aurora on OS X have proper support for the Battery API. There used
-          to be support in Chrome (somewhere in 2012) but it has been removed again.
+          It's only supported on Firefox at this time, but on OS X it acts a bit wonky. Firefox Aurora on OS X seems fine. There used to be support in
+          Chrome (somewhere in 2012) but it has since been removed (no reason given).
         </p>
         
         <h2>Show me the source!</h2>
@@ -116,7 +117,8 @@
           <h2>Attribution</h2>
         
           <p>
-            David Walsh has an extensive blog post titled "<a href="http://davidwalsh.name/battery-api" target="_blank">JavaScript Battery API</a>" which explains most of the basics.
+            David Walsh has an extensive blog post titled "<a href="http://davidwalsh.name/battery-api"
+            target="_blank">JavaScript Battery API</a>" which explains most of the basics in more detail.
           </p>
         </section>
         

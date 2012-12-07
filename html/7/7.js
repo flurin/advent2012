@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function(){
   // Too bad, no support for Battery API
   if(!battery){
     batteryEl.classList.add("unsupported");
-    setStatusText("Sorry, your browser does not seem to know about the Battery API")
+    setStatusText("Sorry, your browser doesn't appear to support the Battery API.")
   } else {
     
     // Initial setup
