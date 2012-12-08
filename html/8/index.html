@@ -3,10 +3,17 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>Sneaky hobbitses! - HTML and CSS Advent 2012 by Digitpaint</title>
-  <meta name="description" content="24 days of HTML/CSS tips, brought to you by the front-end experts at Digitpaint.">
+  <title>Hide &amp; seek with the Page Visibility API - HTML and CSS Advent 2012 by Digitpaint</title>
   <meta name="author" content="All of us at Digitpaint">
-
+  
+  <meta property="og:title" content="Hide &amp; seek with the Page Visibility API - HTML &amp; CSS Advent 2012">
+  <meta property="og:url" content="http://advent2012.digitpaint.nl/8">
+  <meta property="og:image" content="/assets/opengraph/08.png">
+  <meta property="og:description" content="See wether the current page is actually visible in the browser with the Page Visibility API">  
+  <meta name="description" content="See wether the current page is actually visible in the browser with the Page Visibility API">
+  
+  <link rel="stylesheet" href="8.css" />
+  <script src="8.js"></script>
   
 </head>
 <body class="layout-article">
@@ -16,39 +23,145 @@
     <!-- [STOP:layout/ribbon] -->    
         
     <article class="main">
-      
-      <header class="header">
-        <div class="body">
-          <span class="day-number">
-            08
-          </span>
-          <h1>
-            Sneaky hobbitses!
-          </h1>
-        </div>
-        
-        <nav class="browse">
-          
-            <a href="/7/index.html" class="previous">
-              <span class="acc">Previous</span>
-            </a>
-          
-          
-            <a href="/9/index.html" class="next not-yet">
-              <span class="acc">Next</span>
-            </a>
-          
-        </nav>
-      </header>
-      
-      <div class="body text">
-        <p>Sneaky hobbitses tries to tricks us! Try to see the 8th before it is the 8th...sneaky sneaky hobbitses.</p>
 
+      <!-- [START:layout/article-header?nr=08&title=Hide+%26+seek+with+the+Page+Visibility+API&previous=/7/&next=/9/] -->
+      <!-- [STOP:layout/article-header] -->    
+
+      <div class="body text">
+        <p class="intro">
+          Just like the Battery API, the Page Visibility API is a tiny but useful API (let's refer to them as "niche
+          APIs"). It tells us wether a page is visible or not. Before this you always had to assume the page was visible,
+          even when it was not. 
+      </p>
+        
+        <section class="examples">        
+          <h2>Let's play a game!</h2>
+          <p>
+            Look up these questions in another tab, then check back to get a live demo of this API in action (actually, you
+            don't have to look anything up, just switching tabs back and forth will do. :)
+          </p>
+          <div class="row">
+            <figure class="example">
+              
+              <div class="quizz">
+                <div class="question prev hidden">
+                  <h3>Previous question</h3>
+                  <img id="prev-image" src="">
+                  <div id="prev-question" class="question"></div>
+                  <div id="prev-answer" class="answer"></div>
+                </div>
+              
+                <div class="question next">
+                  <h3>Next question</h3>
+                  <img id="next-image" src="">                  
+                  <div id="next-question" class="question"></div>
+                </div>
+              
+                <time class="timer">
+                  The last question took you <span id="timer">00:00:00</span> to look up.
+                </time>
+              </div>
+              
+            </figure>
+          </div>
+        </section>
+                
+        <h2>How does it work?</h2>          
+        <p>
+          You can ask <code>document.hidden</code> to see if the document is hidden. Or you can ask for the <code>document.visibilityState</code> to
+          see in what state the page is. This is useful as there are also the <code>"pre-render"</code> and the <code>"unloaded"</code> states besides the <code>"visible"</code> and <code>"hidden"</code> states.
+        </p>
+        <p>
+          Changes in these states trigger events, so you can do something when such a change occurs. You
+          attach your event listeners to the <code>document.onvisibilitychange</code> event to listen in on 
+          visibility changes.
+        </p>
+        
+        <h2>Useful?</h2>
+        <p>
+          Sure. It's not as cool as CSS 3D-transforms, but it is pretty useful nonetheless. Especially uses in more complex
+          web applications come to mind. Here's some other uses we (and others) have thought of for this API: 
+        </p>
+        
+        <ul>
+          <li>Auto-pause the game you're playing when it is hidden</li>
+          <li>Stop notifications from appearing when the page is visible (as you are already on the page, you probably won't need notifications)</li>
+          <li>Stop automatic polling of server data when the page is hidden, as the data won't be seen anyway (live statistics come to mind)</li>
+          <li>Automatically pause video when the page it is on becomes hidden (same goes for game sounds)</li>
+          <li>Prevent user views to be counted if the page has not yet become visible (still in pre-render state)</li>
+        </ul>
+        
+        <h2>Whoopdidoo! Just one question: can I use it today?</h2>
+        <p>
+          Support for this API is actually pretty decent. Sure, you need to prefix for some of them, but that's how it is
+          with pretty much all the fancy new stuff nowadays. The only browser that falls short on this is Safari, which is
+          kind of disappointing.
+        </p>
+        
+        <h2>Source, here!</h2>
+        <p>
+          Feel free to look around the differente source files we used for this example.
+        </p>
+        <ul>
+          <li><a href="8.js">The javascripts</a> (this is where te magic happens)</li>
+          <li><a href="8.css">The stylesheet</a> (just some styling for our little game)</li>
+        </ul>
       </div>
+      
+      <footer class="footer text">
+          
+        <section class="attribution">
+          <h2>Attribution</h2>
+          
+          <p>
+            The idea for this article came from David Walshes blogpost "<a href="http://davidwalsh.name/page-visibility" target="_blank">Page Visibility API</a>".
+          </p>
+          
+          <p>
+            <a href="http://www.html5rocks.com/en/tutorials/pagevisibility/intro/" target="_blank">"Using the Pagevisibility API</a>"
+            by Joe Marini on HTML5 rocks.
+          </p>
+
+          <p>
+            Of course the <a href="http://www.w3.org/TR/page-visibility/" target="_blank">Page visibility</a> W3C spec is always a good read
+          </p>
+          
+          <h2>Some other demos</h2>
+          <p>
+            There is this <a href="http://ie.microsoft.com/testdrive/Performance/PageVisibility/Default.html" target="_blank">pretty fancy Page Visibility API demo</a> by Microsoft.
+          </p>
+          
+          <p>
+            The used photo's are copyrighted by their respective owners:
+          </p>
+          <ul>
+            <li><a href="http://www.sxc.hu/photo/1092924" target="_blank">Snowy tree photo by Sanja Gjenero (lusi) via Stock.Xchng</a></li>
+            <li><a href="http://www.sxc.hu/photo/658976" target="_blank">Library photo by Gary Tamin (garytamin) via Stock.Xchng</a></li>
+            <li><a href="http://www.sxc.hu/photo/138461" target="_blank">Snow field photo by Andi O (andionline) via Stock.Xchng</a></li>
+          </ul>
+          
+        </section>
+        
+        <!-- [1START:share] -->
+        <!-- [STOP:share] -->
+          
+      </footer>
+      
+      <!-- [START:layout/site-navigation] --> 
+      <!-- [STOP:layout/site-navigation] -->
+      
     </article>
         
   </div>
     
+  <script>  
+    var addthis_share = { 
+      templates: {
+        twitter: 'Hide & seek with the Page Visibility API in the HTML and CSS Advent 2012 #dpadvent {{url}}'
+      }
+    }
+  </script>
+  
   <!-- [START:javascripts] -->
   <!-- [STOP:javascripts] -->    
 </body>

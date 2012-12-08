@@ -1,0 +1,68 @@
+/*
+
+Digitpaint HTML and CSS Advent 2012
+
+ #######                                       ##                        ####    ##   ##     
+/##////##                                     /##                       #/// #  /##  /##     
+/##    /##  #####   #####   #####  ########## /##       #####  ######  /#   /# ######/##     
+/##    /## ##///## ##///## ##///##//##//##//##/######  ##///##//##//#  / #### ///##/ /###### 
+/##    /##/#######/##  // /####### /## /## /##/##///##/####### /## /    #/// #  /##  /##///##
+/##    ## /##//// /##   ##/##////  /## /## /##/##  /##/##////  /##     /#   /#  /##  /##  /##
+/#######  //######//##### //###### ### /## /##/###### //######/###     / ####   //## /##  /##
+///////    //////  /////   ////// ///  //  // /////    ////// ///       ////     //  //   // 
+
+Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
+
+*/  
+
+.quizz{
+  background: #FFFCE6;
+  padding: 1rem;
+}
+
+.quizz .timer{
+  display: block;
+  margin: 0 -1rem -1rem -1rem;
+  padding: 1rem;
+  border-top: 1px dashed #878148;
+  font-family: ClanWeb;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.quizz > .question{
+  padding: 1rem;
+  background: #E8E4C0;
+  margin-bottom: 1rem;
+  overflow: hidden; /* Autoclearing */
+}
+
+.quizz > .question.hidden{
+  display: none;
+}
+
+.question h3{
+  margin-bottom: 0.5rem;
+}
+
+.question.next{
+  background: -webkit-linear-gradient(top, #A20000, #C40000);
+  background: -moz-linear-gradient(top, #A20000, #C40000);
+  background: linear-gradient(top, #A20000, #C40000);    
+  color: #fff;
+}
+
+.question .question{
+  font-size: 1.8rem;
+  font-family: ClanWeb;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.question img{
+  float: left;
+  width: 45px;
+  height: 45px;
+  margin: 0 1rem 1rem 0;
+  border: none;
+}
