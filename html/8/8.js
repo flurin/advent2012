@@ -26,7 +26,7 @@ Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
       hiddenSeconds = 0;
   
   var questions = [
-    ["How much Charles Dickens and Ralph Cosham's unabridged Christmas Carol (Audible Audio) on Amazon.com?", "$ 9.95", "images/library_tiny.jpg"],
+    ["How much does Charles Dickens and Ralph Cosham's unabridged Christmas Carol (Audible Audio) cost on Amazon.com?", "$ 9.95", "images/library_tiny.jpg"],
     ["How tall was the tallest Rockefeller Center christmas tree according to Wikipedia?", "30m", "images/ball_tiny.jpg"],
     ["How far does WolframAlpha say is the north pole from Nijmegen, The Netherlands?", "4256km", "images/snowfield_tiny.jpg"]
   ]
