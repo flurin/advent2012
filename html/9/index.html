@@ -3,10 +3,17 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>Trololo-lolo-lolo-lolo-lolo-loooo - HTML and CSS Advent 2012 by Digitpaint</title>
-  <meta name="description" content="24 days of HTML/CSS tips, brought to you by the front-end experts at Digitpaint.">
+  <title>Think outside the box with Fullscreen API - HTML and CSS Advent 2012 by Digitpaint</title>
   <meta name="author" content="All of us at Digitpaint">
-
+  
+  <meta property="og:title" content="Think outside the box with Fullscreen API - HTML &amp; CSS Advent 2012">
+  <meta property="og:url" content="http://advent2012.digitpaint.nl/9">
+  <meta property="og:image" content="/assets/opengraph/09.png">
+  <meta property="og:description" content="With the Fullscreen API you can make any element (video &amp; games, anyone?) go fullscreen, that includes the full page if you want.">  
+  <meta name="description" content="With the Fullscreen API you can make any element (video &amp; games, anyone?) go fullscreen, that includes the full page if you want.">
+  
+  <link rel="stylesheet" href="9.css" />
+  <script src="9.js"></script>
   
 </head>
 <body class="layout-article">
@@ -16,40 +23,135 @@
     <!-- [STOP:layout/ribbon] -->    
         
     <article class="main">
-      
-      <header class="header">
-        <div class="body">
-          <span class="day-number">
-            09
-          </span>
-          <h1>
-            Trololo-lolo-lolo-lolo-lolo-loooo
-          </h1>
-        </div>
-        
-        <nav class="browse">
-          
-            <a href="/8/index.html" class="previous">
-              <span class="acc">Previous</span>
-            </a>
-          
-          
-            <a href="/10/index.html" class="next not-yet">
-              <span class="acc">Next</span>
-            </a>
-          
-        </nav>
-      </header>
-      
-      <div class="body text">
-        <p>We’re not trying to troll you, but you have to wait a little longer.</p>
-<p><a href="http://www.youtube.com/watch?v=YLczcnld8eU&feature=fvwrel" target="_blank">This should kill a few minutes...</a></p>
 
+      <!-- [START:layout/article-header?nr=09&title=Think+outside+the+box+with+Fullscreen+API&previous=/8/&next=/10/] -->
+      <!-- [STOP:layout/article-header] -->    
+
+      <div class="body text">
+        <p class="intro">
+          The browser used to be a box that could only fill as much of the screen as the OS permitted. Pages were trapped
+          within the confines of the browser window. Time to bust out of this joint! How? Fullscreen API, that's how! With
+          the Fullscreen API you can make any element (video &amp; games, anyone?) go fullscreen, that includes the full page
+          if you want.
+        </p>
+        
+        <section class="examples">        
+          <h2>What'cha gonna do with it then?</h2>
+          
+          <div class="row">
+            <figure class="example">
+              
+              <div id="fullscreen">
+                <img src="images/alien.svg" class="alien">
+                
+                <!-- We placed it inside here as it should turn up in both variants -->
+                <div class="cancel-fullscreen">
+                  <button id="cancel-fullscreen">Please get me outta here!</button>
+                </div>
+              </div>
+              
+              <button id="make-div-fullscreen">Make it go fullscreen!</button>              
+              
+              <figcaption>
+                That's one tiny christmas alien...
+              </figcaption>
+            </figure>
+            
+            <figure class="example">
+              
+              <button id="make-page-fullscreen">I ♥ fullscreen browsing!</button>
+              
+              <figcaption>
+                Click the button to make the whole page go fullscreen
+              </figcaption>
+            </figure>            
+          </div>
+        </section>
+
+        
+        <h2>How would that go, matey?</h2>          
+        <p>
+          Again, this is an easy to understand and straight-forward API. You can call <code>requestFullScreen</code> on any element in
+          the DOM to make it go fullscreen (although fullscreen access is not guaranteed). You can detect when an element
+          goes fullscreen by listening to the <code>fullscreenchange</code> event, and check which element is in fullscreen mode by
+          calling <code>document.fullscreenElement</code>.          
+        </p>
+        <p>
+          Once an element is in fullscreen mode you can apply specific styles to it with the <code>:full-screen</code> pseudo-selector.
+          We used this selector to make the image as wide as the screen in the example above.
+        </p>
+        <p>
+          As there is a significant security risk in this fancy feature, browser-builders took some precautions. Chrome, as
+          well as Firefox, won't allow anything to go fullscreen unless it is triggered by direct user action (ie. a click
+          or keyboard input). In addition to that, a big message is displayed warning you that your browser is now in
+          fullscreen mode. This warning can also be used by the user to deny or allow fullscreen for this window. There are
+          some other cases where the browser vendors took precautions, so you might want to look into that before going to
+          all out and salting your app heavily with Fullscreen API goodness.
+        </p>
+          
+        <p>
+          To see what a hostile website could do, see the article
+          "<a href="http://feross.org/html5-fullscreen-api-attack/">Using the HTML5 Fullscreen API for Phishing
+          attacks</a>" by Feross Aboukhadijeh to see what I mean (don't worry, the link is safe — it just describes what
+          happens).
+        </p>
+        
+        <h2>Useful?</h2>
+        <p>
+          If you're building games or are working with video, it is a must-have. Other things you could do with it include (but not limited to):
+        </p>
+        <ul>
+          <li>Make your fullscreen presentations in HTML (we know some of you already do this)</li>
+          <li>Full-screen gaming</li>
+          <li>Kiosk-style apps (you'd probably need something more here though; wouldn't want people to exit full-screen mode)</li>
+        </ul>
+        
+        <h2>Now, how'bout them source?</h2>
+        <p>
+          Opera is the only one with an un-prefixed version. Firefox, Chrome and Safari support the API but only with a
+          prefix. IE is absent from the supported list.
+        </p>
+        
+        <h2>Show me the source!</h2>
+        <p>
+          Feel free to stroll about, enjoy the fresh sea air and look up the various source files we used for this example.
+        </p>
+        <ul>
+          <li><a href="9.js">The javascripts</a></li>
+          <li><a href="9.css">The stylesheet</a></li>
+        </ul>
       </div>
+      
+      <footer class="footer text">
+          
+        <section class="attribution">
+          <h2>Attribution</h2>
+        
+          <p>
+            The MDN article "<a href="https://developer.mozilla.org/en-US/docs/DOM/Using_fullscreen_mode" target="_blank">
+              Using fullscreen mode</a>" explains most of the basics.
+          </p>        
+        </section>
+        <!-- [START:share] -->
+        <!-- [STOP:share] -->
+          
+      </footer>
+      
+      <!-- [START:layout/site-navigation] --> 
+      <!-- [STOP:layout/site-navigation] -->
+      
     </article>
         
   </div>
     
+  <script>  
+    var addthis_share = { 
+      templates: {
+        twitter: 'Think outside the box with Fullscreen API in the HTML and CSS Advent 2012 #dpadvent {{url}}'
+      }
+    }
+  </script>
+  
   <!-- [START:javascripts] -->
   <!-- [STOP:javascripts] -->    
 </body>

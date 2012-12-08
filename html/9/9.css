@@ -1,0 +1,251 @@
+/*
+
+Digitpaint HTML and CSS Advent 2012
+
+  ____                          _                  ___  _   _     
+ |  _ \  ___  ___ ___ _ __ ___ | |__   ___ _ __   / _ \| |_| |__  
+ | | | |/ _ \/ __/ _ \ '_ ` _ \| '_ \ / _ \ '__| | (_) | __| '_ \ 
+ | |_| |  __/ (__  __/ | | | | | |_) |  __/ |     \__, | |_| | | |
+ |____/ \___|\___\___|_| |_| |_|_.__/ \___|_|       /_/ \__|_| |_|
+                                                                  
+
+Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
+
+*/  
+
+/* Align the buttons */
+.example{
+  text-align: center;
+}
+
+.example figcaption{
+  text-align: left;
+}
+
+
+/* Make the element have 100% width and height in fullscreen mode*/
+:-webkit-full-screen{
+  width: 100%;
+  height: 100%;
+}
+
+:-moz-full-screen{
+  width: 100%;
+  height: 100%;
+}
+
+:full-screen{
+  width: 100%;
+  height: 100%;
+}
+
+/* ============================== */
+/* = Nice cancel fullscreen bar = */
+/* ============================== */
+
+.cancel-fullscreen{
+  display: none;
+}
+
+:-webkit-full-screen .cancel-fullscreen{
+  display: block;
+  position: fixed;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  background: #FFFCE6;
+  z-index: 500;
+}
+
+:-moz-full-screen .cancel-fullscreen{
+  display: block;
+  position: fixed;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  background: #FFFCE6;
+  z-index: 500;
+}
+
+:full-screen .cancel-fullscreen{
+  display: block;
+  position: fixed;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  background: #FFFCE6;
+  z-index: 500;
+}
+
+
+/* ========================== */
+/* = One element fullscreen = */
+/* ========================== */
+
+#fullscreen{
+  text-align: center;
+}
+
+/* Full screen mode styles */
+
+/* Make it have a background*/
+#fullscreen:-webkit-full-screen{
+  background: #25002b;
+}
+
+#fullscreen:-moz-full-screen{
+  background: #25002b;
+}
+
+#fullscreen:full-screen{
+  background: #25002b;
+}
+
+#fullscreen{
+  -webkit-perspective: 1000px;
+  -webkit-perspective-origin: 50% 50%;
+  -webkit-transform-style: preserve-3d;
+  
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+  transform-style: preserve-3d;
+  
+  overflow: hidden;
+}
+
+.alien{
+  width: 16px;  
+  -webkit-animation-duration: 5s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-play-state: running;
+  -webkit-animation-direction: normal;  
+  -webkit-animation-fill-mode: forwards;  
+  
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-play-state: running;
+  animation-direction: normal;  
+  animation-fill-mode: forwards;    
+}
+
+:-webkit-full-screen .alien{
+  width: 388px;
+  height: 256px;
+  z-index: 501;  
+  position: absolute;
+  pointer-events: none;
+  left: 50%;
+  margin-left: -194px;
+  top: 50%;
+  margin-top: -128px;
+  
+  -webkit-transform: translate3d(0, 0, 1000px);  
+  -webkit-animation-name: fly-by;
+}
+
+:-moz-full-screen .alien{
+  width: 388px;
+  height: 256px;
+  z-index: 501;  
+  position: absolute;
+  pointer-events: none;
+  left: 50%;
+  margin-left: -194px;
+  top: 50%;
+  margin-top: -128px;
+    
+  transform: translate3d(0, 0, 1000px);  
+  animation-name: fly-by;
+}
+
+:full-screen .alien{
+  width: 388px;
+  height: 256px;
+  z-index: 501;  
+  position: absolute;
+  pointer-events: none;
+  left: 50%;
+  margin-left: -194px;
+  top: 50%;
+  margin-top: -128px;
+  
+  -webkit-transform: translate3d(0, 0, 1000px);  
+  -webkit-animation-name: fly-by;
+  
+  transform: translate3d(0, 0, 1000px);  
+  animation-name: fly-by;  
+}
+
+/* The animation */
+
+@-webkit-keyframes fly-by{
+  0% {
+    left: 50%;
+    -webkit-transform: translate3d(0, 0, -5000px) rotate(10deg);
+  }
+      
+  25%{
+    left: 0;
+    -webkit-transform: translate3d(0, 0, -3500px) rotate(-10deg);        
+  }
+      
+  50%{
+    left: 100%;
+    -webkit-transform: translate3d(0, 0, -2000px) rotate(0deg);
+  }
+      
+  75%{
+    left: 0;
+    -webkit-transform: translate3d(0, 0, -500px) rotate(-20deg);        
+  }
+            
+  99% {
+    left: 50%;
+    -webkit-transform: translate3d(0, 25%, 1000px) rotate(0deg);
+    opacity: 1;
+  }
+  
+  100%{
+    opacity: 0;
+  }
+}
+
+@keyframes fly-by{
+  0% {
+    left: 50%;
+    transform: translate3d(0, 0, -5000px) rotate(10deg);
+  }
+      
+  25%{
+    left: 0;
+    transform: translate3d(0, 0, -3500px) rotate(-10deg);        
+  }
+      
+  50%{
+    left: 100%;
+    transform: translate3d(0, 0, -2000px) rotate(0deg);
+  }
+      
+  75%{
+    left: 0;
+    transform: translate3d(0, 0, -500px) rotate(-20deg);        
+  }
+            
+  99% {
+    left: 50%;
+    transform: translate3d(0, 25%, 1000px) rotate(0deg);
+    opacity: 1;
+  }
+  
+  100%{
+    opacity: 0;
+  }
+}
