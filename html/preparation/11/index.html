@@ -24,29 +24,68 @@
         
     <article class="main">
 
-      
-
       <!-- [START:layout/article-header?nr=11&title=&previous=/10/&next=/12/] -->
       <!-- [STOP:layout/article-header] -->    
 
       <div class="body text">
         <p class="intro">
-          
+          While <code>text-decoration</code> certainly isn't a cool feature, it is a very usefull one. It has 
+          been around quite a while but it got an overhaul with the CSS Text Decoration Module Level 3 spec. The new
+          text decoration features give you a lot more control than you had before.
         </p>
         
-        <h2>Here are some examples</h2>
-        ...
+        <section class="examples">        
+          <h2>What'cha gonna do with it then?</h2>
+          <p>
+            <strong>Attention!</strong> This examply only works in Firefox at the moment.
+          </p>
+          <div class="row">
+            <figure class="example">
+              <ul>
+                <li class="underline wavy">Wavy underlines</li>
+                <li class="underline dashed">Dashed underlines</li>
+                <li class="underline colored">Underlines with different color</li>
+                <li><span class="overline">Overline</span> can be <span class="overline wavy">wavy too</span></li>
+                <li><span class="line-through">Line through</span> <span class="line-through colored">with different color</span></li>                
+                <li><span class="underline skip-spaces">Skip underlines on spaces</span> (no support yet..)</li>
+              </ul>
+              
+              <figcaption>
+                Some cool line coloring examples. :)
+              </figcaption>
+            </figure>
+            
+         
+          </div>
+        </section>
         
         <h2>How does it work?</h2>          
         <p>
+          After yesterday's extremly hard Audio API, the text-decoration css property is a breeze. The CSS property
+          <code>text-decoration-line</code> defines where you want your text line positioned. The value can by any of:
+          <code>underline</code>, <code>overline</code> or <code>line-through</code>. The <code>text-decoration-style</code>
+          property let's you choose what kind of line you want the <code>text-decoration-line</code> to be. It can have most
+          of the default line style values you already know from css borders. The color of the line is controlled with <code>text-decoration-color</code>
+          and can be any color.
+        </p>
+        
+        <p>
+          Most unfortunately, the more cooler features like <code>text-decoration-skip</code> have not been implemented
+          by any browser yet. It would allow you to specify when you want the line to break, for instance to not have
+          underlines on spaces.
         </p>
         
         <h2>Useful?</h2>
         <p>
+          It's a tiny thing but it just gives you a tad more control than the old CSS2.1 version. Previously you'd
+          need all kinds of hacks to creaty nice wavy underlines when you rolled your own spellchecking, with these
+          <code>text-decoration-*</code> properties this becomes a breeze.
         </p>
         
         <h2>Great, but can I use it today?</h2>
         <p>
+          Not quite, although Firefox supports some of the spec since version 6, none of the other browsers currently
+          support it. There is a resolved bug for this in Webkit, but we couldn't get it to work in Chrome or in Chrome Canary.
         </p>
         
         <h2>Show me the source!</h2>
@@ -54,18 +93,24 @@
           Feel free to look around the differente source files we used for this example.
         </p>
         <ul>
-          <li><a href="#">The javascripts</a></li>
-          <li><a href="#">The stylesheet</a></li>
+          <li><a href="11.css">The stylesheet</a></li>
         </ul>
       </div>
       
       <footer class="footer text">
           
-        <h2>Attribution</h2>
+        <section class="attribution">
+          <h2>Attribution</h2>
         
-        <p>
-        </p>
+          <p>
+            Most of these examples we built straight from the spec: <a href="http://www.w3.org/TR/2012/WD-css-text-decor-3-20121113/" target="_blank">CSS Text Decoration Module Level 3</a>
+          </p>
         
+          <p>
+            We got the idea for this entry from the post "<a href="http://bricss.net/post/8997944388/css3-text-decoration-implemented-first-in-firefox-6" target="_blank">CSS3 text-decoration implemented first in Firefox 6</a>"
+            by Lennart Schoors on BRICSS
+          </p>
+        </section>
         
         <!-- [START:share] -->
         <!-- [STOP:share] -->

@@ -12,3 +12,53 @@ _  /_/ //  __/ /__ /  __/  / / / / /  /_/ /  __/  /        _  / _  / / /_ _  / /
 Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
 
 */  
+
+.example ul{
+  font-size: 2rem;
+}
+
+.underline{
+  -moz-text-decoration-line: underline;
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+}
+
+.overline{
+  -moz-text-decoration-line: overline;
+  -webkit-text-decoration-line: overline;
+  text-decoration-line: overline;  
+}
+
+.line-through{
+  -moz-text-decoration-line: line-through;
+  -webkit-text-decoration-line: line-through;
+  text-decoration-line: line-through;  
+}
+
+.wavy{  
+  -moz-text-decoration-style: wavy;
+  -webkit-text-decoration-style: wavy;
+  text-decoration-style: wavy;
+}
+
+.dashed{
+  -moz-text-decoration-style: dashed;  
+  -webkit-text-decoration-style: dashed;
+  text-decoration-style: dashed;  
+}
+
+
+.colored{
+  color: #f00;
+  
+  -moz-text-decoration-color: #00f;
+  -webkit-text-decoration-color: #00f;
+  text-decoration-color: #00f;
+}
+
+/* No support yet :( */
+.skip-spaces{
+  -moz-text-decoration-skip: spaces;
+  -webkit-text-decoration-skip: spaces;
+  text-decoration-skip: spaces;  
+}
