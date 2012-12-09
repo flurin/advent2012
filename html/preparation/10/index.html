@@ -24,29 +24,96 @@
         
     <article class="main">
 
-      
-
       <!-- [START:layout/article-header?nr=10&title=&previous=/9/&next=/11/] -->
       <!-- [STOP:layout/article-header] -->    
 
       <div class="body text">
         <p class="intro">
-          
+          Next to all the cool visual stuff you can do in your browser, the Audio API gives you the means to go all out
+          with audio. Not just play, pause, etc. but real audio processing. You can generate sounds (waveforms), you can
+          filter the audio and analyze it.
         </p>
         
-        <h2>Here are some examples</h2>
-        ...
+        <section class="examples">        
+          <h2>What'cha gonna do with it then?</h2>
+          
+          <div class="row">
+            <figure class="example">
+              
+              <canvas id="visualizer" style="width: 100%; height: 200px"></canvas>
+              
+              <h3>LowPass filter</h3>
+              <label for="enable-lowpass-filter"><input type="checkbox" id="enable-lowpass-filter"> Enable</label>
+              <input type="range" min="0" max="20000" id="lowpass-frequency"> Frequency (<output id="lowpass-frequency-output"></output>)
+              <input type="range" value="0.5" min="0" max="3" step="0.1" id="lowpass-gain"> Gain (<output id="lowpass-gain-output"></output>)
+              
+              <h3>HighPass filter</h3>
+              <label for="enable-highpass-filter"><input type="checkbox" id="enable-highpass-filter"> Enable</label>
+              <input type="range" min="0" max="20000" id="highpass-frequency"> Frequency (<output id="highpass-frequency-output"></output>)
+              <input type="range" value="0.5" min="0" max="3" step="0.1" id="highpass-gain"> Gain (<output id="highpass-gain-output"></output>)
+              
+              <h3>Source</h3>
+              <select id="audio-source">
+                <option value="audio">Audio</option>
+                <option value="oscillator">Oscillator</option>                
+              </select>
+              
+              <div id="source-oscillator">
+                <input type="range" value="440" min="0" max="10000" id="oscillator-frequency"> Frequency
+              </div>
+              
+              <div id="source-audio">
+                <audio controls="controls" preload="metadata" id="source-audio-element">
+                  <source src="audio/kevin_macleod-acidjazz.mp3"/>              
+                  <source src="audio/kevin_macleod-acidjazz.ogg"/>              
+                </audio>
+              </div>
+              
+              <figcaption>
+                A full toolbox of audio fun!
+              </figcaption>
+            </figure>
+            
+          </div>
+        </section>
         
         <h2>How does it work?</h2>          
         <p>
+          The Audio API is a really complex beast to tame. It basically works by building a network of processingmodules with
+          each it's own function. Every module has one (or sometimes more) inputs and one or more outputs. The diagram below
+          shows what we did above.
+        </p>
+        
+        <img src="images/graph.png" alt="The processing graph we built">
+        
+        <p>
+          Once you grasp the basics it's actually pretty nice to work with such a powerfull API. 
         </p>
         
         <h2>Useful?</h2>
         <p>
+          Very much so, especially in game design but also in audio content creation. We could for instance build whole
+          DJ-machinery within the browser. Other stuff you could do with it:
         </p>
+        <ul>
+          <li>
+            Build a cloud based DJ-mix panel which you could access anywhere
+          </li>
+          <li>
+            Generate your game sound on demand
+          </li>
+          <li>
+            Build a whole sound-studio in your browser
+          </li>
+          <li>
+            Build your own synthesizer
+          </li>
+        </ul>
         
         <h2>Great, but can I use it today?</h2>
         <p>
+          There is one snag here: it's only supported on Chrome and Safari (and Safari Mobile). The good news however
+          is that Mozilla had an Audio API before it became official and they have said they're working on implementing the new API.
         </p>
         
         <h2>Show me the source!</h2>
@@ -54,18 +121,19 @@
           Feel free to look around the differente source files we used for this example.
         </p>
         <ul>
-          <li><a href="#">The javascripts</a></li>
-          <li><a href="#">The stylesheet</a></li>
+          <li><a href="10.js">The javascripts</a></li>
         </ul>
       </div>
       
       <footer class="footer text">
           
-        <h2>Attribution</h2>
+        <section class="attribution">
+          <h2>Attribution</h2>
         
-        <p>
-        </p>
-        
+          <p>
+            
+          </p>        
+        </section>
         
         <!-- [START:share] -->
         <!-- [STOP:share] -->
