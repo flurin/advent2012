@@ -3,10 +3,17 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>“Erroneous Time Sync Error -13324985” has occurred - HTML and CSS Advent 2012 by Digitpaint</title>
-  <meta name="description" content="24 days of HTML/CSS tips, brought to you by the front-end experts at Digitpaint.">
+  <title>Bring yo Audio API Boombox! - HTML and CSS Advent 2012 by Digitpaint</title>
   <meta name="author" content="All of us at Digitpaint">
-
+  
+  <meta property="og:title" content="Bring yo Audio API Boombox! - HTML &amp; CSS Advent 2012">
+  <meta property="og:url" content="http://advent2012.digitpaint.nl/10">
+  <meta property="og:image" content="/assets/opengraph/10.png">
+  <meta property="og:description" content="Using the Web Audio API to play, filter and analyze audio in your webbrowser">  
+  <meta name="description" content="Using the Web Audio API to play, filter and analyze audio in your webbrowser">
+  
+  <link rel="stylesheet" href="10.css" />
+  <script src="10.js"></script>
   
 </head>
 <body class="layout-article">
@@ -16,39 +23,189 @@
     <!-- [STOP:layout/ribbon] -->    
         
     <article class="main">
-      
-      <header class="header">
-        <div class="body">
-          <span class="day-number">
-            10
-          </span>
-          <h1>
-            “Erroneous Time Sync Error -13324985” has occurred
-          </h1>
-        </div>
-        
-        <nav class="browse">
-          
-            <a href="/9/index.html" class="previous">
-              <span class="acc">Previous</span>
-            </a>
-          
-          
-            <a href="/11/index.html" class="next not-yet">
-              <span class="acc">Next</span>
-            </a>
-          
-        </nav>
-      </header>
-      
-      <div class="body text">
-        <p>Quick, reboot the universe and check back on the 10th!</p>
 
+      <!-- [START:layout/article-header?nr=10&title=Bring+yo+Audio+API+Boombox!&previous=/9/&next=/11/] -->
+      <!-- [STOP:layout/article-header] -->    
+
+      <div class="body text">
+        <p class="intro">
+          Apart from all the stunning visual stuff you can do in your browser, we also have something in store for tricking
+          out audio. The Audio API gives you the means to party hard with some audio. And we don't mean just controls like
+          play, pause, etc. — but serious in-browser audio processing. You can generate sounds (waveforms), filter the
+          audio, and analyze it. 
+        </p>
+        
+        <section class="examples">        
+          <h2>Seeing is believing</h2>
+          <p>
+            <strong>Attention!</strong> This example only works in Chrome, the oscillator should also work in Safari.</p>
+          </p>
+          <div class="row">
+            <figure class="example">
+              
+              <div class="mixer">
+                <canvas id="visualizer" style="width: 100%; height: 200px"></canvas>
+                
+                <div class="controls">
+                  <div class="source">
+                    <h3>Source</h3>
+                    <select id="audio-source">
+                      <option value="audio">Audio</option>
+                      <option value="oscillator">Oscillator</option>                
+                    </select>              
+                  </div>
+                  
+                  <div id="source-oscillator">
+                    <h3>Oscillator</h3>
+                    <div class="range">
+                      <input type="range" value="440" min="0" max="10000" id="oscillator-frequency">
+                      <output id="oscillator-frequency-output"></output>
+                      <label for="oscillator-frequency">Frequency</label>
+                    </div>
+                  </div>
+              
+                  <div id="source-audio">
+                    <h3>Audio</h3>
+                    <audio controls="controls" preload="metadata" id="source-audio-element">
+                      <source src="audio/kevin_macleod-acidjazz.mp3"/>              
+                      <source src="audio/kevin_macleod-acidjazz.ogg"/>              
+                    </audio>
+                  </div>
+                  
+                  
+                  <div class="filter lowpass">                
+                    <h3>
+                      <label for="enable-lowpass-filter"><input type="checkbox" id="enable-lowpass-filter"> LowPass filter</label>
+                    </h3>
+                    <div class="range">
+                      <input type="range" value="1200" min="0" max="20000" id="lowpass-frequency">
+                      <output id="lowpass-frequency-output"></output>
+                      <label for="lowpass-frequency">Frequency</label>
+                    </div>
+                    <div class="range">
+                      <input type="range" value="0.5" min="0" max="3" step="0.1" id="lowpass-gain"> 
+                      <output id="lowpass-gain-output"></output>
+                      <label for="lowpass-gain">Gain</label>
+                    </div>
+                  </div>
+                  
+                  <div class="filter highpass">
+                    <h3>
+                      <label for="enable-highpass-filter"><input type="checkbox" id="enable-highpass-filter"> HighPass filter</label>
+                    </h3>
+                    
+                    <div class="range">
+                      <input type="range" value="5500" min="0" max="20000" id="highpass-frequency">
+                      <output id="highpass-frequency-output"></output>
+                      <label for="highpass-frequency">Frequency</label>
+                    </div>
+                    <div class="range">
+                      <input type="range" value="0.5" min="0" max="3" step="0.1" id="highpass-gain"> 
+                      <output id="highpass-gain-output"></output>
+                      <label for="highpass-gain">Gain</label>
+                    </div>
+                  </div>
+              </div>
+              
+              <figcaption>
+                A full toolbox of audio fun!
+              </figcaption>
+            </figure>
+            
+          </div>
+        </section>
+        
+        <h2>How does it work?</h2>          
+        <p>
+          The Audio API is a complex beast to tame. It works by building a network of processingmodules with each it's own
+          function. Every module has one (or more) inputs, and can have a multitude of outputs. The diagram below shows
+          what we did for the example on this page.
+        </p>
+        
+        <img src="images/graph.svg" alt="The processing graph we built for the example above" class="graph">
+        
+        <p>
+          Having said that, once you grasp the basics, it's actually very pleasant to work with such a powerful API.
+        </p>
+        
+        <h2>Under what should I file this? Useful?</h2>
+        <p>
+          Yes please. When thinking of practical applications for this API, game design comes to mind. But it could also be
+          a real powerhouse in audio content creation. Imagine, complete DJ-machinery built right in the browser. Or, if
+          that's not your bag, here's some other stuff you could do with it: 
+        </p>
+        <ul>
+          <li>
+            Create a cloud-based mixing panel which you could access anywhere
+          </li>
+          <li>
+            Generate game sounds on demand
+          </li>
+          <li>
+            Set up an entire studio in your browser
+          </li>
+          <li>
+            Build your own synthesizer
+          </li>
+        </ul>
+        
+        <h2>I love it when a plan comes together...</h2>
+        <p>
+          About that: there is one snag. The Audio API is only supported on Chrome and Safari (and Safari Mobile). However,
+          the good news is that Mozilla had an Audio API before it became official, and they said they're working on
+          implementing the new API as we speak.
+        </p>
+        
+        <h2>We'd like to see your insides, Mr. Source.</h2>
+        <p>
+          No problem, look all you like!
+        </p>
+        <ul>
+          <li><a href="10.js">The javascripts</a></li>
+        </ul>
       </div>
+      
+      <footer class="footer text">
+          
+        <section class="attribution">
+          <h2>Attribution</h2>
+
+          <p>  
+            "<a href="http://creativejs.com/resources/web-audio-api-getting-started/" target="_blank">Web Audio API – Getting started</a>" 
+            on CreativeJS was a big help to understand the whole modules concept of the Audio API
+          </p>        
+          <p>
+            "<a href="http://stuartmemo.com/making-sine-square-sawtooth-and-triangle-waves/" target="_blank">Making sine, square, sawtooth and triangle waves</a>" 
+            by Stuart Memo showed us how to use the Oscillator
+          </p>
+          <p>
+            We used "<a href="http://updates.html5rocks.com/2012/02/HTML5-audio-and-the-Web-Audio-API-are-BFFs" target="_blank">HTML5 &lt;audio&gt; and the web audio API are BFFS!</a>"
+             by Eric Bidelman to learn how to connect the HTML5 audio element to the Audio API.
+          </p>
+          
+          
+        </section>
+        
+        <!-- [START:share] -->
+        <!-- [STOP:share] -->
+          
+      </footer>
+      
+      <!-- [START:layout/site-navigation] --> 
+      <!-- [STOP:layout/site-navigation] -->
+      
     </article>
         
   </div>
     
+  <script>  
+    var addthis_share = { 
+      templates: {
+        twitter: 'Bring yo Audio API Boombox! From the HTML and CSS Advent 2012 #dpadvent {{url}}'
+      }
+    }
+  </script>
+  
   <!-- [START:javascripts] -->
   <!-- [STOP:javascripts] -->    
 </body>

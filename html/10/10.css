@@ -1,0 +1,100 @@
+/*
+
+Digitpaint HTML and CSS Advent 2012
+
+ ______   _______  _______  _______  _______  ______   _______  _______    __    _______ _________         
+(  __  \ (  ____ \(  ____ \(  ____ \(       )(  ___ \ (  ____ \(  ____ )  /  \  (  __   )\__   __/|\     /|
+| (  \  )| (    \/| (    \/| (    \/| () () || (   ) )| (    \/| (    )|  \/) ) | (  )  |   ) (   | )   ( |
+| |   ) || (__    | |      | (__    | || || || (__/ / | (__    | (____)|    | | | | /   |   | |   | (___) |
+| |   | ||  __)   | |      |  __)   | |(_)| ||  __ (  |  __)   |     __)    | | | (/ /) |   | |   |  ___  |
+| |   ) || (      | |      | (      | |   | || (  \ \ | (      | (\ (       | | |   / | |   | |   | (   ) |
+| (__/  )| (____/\| (____/\| (____/\| )   ( || )___) )| (____/\| ) \ \__  __) (_|  (__) |   | |   | )   ( |
+(______/ (_______/(_______/(_______/|/     \||/ \___/ (_______/|/   \__/  \____/(_______)   )_(   |/     \|
+                                                                                                           
+
+Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
+
+*/  
+
+.hidden{
+  display: none !important;
+}
+
+.mixer{
+  background: #FFFCE6;
+  padding: 1.5rem;
+}
+
+.mixer canvas{
+  border: 1px solid #E8E4C0;
+  background: #fff;
+  -moz-box-sizing: border-box;  
+  box-sizing: border-box;  
+}
+
+.controls{
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.controls > div{
+  display: table-cell;
+  background: #E8E4C0;
+  padding: 1rem;
+  border-right: 1rem solid #FFFCE6;
+  vertical-align: top;
+}
+
+.controls > div:last-child{
+  border-right: none;
+}
+
+.controls h3{
+  margin-bottom: 1rem;
+}
+
+/* Range controls */
+.range{
+  padding: 0 0.5rem;
+  text-align: center;
+  float: left;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 50%;
+}
+
+.range input[type=range]{
+  -webkit-appearance: slider-vertical;
+  height: 100px;
+  width: 100%;
+}
+
+.range output{
+  background: #fff;  
+}
+
+.range output,
+.range label{
+  margin-top: 0.5rem;
+  text-align: center;
+  display: block;
+}
+
+#source-oscillator .range{
+  width: 100%;
+}
+
+audio{
+  min-width: 50px;
+  max-width: 100px;
+}
+
+/* The Graph image */
+.graph{
+  width: 100%;
+  -moz-box-sizing: border-box;  
+  box-sizing: border-box;
+  padding: 1.5rem;
+  background: #FFFCE6;
+}

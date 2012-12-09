@@ -34,10 +34,10 @@ document.addEventListener("DOMContentLoaded", function(){
   canvas.width = 650;
   var cCtx = canvas.getContext('2d');
   
-  var audioSource = aCtx.createMediaElementSource(document.getElementById('source-audio-element'));
+  var audioSource = null; //We have to create a hack here because the audio element must be available first. https://code.google.com/p/chromium/issues/detail?id=112368
   var oscillatorSource = aCtx.createOscillator();
   oscillatorSource.frequency.value = 440;
-  oscillatorSource.noteOn(0);  
+  oscillatorSource.noteOn(0);
         
   // setup a analyzer
   var analyser = aCtx.createAnalyser();
@@ -57,7 +57,11 @@ document.addEventListener("DOMContentLoaded", function(){
   f2Gain = aCtx.createGainNode();
   
   // Connect source -> filter 1 and source -> filter 2
-  switchSource(oscillatorSource);
+  // switchSource(oscillatorSource);
+  
+  // Immideately disconnect again (to be reconnected later)
+  // source.disconnect();
+  
     
   // Connect filter -> gain
   filter1.connect(f1Gain);
@@ -137,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("lowpass-frequency-output").innerHTML = filter1.frequency.value + "Hz";
     
     f1Gain.gain.value = document.getElementById("lowpass-gain").value;
-    document.getElementById("lowpass-gain-output").innerHTML = f1Gain.gain.value;
+    document.getElementById("lowpass-gain-output").innerHTML = Math.round(f1Gain.gain.value * 1000)/1000;
   }
   
   var setHighpassFilterValues = function(){
@@ -150,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("highpass-frequency-output").innerHTML = filter2.frequency.value + "Hz";
     
     f2Gain.gain.value = document.getElementById("highpass-gain").value;
-    document.getElementById("highpass-gain-output").innerHTML = f2Gain.gain.value;
+    document.getElementById("highpass-gain-output").innerHTML = Math.round(f2Gain.gain.value * 1000)/1000;
   }
   
   var setAudioSourceValues = function(){
@@ -162,10 +166,19 @@ document.addEventListener("DOMContentLoaded", function(){
       aS.classList.add("hidden");
       switchSource(oscillatorSource);
       oscillatorSource.frequency.value = document.getElementById("oscillator-frequency").value;
+      document.getElementById("oscillator-frequency-output").innerHTML = oscillatorSource.frequency.value + "Hz";
     } else {
       oS.classList.add("hidden");
       aS.classList.remove("hidden");
-      switchSource(audioSource);
+      if(audioSource){
+        switchSource(audioSource);
+      } else {
+        var aEl = document.getElementById('source-audio-element');
+        aEl.addEventListener("canplay", function(){
+          audioSource = aCtx.createMediaElementSource(aEl);
+          switchSource(audioSource);
+        });
+      }
     }
   }
   
