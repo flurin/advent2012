@@ -18,6 +18,15 @@ Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
 
 document.addEventListener("DOMContentLoaded", function(){ 
   
+  // Exit early if webkitAudioContext is not availables
+  if(!window.webkitAudioContext){
+    if(document.querySelector){
+      document.querySelector(".mixer .controls").innerHTML = "Sorry, your browser does not support webkitAudioContext";
+    }
+    return;
+  }
+  
+  
   // Helper method to switch source.
   var switchSource = function(newSource){
     if(source){ source.disconnect(); }
