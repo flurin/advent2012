@@ -13,10 +13,6 @@ Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
 
 */  
 
-.example ul{
-  font-size: 2rem;
-}
-
 .underline{
   -moz-text-decoration-line: underline;
   -webkit-text-decoration-line: underline;
@@ -47,7 +43,6 @@ Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
   text-decoration-style: dashed;  
 }
 
-
 .colored{
   color: #f00;
   
@@ -62,3 +57,24 @@ Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
   -webkit-text-decoration-skip: spaces;
   text-decoration-skip: spaces;  
 }
+
+/* =================== */
+/* = Example styling = */
+/* =================== */
+
+.example ul{
+  font-size: 2rem;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  columns: 2;
+                        
+  -webkit-column-gap: 0.5rem;
+  -moz-column-gap: 0.5rem;
+  column-gap: 0.5rem;  
+}
+
+.example ul li{
+  margin-bottom: 0.5rem;
+  margin-left: 2rem;
+}
+
