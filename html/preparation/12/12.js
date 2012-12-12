@@ -25,5 +25,30 @@ document.addEventListener("DOMContentLoaded", function(){
   var buffer = document.createElement("canvas");
   var ctxB = buffer.getContext("2d");
   
+  var dlGif = document.getElementById("download-gif");
+  var rec = document.getElementById("record");
+  
+  var streamStart = function(stream){
+    if (window.URL) {
+      cam.src = window.URL.createObjectURL(stream);
+    } else {
+      cam.src = stream; // Opera.
+    }
+    
+    // Something went wrong with the video object
+    cam.addEventListener("error", streamStop)
+    
+  }
+  
+  rec.addEventListener("click", function(){
+    // Transfer the image every 15 secs to the canvas
+    canvasStreamInterval = setInterval(streamToBuffer, 1000/15);
+  });
+  
+
+  dlGif.addEventListener("click", function(){
+    
+  });
+
   
 });
