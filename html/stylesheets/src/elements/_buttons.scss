@@ -8,4 +8,9 @@ button{
   padding: 0.4em 1em;
   font-weight: bold;
   border: 1px solid #6C0F11;
+  text-decoration: none;
+}
+
+a.button{
+  display: inline-block;
 }
