@@ -34,8 +34,53 @@
           
         </p>
         
-        <h2>Here are some examples</h2>
-        ...
+
+        
+        <section class="examples">        
+          <h2>Show me what you got!</h2>
+          <div class="row">
+            <figure class="example">
+              <textarea id="file-content">
+                Hello, I'm a file! now
+              </textarea>
+              
+              <figcaption>
+                <a class="button" download="download.txt" id="download-txt">Download .txt</a>
+                <a class="button" download="download.html" id="download-html">Download .html</a>                
+              </figcaption>
+            </figure>
+            
+            <script type="text/javascript" charset="utf-8">
+              var contentEl = document.getElementById("file-content");
+              var dlTxt = document.getElementById("download-txt");
+              var dlHtml = document.getElementById("download-html");
+              
+              var URL = window.webkitURL || window.URL;
+              
+              dlTxt.addEventListener("click", function(){
+                var blob = new Blob([contentEl.value], {"type" : "text/plain"})
+                this.href = URL.createObjectURL(blob);
+              });
+              
+              dlHtml.addEventListener("click", function(){
+                var blob = new Blob(["<html><head><title>Generated a HTML file!</title></head><body>" + contentEl.value + "</body></html>"], {"type" : "text/html"})
+                this.href = URL.createObjectURL(blob);
+              });              
+              
+            </script>
+            
+            <figure class="example">
+              
+              <video autoplay="autoplay" id="cam" style="display:none"></video>
+              <canvas id="canvas"></canvas>
+                            
+              <figcaption>
+                <button id="record">Record 3 seconds</button>
+                <a class="button" download="3sec.gif" id="download-gif">Download a 3sec gif</a>
+              </figcaption>
+            </figure>
+          </div>
+        </section>
         
         <h2>How does it work?</h2>          
         <p>
