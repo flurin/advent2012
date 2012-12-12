@@ -7,8 +7,10 @@ GEM
     Platform (0.4.0)
     artii (2.0.3)
     builder (3.1.4)
+    fastimage (1.2.13)
     hpricot (0.8.6)
-    html_mockup (0.6.3)
+    html_mockup (0.6.5)
+      hpricot (>= 0.6.4)
       rack (>= 1.0.0)
       thor (~> 0.16.0)
       tilt
@@ -26,6 +28,7 @@ PLATFORMS
 DEPENDENCIES
   artii
   builder
+  fastimage
   hpricot
   html_mockup
   sass

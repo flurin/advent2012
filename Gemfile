@@ -7,3 +7,5 @@ gem "yui-compressor"
 
 gem "artii"
 gem "builder"
+
+gem "fastimage"
