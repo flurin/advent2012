@@ -14,3 +14,33 @@ Digitpaint HTML and CSS Advent 2012
 Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
 
 */  
+
+
+.hidden{
+  display: none !important;
+}
+
+#select-source{
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  padding-top: 50px;
+  background: #fff;
+}
+
+#select-source .button-row{
+  margin-bottom: 0.5rem;
+}
+
+#cam{
+  width: 100%;
+  height: 150px;
+  display: block;
+}
+
+#file-content{
+  display: block;
+  width: 100%;
+  height: 150px;
+  box-sizing: border-box;
+}

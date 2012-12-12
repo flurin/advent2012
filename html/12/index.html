@@ -3,10 +3,17 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>BRB - HTML and CSS Advent 2012 by Digitpaint</title>
-  <meta name="description" content="24 days of HTML/CSS tips, brought to you by the front-end experts at Digitpaint.">
+  <title>TITLE - HTML and CSS Advent 2012 by Digitpaint</title>
   <meta name="author" content="All of us at Digitpaint">
-
+  
+  <meta property="og:title" content="TITLE - HTML &amp; CSS Advent 2012">
+  <meta property="og:url" content="http://advent2012.digitpaint.nl/12">
+  <meta property="og:image" content="/assets/opengraph/12.png">
+  <meta property="og:description" content="">  
+  <meta name="description" content="">
+  
+  <link rel="stylesheet" href="12.css" />
+  <script src="12.js"></script>
   
 </head>
 <body class="layout-article">
@@ -16,39 +23,182 @@
     <!-- [STOP:layout/ribbon] -->    
         
     <article class="main">
-      
-      <header class="header">
-        <div class="body">
-          <span class="day-number">
-            12
-          </span>
-          <h1>
-            BRB
-          </h1>
-        </div>
-        
-        <nav class="browse">
-          
-            <a href="/11/index.html" class="previous">
-              <span class="acc">Previous</span>
-            </a>
-          
-          
-            <a href="/13/index.html" class="next not-yet">
-              <span class="acc">Next</span>
-            </a>
-          
-        </nav>
-      </header>
-      
-      <div class="body text">
-        <p>Skippng ahed? 2EZ! U HV 2 W8! It ll b gr8 on Dec 12! TTYL</p>
 
+      
+
+      <!-- [START:layout/article-header?nr=12&title=&previous=/11/&next=/13/] -->
+      <!-- [STOP:layout/article-header] -->    
+
+      <div class="body text">
+        <p class="intro">
+          Working with Files has always been a "server thing". The File API and friends change this quite a bit. It allows
+          you to work with files directly in the browsers. You can read, modify and create them at will and let the user
+          save the result.
+        </p>
+        
+        <section class="examples">        
+          <h2>Sho what could we do with this?</h2>
+          <p>
+            <strong>Warning!</strong> This example will not work in Safari
+          </p>
+          <div class="row">
+            <figure class="example">
+              <textarea id="file-content">Hello, click one of the buttons to download me as a file.</textarea>
+              
+              <figcaption>
+                <p>Download the text above as:</p>
+                <a class="button" download="download.txt" id="download-txt">Download .txt</a>
+                <a class="button" download="download.html" id="download-html">Download .html</a>                
+              </figcaption>
+            </figure>
+            
+            <figure class="example">
+              
+              <div id="select-source">
+                <div class="button-row">
+                  <button id="select-file">Use a videofile</button>
+                  <input type="file" id="video-file" style="display:none">
+                </div>
+                <div class="button-row">
+                  <button id="select-webcam">Use my webcam</button>
+                </div>
+              </div>
+              
+              <video autoplay="autoplay" id="cam" accept="video/*" class="hidden"></video>
+                            
+              <figcaption>
+                <p>Let's make an animated gif!</p>
+                
+                <button id="record">Record 3 seconds</button>
+                <span id="record-status" class="hidden"></span>
+                <a class="button hidden" download="3sec.gif" id="download-gif">Download .gif</a>
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+        
+        <h2>How does it work?</h2>          
+        <p>
+          It looks a lot harder than it is. We basically have to create a <code>new Blob(["data", "more data"], {"type" : "text/plain"})</code> object which
+          can contain arbitrary data which we then get an URL for with the <code>URL.createObjectURL(blob)</code>
+          method. The returned URL object can be set as a <code>href</code> attribute for a link (like we do in the examples above).
+          As your browser would just open the link, we have used the <code>download="myfile.xyz"</code> attribute. With this
+          attribute you force your browser to download a linked document with the defined filename.
+        </p>
+        
+        <p>
+          This all works pretty well for text content (except some custom code for IE). Binary content is a bit harder
+          because you don't want the <code>Blob</code> do something with encoding on it. Therefore we have to
+          use one of the Typed Arrays (We used <code>Uint8Array</code>, that's an 8-bit unsigned integer array). A typed array is
+          a view on the <code>ArrayBuffer</code> which contains the actual binary data. We can use this <code>ArrayBuffer</code>
+          to create a binary file like this: <code>new Blob(buffer, {"type" : "image/gif"})</code>.
+        </p>
+        
+        <p>
+          One more thing: in the example above we directly access the chosen file from the <code>input</code> element. This became
+          really easy: all we did was access the <code>inputElement.files</code> array (yes you did know we could do multiple file selects nowadays, didn't you?)
+          and created an URL for the first element with <code>URL.createObjectURL(inputElement.files[0])</code>. This URL we
+          assigned to the <code>video.src</code> attribute and that's it!
+        </p>
+        
+        <h2>Useful?</h2>
+        <p>
+          Yes! We didn't even go into the all the other cool stuff you could do with it. This really makes working
+          with files a lot easier. We can generate them, link them and directly read them in the browser. A lot of 
+          things that required serverside processing can now be done on the client.
+        </p>
+        
+        <h3>So what else could we do with this?</h3>
+        <ul>
+          <li>
+            Build a photo-editor in the browser without storing anything on the server
+          </li>
+          
+          <li>
+            Resize uploaded images before we send them to the server
+          </li>
+          
+          <li>
+            ??
+          </li>
+        </ul>
+        
+        <h2>Great, but can I use it today?</h2>
+        <p>
+          Actually support isn't even that bad. Only ones in trouble are Safari and Opera. Safari seems not to like
+          Blob URL's and Opera does not yet support Blob URLs. IE wouldn't be IE if there wasn't something a bit different. 
+          IE10 doesn't like creating binary Blobs directly and we have to use the (deprecated) BlobBuilder API.
+        </p>
+        <p>
+          The only browser with support for the download attribute is Chrome, but we use <code>window.saveAs()</code> 
+          to have it work in IE10. In other browsers clicking the link just opens the file.
+        </p>
+        
+        <h2>Show me the source!</h2>
+        <p>
+          Feel free to look around the differente source files we used for this example.
+        </p>
+        <ul>
+          <li><a href="12.js">The javascripts</a></li>
+        </ul>
       </div>
+      
+      <footer class="footer text">
+        
+        <section class="attribution">
+          <h2>Attribution</h2>
+        
+          <p>
+            There are a lot articles on the File API out there, but a lot of them are outdated and use
+            deprecated or removed methods. But here are some we used:
+          </p>
+          
+          <ul>
+            <li>
+              "<a href="http://updates.html5rocks.com/2011/08/Saving-generated-files-on-the-client-side" target="_blank">Saving generated files on the client-side</a>" 
+              by Eli Grey on HTML5 Rocks
+            </li>
+            <li>
+              "<a href="https://developer.mozilla.org/en-US/docs/Using_files_from_web_applications" target="_blank">Using files from web applications</a>"
+              on the Mozilla Developer Network
+            </li>
+            <li>
+              "<a href="http://hackworthy.blogspot.nl/2012/05/savedownload-data-generated-in.html" target="_blank">Save/download data generated in JavaScript</a>"
+              by Mathias Panzenböck on his weblog
+            </li>
+          </ul>
+          
+          <p>
+            We used <a href="https://github.com/antimatter15/jsgif" target="_blank">jsgif</a> by antimatter15 to generate the GIF files. 
+          </p>
+          
+        </section>
+        
+        
+        <!-- [START:share] -->
+        <!-- [STOP:share] -->
+          
+      </footer>
+      
+      <!-- [START:layout/site-navigation] --> 
+      <!-- [STOP:layout/site-navigation] -->
+      
     </article>
         
   </div>
     
+  <script>  
+    var addthis_share = { 
+      templates: {
+        twitter: 'Awesome! The HTML and CSS Advent 2012 #dpadvent {{url}}'
+      }
+    }
+  </script>
+  
+  <script src="javascripts/LZWEncoder.js"></script>
+  <script src="javascripts/NeuQuant.js"></script>
+  <script src="javascripts/GIFEncoder.js"></script>    
+  
   <!-- [START:javascripts] -->
   <!-- [STOP:javascripts] -->    
 </body>
