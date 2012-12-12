@@ -3,10 +3,10 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>TITLE - HTML and CSS Advent 2012 by Digitpaint</title>
+  <title>Fun with the File API - HTML and CSS Advent 2012 by Digitpaint</title>
   <meta name="author" content="All of us at Digitpaint">
   
-  <meta property="og:title" content="TITLE - HTML &amp; CSS Advent 2012">
+  <meta property="og:title" content="Fun with the File API - HTML &amp; CSS Advent 2012">
   <meta property="og:url" content="http://advent2012.digitpaint.nl/12">
   <meta property="og:image" content="/assets/opengraph/12.png">
   <meta property="og:description" content="">  
@@ -26,29 +26,29 @@
 
       
 
-      <!-- [START:layout/article-header?nr=12&title=&previous=/11/&next=/13/] -->
+      <!-- [START:layout/article-header?nr=12&title=Fun with the File API&previous=/11/&next=/13/] -->
       <!-- [STOP:layout/article-header] -->    
 
       <div class="body text">
         <p class="intro">
-          Working with Files has always been a "server thing". The File API and friends change this quite a bit. It allows
-          you to work with files directly in the browsers. You can read, modify and create them at will and let the user
-          save the result.
+          Working with Files has always been exclusively a "server thing". No more, enter the File API and his buddies. This API
+          allows you to work with files directly in the browsers. You can read, modify, and create them right then and there, and
+          let the user save the result.
         </p>
         
         <section class="examples">        
-          <h2>Sho what could we do with this?</h2>
+          <h2>So what could we do with this?</h2>
           <p>
-            <strong>Warning!</strong> This example will not work in Safari
+            <strong>Warning</strong>, this example will not work in Safari or Opera!
           </p>
           <div class="row">
             <figure class="example">
               <textarea id="file-content">Hello, click one of the buttons to download me as a file.</textarea>
               
               <figcaption>
-                <p>Download the text above as:</p>
-                <a class="button" download="download.txt" id="download-txt">Download .txt</a>
-                <a class="button" download="download.html" id="download-html">Download .html</a>                
+                <p>Download the above text:</p>
+                <a class="button" download="download.txt" id="download-txt">Download as .txt</a>
+                <a class="button" download="download.html" id="download-html">Download as .html</a>                
               </figcaption>
             </figure>
             
@@ -79,36 +79,37 @@
         
         <h2>How does it work?</h2>          
         <p>
-          It looks a lot harder than it is. We basically have to create a <code>new Blob(["data", "more data"], {"type" : "text/plain"})</code> object which
-          can contain arbitrary data which we then get an URL for with the <code>URL.createObjectURL(blob)</code>
-          method. The returned URL object can be set as a <code>href</code> attribute for a link (like we do in the examples above).
-          As your browser would just open the link, we have used the <code>download="myfile.xyz"</code> attribute. With this
-          attribute you force your browser to download a linked document with the defined filename.
+          The Files API looks a lot tougher than he is, sort of like a guy with a goatee who smokes cigars but actually enjoys
+          peppermint tea and horticulture. Anyway, we digress. We basically have to create a <code>new Blob(["data", "more data"],
+          {"type" : "text/plain"})</code> object which can contain arbitrary data, which we then get an URL by using the
+          <code>URL.createObjectURL(blob)</code> method. The returned URL object can be set as a <code>href</code> attribute for a link (like we did in the
+          examples above). Because your browser would normally just open the link, we have used the <code>download="myfile.xyz"</code>
+          attribute. With this attribute you force the browser to download a linked document with the defined filename.
         </p>
         
         <p>
-          This all works pretty well for text content (except some custom code for IE). Binary content is a bit harder
-          because you don't want the <code>Blob</code> do something with encoding on it. Therefore we have to
-          use one of the Typed Arrays (We used <code>Uint8Array</code>, that's an 8-bit unsigned integer array). A typed array is
-          a view on the <code>ArrayBuffer</code> which contains the actual binary data. We can use this <code>ArrayBuffer</code>
-          to create a binary file like this: <code>new Blob(buffer, {"type" : "image/gif"})</code>.
+          All of this is pretty smooth sailing when you're after text content (except some custom code for IE). Binary content is
+          a slightly harder, because you don't want the <code>Blob</code> to do something with encoding on it. Therefore, we have to use one of
+          the Typed Arrays (we used <code>Uint8Array</code>, an 8-bit unsigned integer array). A typed array is a view on the <code>ArrayBuffer</code>,
+          which contains the actual binary data. We can use this ArrayBuffer to create a binary file like this: <code>new Blob(buffer,
+          {"type" : "image/gif"})</code>.
         </p>
         
         <p>
-          One more thing: in the example above we directly access the chosen file from the <code>input</code> element. This became
-          really easy: all we did was access the <code>inputElement.files</code> array (yes you did know we could do multiple file selects nowadays, didn't you?)
-          and created an URL for the first element with <code>URL.createObjectURL(inputElement.files[0])</code>. This URL we
-          assigned to the <code>video.src</code> attribute and that's it!
+          One more thing: in the example above we directly access the chosen file from the <code>input</code> element. This was really easy:
+          all we did was access the <code>inputElement.files</code> array (you did know we could do multiple file selects nowadays, didn't
+          you?) and created an URL for the first element with <code>URL.createObjectURL(inputElement.files[0])</code>. This URL we assigned to
+          the <code>video.src</code> attribute, Bob's (not Blob) your uncle!
         </p>
         
-        <h2>Useful?</h2>
+        <h2>So how handy is it, really?</h2>
         <p>
-          Yes! We didn't even go into the all the other cool stuff you could do with it. This really makes working
-          with files a lot easier. We can generate them, link them and directly read them in the browser. A lot of 
-          things that required serverside processing can now be done on the client.
+          Pretty damn handy. We didn't even scratch the surface of all the cool stuff you could do with this. Simply put, this API
+          really makes working with files a whole lot easier. We can generate them, link them, and directly read them in the
+          browser. Many things that required server-side processing can now be done on the client-side.
         </p>
         
-        <h3>So what else could we do with this?</h3>
+        <h3>What else could we do with this?</h3>
         <ul>
           <li>
             Build a photo-editor in the browser without storing anything on the server
@@ -117,24 +118,20 @@
           <li>
             Resize uploaded images before we send them to the server
           </li>
-          
-          <li>
-            ??
-          </li>
         </ul>
         
         <h2>Great, but can I use it today?</h2>
         <p>
-          Actually support isn't even that bad. Only ones in trouble are Safari and Opera. Safari seems not to like
-          Blob URL's and Opera does not yet support Blob URLs. IE wouldn't be IE if there wasn't something a bit different. 
-          IE10 doesn't like creating binary Blobs directly and we have to use the (deprecated) BlobBuilder API.
+          Support isn't too bad (not too great, either, though). The only ones who have trouble with this are Safari and Opera.
+          Safari seems not to like Blob URL's, and Opera does not support Blob URLs at all. IE wouldn't be IE if it wasn't a tiny
+          bit different. IE10 doesn't like creating binary Blobs directly, so we have to use the (deprecated) BlobBuilder API.
         </p>
         <p>
-          The only browser with support for the download attribute is Chrome, but we use <code>window.saveAs()</code> 
-          to have it work in IE10. In other browsers clicking the link just opens the file.
+          The only browser with full support for the download attribute is Chrome, but we used <code>window.saveAs()</code> to
+          have it work in IE10. In other browsers, clicking the link just opens the file in the browser.
         </p>
         
-        <h2>Show me the source!</h2>
+        <h2>Hit me with the source!</h2>
         <p>
           Feel free to look around the differente source files we used for this example.
         </p>
@@ -149,8 +146,8 @@
           <h2>Attribution</h2>
         
           <p>
-            There are a lot articles on the File API out there, but a lot of them are outdated and use
-            deprecated or removed methods. But here are some we used:
+            There are a lot articles on the File API out there, but many are outdated, use deprecated, or removed methods. But
+            here are some we used:
           </p>
           
           <ul>
@@ -190,7 +187,7 @@
   <script>  
     var addthis_share = { 
       templates: {
-        twitter: 'Awesome! The HTML and CSS Advent 2012 #dpadvent {{url}}'
+        twitter: 'Fun with the File API! The HTML and CSS Advent 2012 #dpadvent {{url}}'
       }
     }
   </script>
