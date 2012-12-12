@@ -29,6 +29,7 @@ mockup.serve do |s|
 end
 
 mockup.release do |r|
+  r.extract :url_relativize => false
   
   r.cleanup "preparation/"  
   

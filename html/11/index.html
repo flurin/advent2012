@@ -3,10 +3,17 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>You know what’s a fun game? - HTML and CSS Advent 2012 by Digitpaint</title>
-  <meta name="description" content="24 days of HTML/CSS tips, brought to you by the front-end experts at Digitpaint.">
+  <title>Read between, above, and under the underlines!- HTML and CSS Advent 2012 by Digitpaint</title>
   <meta name="author" content="All of us at Digitpaint">
-
+  
+  <meta property="og:title" content="Read between, above, and under the underlines! - HTML &amp; CSS Advent 2012">
+  <meta property="og:url" content="http://advent2012.digitpaint.nl/11">
+  <meta property="og:image" content="/assets/opengraph/11.png">
+  <meta property="og:description" content="Going all out with the new text-decoration css properties.">  
+  <meta name="description" content="Going all out with the new text-decoration css properties.">
+  
+  <link rel="stylesheet" href="11.css" />
+  <script src="11.js"></script>
   
 </head>
 <body class="layout-article">
@@ -16,39 +23,112 @@
     <!-- [STOP:layout/ribbon] -->    
         
     <article class="main">
-      
-      <header class="header">
-        <div class="body">
-          <span class="day-number">
-            11
-          </span>
-          <h1>
-            You know what’s a fun game?
-          </h1>
-        </div>
-        
-        <nav class="browse">
-          
-            <a href="/10/index.html" class="previous">
-              <span class="acc">Previous</span>
-            </a>
-          
-          
-            <a href="/12/index.html" class="next not-yet">
-              <span class="acc">Next</span>
-            </a>
-          
-        </nav>
-      </header>
-      
-      <div class="body text">
-        <p>Sitting here and watching the hours pass until it is the 11th of December. Or just head outside, enjoy the fresh air, and come back later. Your choice.</p>
 
-      </div>
-    </article>
+      <!-- [START:layout/article-header?nr=11&title=Read+between,+above,+and+under+the+underlines!&previous=/10/&next=/12/] -->
+      <!-- [STOP:layout/article-header] -->    
+
+      <div class="body text">
+        <p class="intro">
+          While <code>text-decoration</code> certainly isn't the most cutting edge feature, it is a very useful one. It has been around
+          quite a while, but recently got overhauled into the CSS Text Decoration Module Level 3 spec. The new text
+          decoration features give you a lot more control than you had before.
+        </p>
         
+        <section class="examples">        
+          <h2>Show me what you got!</h2>
+          <p>
+            <strong>Note:</strong> This examply only works in Firefox at the moment.
+          </p>
+          <div class="row">
+            <figure class="example">
+              <ul>
+                <li class="underline wavy">Wavy underlines</li>
+                <li class="underline dashed">Dashed underlines</li>
+                <li class="underline colored">Underlines with different color</li>
+                <li><span class="overline">Overline</span> can be <span class="overline wavy">wavy too</span></li>
+                <li><span class="line-through">Line through</span> <span class="line-through colored">with different color</span></li>                
+                <li><span class="underline skip-spaces">Skip underlines on spaces</span> (no support yet..)</li>
+              </ul>
+              
+              <figcaption>
+                Some cool line coloring examples. :)
+              </figcaption>
+            </figure>
+            
+         
+          </div>
+        </section>
+        
+        <h2>How does it work?</h2>          
+        <p>
+          After yesterday's extremly tricky Audio API, the text-decoration CSS property is a breeze. The CSS property
+          <code>text-decoration-line</code> defines where you want your text line positioned. The value can be either <code>underline</code>,
+          <code>overline</code> or <code>line-through</code>. With the <code>text-decoration-style</code> property you can choose what kind of line you want the
+          <code>text-decoration-line</code> to be. You can use the most basic line style values you already know from CSS borders. The
+          color of the line is controlled with <code>text-decoration-color</code>.
+        </p>
+        
+        <p>
+          Most unfortunately, the more useful features like <code>text-decoration-skip</code> have not been implemented by any browser
+          yet. This would allow you to specify when you want the line interrupted, ie. you could have the line skip spaces.
+        </p>
+        
+        <h2>Useful?</h2>
+        <p>
+          It's a tiny thing but it gives you a tad more control than the old CSS2.1 version. Previously, you needed all
+          kinds of hacks to creaty nice wavy underlines — now we can replace all that junkyard code with clean-cut
+          <code>text-decoration-*</code> properties in a breeze.
+        </p>
+        
+        <h2>Great, but can I use it today?</h2>
+        <p>
+          Not quite. Firefox supports some of the spec since version 6, but none of the other browsers currently support
+          it. There is a resolved bug for this in Webkit, but we couldn't get it to work in Chrome or in Chrome Canary. 
+        </p>
+        
+        <h2>Show me the source!</h2>
+        <p>
+          Feel free to look around the differente source files we used for this example.
+        </p>
+        <ul>
+          <li><a href="11.css">The stylesheet</a></li>
+        </ul>
+      </div>
+      
+      <footer class="footer text">
+          
+        <section class="attribution">
+          <h2>Attribution</h2>
+        
+          <p>
+            Most of these examples we built straight from the spec: <a href="http://www.w3.org/TR/2012/WD-css-text-decor-3-20121113/" target="_blank">CSS Text Decoration Module Level 3</a>
+          </p>
+        
+          <p>
+            We got the idea for this entry from the post "<a href="http://bricss.net/post/8997944388/css3-text-decoration-implemented-first-in-firefox-6" target="_blank">CSS3 text-decoration implemented first in Firefox 6</a>"
+            by Lennart Schoors on BRICSS
+          </p>
+        </section>
+        
+        <!-- [START:share] -->
+        <!-- [STOP:share] -->
+          
+      </footer>
+      
+      <!-- [START:layout/site-navigation] --> 
+      <!-- [STOP:layout/site-navigation] -->
+      
+    </article>
   </div>
     
+  <script>  
+    var addthis_share = { 
+      templates: {
+        twitter: 'Read between, above, and under the underlines! — The HTML and CSS Advent 2012 #dpadvent {{url}}'
+      }
+    }
+  </script>
+  
   <!-- [START:javascripts] -->
   <!-- [STOP:javascripts] -->    
 </body>
