@@ -1,0 +1,81 @@
+/*
+
+Digitpaint HTML and CSS Advent 2012
+
+                                                                                        
+ _____                                  _                       ___   ____   _    _     
+(_____)   ____         ____            (_)      ____  _        (___) (____) (_)_ (_)    
+(_)  (_) (____)  ___  (____)  __   __  (_)_    (____)(_)__    (_)(_)(_) _(_)(___)(_)__  
+(_)  (_)(_)_(_)_(___)(_)_(_) (__)_(__) (___)_ (_)_(_)(____)      (_) _ (__) (_)  (____) 
+(_)__(_)(__)__(_)___ (__)__ (_) (_) (_)(_)_(_)(__)__ (_)         (_)(_)__(_)(_)_ (_) (_)
+(_____)  (____)(____) (____)(_) (_) (_)(____)  (____)(_)         (_) (____)  (__)(_) (_)
+                                                                                        
+                                                                                        
+
+Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
+
+*/  
+
+@font-face {
+    font-family: 'GoodDogRegular';
+    src: url('fonts/GoodDog/GoodDog-webfont.eot');
+    src: url('fonts/GoodDog/GoodDog-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/GoodDog/GoodDog-webfont.woff') format('woff'),
+         url('fonts/GoodDog/GoodDog-webfont.ttf') format('truetype'),
+         url('fonts/GoodDog/GoodDog-webfont.svg#GoodDogRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.lined{
+  font-size: 1.8rem;
+  font-family: GoodDogRegular;
+  white-space: pre-wrap;
+  line-height: 1.5;
+  background-image: -webkit-linear-gradient(rgba(0,0,0,0.2) 1px, transparent 1px);
+  background-image: -moz-linear-gradient(rgba(0,0,0,0.2) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(0,0,0,0.2) 1px, transparent 1px);    
+  background-size: 100% 1.5em;
+  background-position: 0 -0.4em;
+  background-origin: content-box;
+  padding: 1em;
+  
+  background-attachment: local;
+  max-height: 25rem;
+  overflow: auto;
+  
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;  
+}
+
+pre.language-css{
+  line-height: 1.5;
+  background-image: -webkit-linear-gradient(rgba(0,0,0,0.05) 1.5em, transparent 1.5em);
+  background-image: -moz-linear-gradient(rgba(0,0,0,0.05) 1.5em, transparent 1.5em);
+  background-image: linear-gradient(rgba(0,0,0,0.05) 1.5em, transparent 1.5em);    
+  background-size: 100% 3em;
+  background-position: 0 0;
+  background-origin: content-box;
+  background-attachment: local;  
+  
+  /* Make height of both examples the same */
+  height: 25rem;    
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;    
+}
+
+
+/* Override default theme styling */
+
+.examples .row{
+  display: block;
+  overflow: hidden; /* autoclear */
+}
+
+.examples .row .example{
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 50%;
+  float: left;
+  display: block;
+}

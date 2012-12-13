@@ -3,10 +3,17 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>Don’t you know that skipping ahead to the 13th is bad luck? - HTML and CSS Advent 2012 by Digitpaint</title>
-  <meta name="description" content="24 days of HTML/CSS tips, brought to you by the front-end experts at Digitpaint.">
+  <title>Lining up your backgrounds - HTML and CSS Advent 2012 by Digitpaint</title>
   <meta name="author" content="All of us at Digitpaint">
-
+  
+  <meta property="og:title" content="Lining up your backgrounds - HTML &amp; CSS Advent 2012">
+  <meta property="og:url" content="http://advent2012.digitpaint.nl/13">
+  <meta property="og:image" content="/assets/opengraph/13.png">
+  <meta property="og:description" content="Creating perfectly aligned backgrounds (lined paper for instance) with linear gradients, background-origin and background-attachment">  
+  <meta name="description" content="Creating perfectly aligned backgrounds (lined paper for instance) with linear gradients, background-origin and background-attachment">
+  
+  <link rel="stylesheet" href="13.css" />
+  <script src="13.js"></script>
   
 </head>
 <body class="layout-article">
@@ -16,39 +23,138 @@
     <!-- [STOP:layout/ribbon] -->    
         
     <article class="main">
-      
-      <header class="header">
-        <div class="body">
-          <span class="day-number">
-            13
-          </span>
-          <h1>
-            Don’t you know that skipping ahead to the 13th is bad luck?
-          </h1>
-        </div>
-        
-        <nav class="browse">
-          
-            <a href="/12/index.html" class="previous">
-              <span class="acc">Previous</span>
-            </a>
-          
-          
-            <a href="/14/index.html" class="next not-yet">
-              <span class="acc">Next</span>
-            </a>
-          
-        </nav>
-      </header>
-      
-      <div class="body text">
-        <p>The only remedy is to check back on the 13th to see what’s really on this page!</p>
 
+      <!-- [START:layout/article-header?nr=13&title=Lining up your backgrounds&previous=/12/&next=/14/] -->
+      <!-- [STOP:layout/article-header] -->    
+
+      <div class="body text">
+        <p class="intro">
+          Today we're going to play with dynamic linear gradients, and all the cool new background
+          properties in CSS. Did you know you can influence how the background scrolls in an
+          overflowing container? Did you know how to make flexible odd-even colored lines? We do. And
+          by the end of this, so will you!
+        </p>
+        
+        <section class="examples">
+          <h2>What are we talking about?</h2>
+          <div class="row">
+            <figure class="example">
+              
+              <div class="lined" id="letter">Dear Christmas Alien,
+                
+We know you've been pretty busy flying around the universe, but would you please come visit and bless us with your other-worldly knowledge of HTML, CSS and Javascript? Or one of those sharks with a laser beam attached to their heads? Either one is cool with us. Thanks.                
+
+Love,
+The Digitpaint Team</div>
+              
+              <figcaption>
+                See how the lines align perfectly? Try changing the font-size:  
+                <input type="range" min="1" max="4" step="0.1" value="1.8" id="font-size">
+              </figcaption>
+            </figure>
+            
+            <figure class="example">
+              <pre class="code language-css"><code>.language-css{
+  line-height: 1.5;
+  background-image: -webkit-linear-gradient(rgba(0,0,0,0.05) 1.5em, transparent 1.5em);
+  background-image: -moz-linear-gradient(rgba(0,0,0,0.05) 1.5em, transparent 1.5em);
+  background-image: linear-gradient(rgba(0,0,0,0.05) 1.5em, transparent 1.5em);    
+  background-size: 100% 3em;
+  background-position: 0 0;
+  background-origin: content-box;
+  background-attachment: local;  
+  
+  /* Make height of both examples the same */
+  height: 25rem;    
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;    
+
+}</code></pre>
+              <figcaption>
+                Odd-even lined code (this is the actual CSS used)
+              </figcaption>
+            </figure>            
+          </div>
+        </section>
+        
+        <h2>How does it work?</h2>          
+        <p>
+          As you see in the example above, we've used a <code>linear-gradient</code> to create a 1px line, which we
+          then scaled to the line-height in <code>em</code> with <code>background-size</code>. To make the descenders of the font
+          poke through the line, we used <code>background-position</code> to move the background up a tad.
+        </p>
+        <p>
+          You're thinking: "So far so good, nothing new under the sun, ho-hum, where's my eggnog?". But if we had left it
+          that that, adding <code>padding</code> to a the box would completely break it. That's why the clever guys and gals at the
+          browser vendors cooked up the <code>background-origin</code> property. With this property &mdash; when set to <code>content-box</code> &mdash; the
+          browser starts the position calculation at the edge of the content-box instead of the padding-box. Neat huh?          
+        </p>
+        <p>
+          But we're not quite done yet! By now it looks good, and it won't break if we add padding, but scrolling will
+          still ruin the whole thing. Luckily, there is something we can do about that: we simply set
+          <code>background-attachment</code>: local. This allows the background to scroll with our overflowing box, instead of being
+          attached to the page or being fixed.
+        </p>
+        
+        
+        <h2>What do you think about all this, Bob?</h2>
+        <p>
+          Maybe you won't use text-lines (or odd-even colored lines) that often, but the techniques described here have a
+          far wider use. See <a href="http://dabblet.com/gist/2494566" target="_blank">the excellent demo</a> by Lea Verou on how to use the background-attachment to indicate when
+          there is more scrollable content.          
+        </p>
+        
+        <h2>Great, but can I use it today?</h2>
+        <p>
+          Yes, support is pretty solid (gold stars for everyone). One small blemish in this performance: Firefox does not
+          seem to support the "local" value for the <code>background-attachment</code>, which breaks the scrolling in the examples
+          above.
+        </p>
+        
+        <h2>Show me the source!</h2>
+        <p>
+          Feel free to look around the differente source files we used for this example.
+        </p>
+        <ul>
+          <li><a href="13.css">The stylesheet</a></li>
+          <li><a href="13.js">The javascripts (not much to see here though)</a></li>
+        </ul>
       </div>
+      
+      <footer class="footer text">
+        
+        <section class="attrbution">
+          <h2>Attribution</h2>
+        
+          <p>
+            This entry was inspired by Lea Verou's FronteersConf 2012 talk "<a href="http://vimeo.com/channels/fronteers12/52882799" target="_blank">More CSS sectrets: Another 10 things you may nog know about CSS</a>"
+          </p>
+          
+          <p>
+            The font used is "<a href="http://www.fontsquirrel.com/fonts/GoodDog" target="_blank">GoodDog</a>" by Fonthead Design
+          </p>
+        </section>
+        
+        <!-- [START:share] -->
+        <!-- [STOP:share] -->
+          
+      </footer>
+      
+      <!-- [START:layout/site-navigation] --> 
+      <!-- [STOP:layout/site-navigation] -->
+      
     </article>
         
   </div>
     
+  <script>  
+    var addthis_share = { 
+      templates: {
+        twitter: 'Lining up your backgrounds in the HTML and CSS Advent 2012 #dpadvent {{url}}'
+      }
+    }
+  </script>
+  
   <!-- [START:javascripts] -->
   <!-- [STOP:javascripts] -->    
 </body>

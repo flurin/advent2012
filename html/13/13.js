@@ -15,3 +15,11 @@ Digitpaint HTML and CSS Advent 2012
 Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
 
 */  
+
+
+document.addEventListener("DOMContentLoaded", function(){
+  var letterEl = document.getElementById("letter");
+  document.getElementById("font-size").addEventListener("change", function(){
+    letterEl.style.fontSize = this.value + "rem";
+  });
+});
