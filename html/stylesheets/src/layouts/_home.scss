@@ -1,7 +1,46 @@
 .layout-home{
-  @extend %page-background;
-  background-size: 100% 100%;
-  background-position: 0 -50%;
+  background-color: #25002b;
+  background-image: 
+    url(../images/cloud-small-light.svg),
+    url(../images/cloud-medium-light.svg),
+    url(../images/cloud-big-light.svg),          
+    url(../images/moon.svg),
+    -webkit-radial-gradient( 120px 120px, 1000px 1000px, #90552e, #90552e 9%, #8b4f2a 9%,#8b4f2a 16%,   #854a2a 16%,#854a2a 23%,   #7d4429 23%,#7d4429 30%,   #773e2a 30%,#773e2a 37%,#70382b 37%,#70382b 44%,#68312a 44%,#68312a 51%,#5f2c29 51%,#5f2c29 58%,#58252a 58%,#58252a 65%,#4e1e2a 65%,#4e1e2a 72%,#46172b 72%,#46172b 79%,#3b102b 79%,#3b102b 86%,    #30082a 86%,#30082a 93%,#25002b);
+  background-image: -moz-radial-gradient( 120px 120px, 1000px 1000px, #8b4f2a 9%,#8b4f2a 16%,   #854a2a 16%,#854a2a 23%,   #7d4429 23%,#7d4429 30%,   #773e2a 30%,#773e2a 37%,#70382b 37%,#70382b 44%,#68312a 44%,#68312a 51%,#5f2c29 51%,#5f2c29 58%,#58252a 58%,#58252a 65%,#4e1e2a 65%,#4e1e2a 72%,#46172b 72%,#46172b 79%,#3b102b 79%,#3b102b 86%,    #30082a 86%,#30082a 93%,#25002b);
+  background-image: -ms-radial-gradient( 120px 120px, 1000px 1000px, #8b4f2a 9%,#8b4f2a 16%,   #854a2a 16%,#854a2a 23%,   #7d4429 23%,#7d4429 30%,   #773e2a 30%,#773e2a 37%,#70382b 37%,#70382b 44%,#68312a 44%,#68312a 51%,#5f2c29 51%,#5f2c29 58%,#58252a 58%,#58252a 65%,#4e1e2a 65%,#4e1e2a 72%,#46172b 72%,#46172b 79%,#3b102b 79%,#3b102b 86%,    #30082a 86%,#30082a 93%,#25002b);  
+  background-image: radial-gradient( 120px 120px, 1000px 1000px, #8b4f2a 9%,#8b4f2a 16%,   #854a2a 16%,#854a2a 23%,   #7d4429 23%,#7d4429 30%,   #773e2a 30%,#773e2a 37%,#70382b 37%,#70382b 44%,#68312a 44%,#68312a 51%,#5f2c29 51%,#5f2c29 58%,#58252a 58%,#58252a 65%,#4e1e2a 65%,#4e1e2a 72%,#46172b 72%,#46172b 79%,#3b102b 79%,#3b102b 86%,    #30082a 86%,#30082a 93%,#25002b);
+  background-repeat: no-repeat;
+  background-size: auto auto, auto auto, auto auto, auto auto, 100% 100%;
+  text-align: center;
+  background-position: 
+    20% 115px,          
+    5% 185px,    
+    -50px -30px,
+    (120px - (60/2)) (120px - (70/2)), 
+    0 0;
+}
+
+.layout-home:after{
+  content: "ab";
+  position: absolute;
+  top: 0;
+  right: 0;
+  pointer-events: none;
+  background-image:
+    url(../images/cloud-small-dark.svg),
+    url(../images/cloud-medium-dark.svg),
+    url(../images/cloud-big-dark.svg);
+  background-position:
+    30% 20px,
+    70% 120px,  
+    100% -25px
+  ;
+  
+  background-repeat: no-repeat;  
+  
+  width: 50%;
+  height: 200px;
+  z-index: 1000;
 }
 
 .layout-home{
@@ -11,10 +50,12 @@
     margin: 0 auto;
     text-align: left;
     position: relative;
+/*    visibility:hidden;*/
   }
   
   .main > header{
-    margin: 10px -20px 0 -20px;
+    padding-top: 10px;
+    margin: 0 -20px 0 -20px;
   }
   
   .main > .body,
@@ -107,6 +148,7 @@
   .countdown strong{
     color: $c_ribbon_banner_strong;
   }
+  
   
 }
 
