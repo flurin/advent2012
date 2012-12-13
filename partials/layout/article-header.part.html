@@ -11,7 +11,7 @@
       </a>
     <% end %>
     <% if @next %>
-      <a href="<%= @next %>" class="next not-yet">
+      <a href="<%= @next %>" class="next <%= "not-yet" if Time.now.day <= @nr.to_i %>">
         <span class="acc">Next</span>
       </a>
     <% end %>
