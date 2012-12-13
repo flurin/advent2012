@@ -2,6 +2,7 @@ pre.code{
   padding: 20px 40px;
   background: $c_main_highlight_bg;
   position: relative;
+  margin: 0;
 }
 
 pre.code:before{
@@ -16,9 +17,17 @@ pre.code:before{
   width: 2rem;
   height: 2rem;
   line-height: 2;
+  text-shadow: none;
+}
+
+pre.code code{
+  background: none;
+  padding: 0;
 }
 
 .text code{
   background: $c_main_highlight_bg;
   padding: 0.2em 0.5em;
 }
+
+@import "../../../javascripts/vendor/prism/prism.css";
