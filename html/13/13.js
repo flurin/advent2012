@@ -19,7 +19,11 @@ Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
 
 document.addEventListener("DOMContentLoaded", function(){
   var letterEl = document.getElementById("letter");
-  document.getElementById("font-size").addEventListener("change", function(){
+  document.getElementById("change-font-size").addEventListener("change", function(){
     letterEl.style.fontSize = this.value + "rem";
   });
+  document.getElementById("change-padding").addEventListener("change", function(){
+    letterEl.style.padding = this.value + "em";
+  });
+  
 });
