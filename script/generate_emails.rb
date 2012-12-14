@@ -2,7 +2,7 @@
 # 
 
 require 'tilt'
-require 'fastimage'
+require 'rmagick'
 
 template = Tilt::ERBTemplate.new(File.dirname(__FILE__) + "/template_email.html.erb")
 
@@ -39,23 +39,25 @@ if !File.exist?(build_dir)
   system("mkdir #{build_dir}")
 end
 
-Dir.chdir(File.dirname(__FILE__) + "/../html/") do
+Dir.chdir(File.dirname(__FILE__) + "/../html/preparation") do
   days.each_with_index do |item, i|
-    dayNo = i+1;
+    dayNr = i+1;
     
 
-    puts File.dirname(__FILE__) + "/../html/assets/newsletter/numbers/#{"%02d" % dayNo}.png"
-    puts FastImage.size(File.dirname(__FILE__) + "/../html/assets/newsletter/numbers/#{"%02d" % dayNo}.png").inspect
+    
+    nr_file = "../assets/newsletter/numbers/#{"%02d" % dayNr}.png"
+    nr_img = Magick::Image::read(nr_file).first
+    
     
     item = {
-      :nr => dayNo,
+      :nr => dayNr,
       :title => "TITLE",
       :intro => "INTRO",
       :button_text => buttons[i],
-      :nr_size => FastImage.size(File.dirname(__FILE__) + "/../html/assets/newsletter/numbers/#{"%02d" % dayNo}.png")
+      :nr_size => [nr_img.columns, nr_img.rows]
     }
     
-    if !File.exist?("#{item[:nr].to_s}/email.html")
+    if !File.directory?(item[:nr].to_s) || File.exist?("#{item[:nr].to_s}/email.html")
       next
     end
     

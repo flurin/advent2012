@@ -8,4 +8,4 @@ gem "yui-compressor"
 gem "artii"
 gem "builder"
 
-gem "fastimage"
+gem "rmagick"
