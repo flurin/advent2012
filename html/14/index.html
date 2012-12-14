@@ -3,10 +3,17 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>Here’s a cool $ 1’000’000’000’000 for you! - HTML and CSS Advent 2012 by Digitpaint</title>
-  <meta name="description" content="24 days of HTML/CSS tips, brought to you by the front-end experts at Digitpaint.">
+  <title>How to not lose data &amp; the online/offline event - HTML and CSS Advent 2012 by Digitpaint</title>
   <meta name="author" content="All of us at Digitpaint">
-
+  
+  <meta property="og:title" content="How to not lose data &amp; the online/offline event - HTML &amp; CSS Advent 2012">
+  <meta property="og:url" content="http://advent2012.digitpaint.nl/14">
+  <meta property="og:image" content="/assets/opengraph/14.png">
+  <meta property="og:description" content="Check to see if a user is currently online or offline with the navigator.onLine and the online/offline events">  
+  <meta name="description" content="Check to see if a user is currently online or offline with the navigator.onLine and the online/offline events">
+  
+  <link rel="stylesheet" href="14.css" />
+  <script src="14.js"></script>
   
 </head>
 <body class="layout-article">
@@ -16,39 +23,119 @@
     <!-- [STOP:layout/ribbon] -->    
         
     <article class="main">
-      
-      <header class="header">
-        <div class="body">
-          <span class="day-number">
-            14
-          </span>
-          <h1>
-            Here’s a cool $ 1’000’000’000’000 for you!
-          </h1>
-        </div>
-        
-        <nav class="browse">
-          
-            <a href="/13/index.html" class="previous">
-              <span class="acc">Previous</span>
-            </a>
-          
-          
-            <a href="/15/index.html" class="next not-yet">
-              <span class="acc">Next</span>
-            </a>
-          
-        </nav>
-      </header>
-      
-      <div class="body text">
-        <p>But not really. While we wait, we thought we’d rent this space out to known spammers. They promised to leave on the 14th. Maybe we should’ve thought this through...</p>
 
+      <!-- [START:layout/article-header?nr=14&title=How+to+not+lose+data+%26amp%3B+the+online%2Foffline+event&previous=/13/&next=/15/] -->
+      <!-- [STOP:layout/article-header] -->    
+
+      <div class="body text">
+        <p class="intro">
+          We all know this horror of the web: imagine you had just finished writing a mile-long blog-post. You
+          click "save", but good grief, your internet connection has vanished! And with it, all your writing,
+          thoughts &amp; musings. No way of ever getting it back. If only the app you used had checked your online
+          status and saved your data in localStorage (or something similar)! Or if it would've given you fair
+          warning that you're no longer connected, so that you could copy-paste your text into a local document. As
+          it turns out, they could have, using the HTML5 online/offline events and the Network Information API.
+        </p>
+        
+        <section class="examples">
+          <h2>Demonstration, please!</h2>
+          <div class="row">
+            <figure class="example">
+              
+              <div class="status">
+                <h3>You are...</h3>
+                <div id="online-status-text">
+                  Unknown status
+                </div>
+                <img src="images/unknown.svg" id="online-status-img">
+              </div>
+              
+              <div class="bandwidth">              
+                <h3>You're bandwidth is...</h3>
+                <div id="bandwidth-text">unknown</div>
+                <canvas id="online-graph"></canvas>
+              </div>
+              
+              <figcaption>Try disconnecting your cable or turn on "work offline".</figcaption>
+            </figure>
+          </div>
+        </section>
+        
+        <h2>What with the who now?</h2>
+        <p>
+          We can request the current status by asking <code>navigator.onLine</code>. It will return <code>true</code> if the user has
+          connectivity, and it will return <code>false</code> if the user hasn't. Of course ther are events that will be
+          triggered once this happens: <code>window.ononline</code> and <code>window.onoffline</code>.
+        </p>
+        <p>
+          To get more detailed information about the network, we can use the Network Information API. This API
+          tells you the currently available bandwidth, and if the connection is metered or not. Unfortunately, that
+          doesn't work everywhere. You can access the network information with <code>navigator.connection</code>.
+        </p>
+        
+        <h2>What's it good for?</h2>
+        <p>
+          If you're working with large user input, this API is almost a "must-have". Your users don't have to worry
+          about losing their data, as your application handles all of that for them. Other things you could do with
+          it: 
+        </p>
+        
+        <ul>
+          <li>Show your users a warning that they're no longer online (<a href="http://oskarkrawczyk.github.com/heyoffline.js/" target="_blank">demo here</a>)</li>
+          <li>Automatically save data locally in your browser and sync back to the server once the user is (back) online</li>
+        </ul>
+        
+        <h2>Great, but can I use it today?</h2>
+        <p>
+          It's pretty widely supported — Safari, Chrome, and IE10 work fine. Firefox and Opera however don't to
+          detect the unplugging of the network cable (in OS X anyway).
+        </p>
+        
+        <h2>Show me the source!</h2>
+        <p>
+          Bring your snorkel and dive right in to the source files we've used for this example.
+        </p>
+        <ul>
+          <li><a href="14.js">The javascripts</a></li>
+          <li><a href="14.css">The stylesheet</a> (not much to see here)</li>
+        </ul>
       </div>
+      
+      <footer class="footer text">
+          
+        <section class="attribution">
+          <h2>Attribution</h2>
+        
+          <p>
+            The MDN page on the Network Information API <a href="https://developer.mozilla.org/en-US/docs/DOM/window.navigator.connection">window.navigator.connection</a>
+            was very informative about (you guessed it) the Network Information API.
+          </p>
+          
+          <p>
+            The inspiration for the online/offline API we got from the awesome drop-in library <a href="http://oskarkrawczyk.github.com/heyoffline.js/" target="_blank">Heyoffline</a> by Oskar Krawczyk.
+          </p>
+        </section>
+        
+        <!-- [START:share] -->
+        <!-- [STOP:share] -->
+          
+      </footer>
+      
+      <!-- [START:layout/site-navigation] --> 
+      <!-- [STOP:layout/site-navigation] -->
+      
     </article>
         
   </div>
     
+  <script>  
+    var addthis_share = { 
+      templates: {
+        twitter: 'How to not lose data & the online/offline event (in The HTML and CSS Advent 2012) #dpadvent {{url}}'
+      }
+    }
+  </script>
+  
   <!-- [START:javascripts] -->
   <!-- [STOP:javascripts] -->    
 </body>
