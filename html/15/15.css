@@ -1,0 +1,47 @@
+/*
+
+Digitpaint HTML and CSS Advent 2012
+
+  ____                          _                 _ ____  _   _     
+ |  _ \  ___  ___ ___ _ __ ___ | |__   ___ _ __  / | ___|| |_| |__  
+ | | | |/ _ \/ __/ _ \ '_ ` _ \| '_ \ / _ \ '__| | |___ \| __| '_ \ 
+ | |_| |  __/ (__  __/ | | | | | |_) |  __/ |    | |___) | |_| | | |
+ |____/ \___|\___\___|_| |_| |_|_.__/ \___|_|    |_|____/ \__|_| |_|
+                                                                    
+
+Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
+
+*/  
+
+
+.cross-fade{
+  width: 100%;
+  min-height: 99px;
+  background-image: -webkit-cross-fade(url(images/spaceship.png), url(images/spaceship-with-alien.png), 10%);
+  background-image: -moz-cross-fade(url(images/spaceship.png), url(images/spaceship-with-alien.png), 10%);
+  background-image: -o-cross-fade(url(images/spaceship.png), url(images/spaceship-with-alien.png), 10%);    
+  background-image: cross-fade(url(images/spaceship.png), url(images/spaceship-with-alien.png), 10%);      
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.cross-fade.p50{
+  background-image: -webkit-cross-fade(url(images/spaceship.png), url(images/spaceship-with-alien.png), 50%);  
+  background-image: -moz-cross-fade(url(images/spaceship.png), url(images/spaceship-with-alien.png), 50%);  
+  background-image: -o-cross-fade(url(images/spaceship.png), url(images/spaceship-with-alien.png), 50%);  
+  background-image: cross-fade(url(images/spaceship.png), url(images/spaceship-with-alien.png), 50%);  
+}
+
+.cross-fade.p70{
+  background-image: -webkit-cross-fade(url(images/spaceship.png), url(images/spaceship-with-alien.png), 70%);
+  background-image: -moz-cross-fade(url(images/spaceship.png), url(images/spaceship-with-alien.png), 70%);
+  background-image: -o-cross-fade(url(images/spaceship.png), url(images/spaceship-with-alien.png), 70%);
+  background-image: cross-fade(url(images/spaceship.png), url(images/spaceship-with-alien.png), 70%);  
+}
+
+.cross-fade:hover{
+  background-image: -webkit-cross-fade(url(images/spaceship.png), url(images/spaceship-with-alien.png), 100%);
+  background-image: -moz-cross-fade(url(images/spaceship.png), url(images/spaceship-with-alien.png), 100%);
+  background-image: -o-cross-fade(url(images/spaceship.png), url(images/spaceship-with-alien.png), 100%);
+  background-image: cross-fade(url(images/spaceship.png), url(images/spaceship-with-alien.png), 100%);      
+}

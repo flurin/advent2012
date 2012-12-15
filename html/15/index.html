@@ -3,10 +3,17 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>:( - HTML and CSS Advent 2012 by Digitpaint</title>
-  <meta name="description" content="24 days of HTML/CSS tips, brought to you by the front-end experts at Digitpaint.">
+  <title>The background: cross-fade() Conundrum - HTML and CSS Advent 2012 by Digitpaint</title>
   <meta name="author" content="All of us at Digitpaint">
-
+  
+  <meta property="og:title" content="The background: cross-fade() Conundrum - HTML &amp; CSS Advent 2012">
+  <meta property="og:url" content="http://advent2012.digitpaint.nl/15">
+  <meta property="og:image" content="/assets/opengraph/15.png">
+  <meta property="og:description" content="Introducing the CSS cross-fade() function to cross-fade two background images">  
+  <meta name="description" content="Introducing the CSS cross-fade() function to cross-fade two background images">
+  
+  <link rel="stylesheet" href="15.css" />
+  <script src="15.js"></script>
   
 </head>
 <body class="layout-article">
@@ -16,39 +23,99 @@
     <!-- [STOP:layout/ribbon] -->    
         
     <article class="main">
-      
-      <header class="header">
-        <div class="body">
-          <span class="day-number">
-            15
-          </span>
-          <h1>
-            :(
-          </h1>
-        </div>
-        
-        <nav class="browse">
-          
-            <a href="/14/index.html" class="previous">
-              <span class="acc">Previous</span>
-            </a>
-          
-          
-            <a href="/16/index.html" class="next not-yet">
-              <span class="acc">Next</span>
-            </a>
-          
-        </nav>
-      </header>
-      
-      <div class="body text">
-        <p>Nope. Not yet.</p>
 
+      <!-- [START:layout/article-header?nr=15&title=The+background%3A+cross-fade%28%29+Conundrum&previous=/14/&next=/16/] -->
+      <!-- [STOP:layout/article-header] -->    
+
+      <div class="body text">
+        <p class="intro">
+          Multiple backgrounds are a nice thing to have, but wouldn't it be even better if we could cross-fade said
+          multiple backgrounds for even more spectacular effects? The CSS Image Values and Replaced Content Module Level 4
+          promises that we can, and it has already been implemented in Webkit!
+        </p>
+        
+        <section class="examples">
+          <h2>What are we talking about?</h2>
+          <p><strong>Attention!</strong> This only works in Webkit at the moment.</p>
+          <div class="row">
+            <figure class="example">
+              <div class="cross-fade"></div>
+              <figcaption>10% cross-fade</figcaption>
+            </figure>
+            <figure class="example">
+              <div class="cross-fade p50"></div>
+              <figcaption>50% cross-fade</figcaption>
+            </figure>
+            <figure class="example">
+              <div class="cross-fade p70"></div>
+              <figcaption>70% cross-fade</figcaption>
+            </figure>
+            
+          </div>
+        </section>
+        
+        <h2>How does it work?</h2>          
+        <p>
+          The CSS Image Values Replaced Content Module Level 4 (woah, that's one long spec name!), defines <code>cross-fade()</code> as
+          a new CSS function for images. It accepts 3 parameters: the background-image, the foreground-image, and the
+          amount of crossfade in percentages. In this spec, 0% only shows the background-image and 100% only shows the
+          foreground image. Putting it all together we get: <code>background-image: cross-fade(url(img1.png), url(img2.png), 50%);</code>          
+        </p>
+        
+        <h2>Useful?</h2>
+        <p>
+          It is somewhat useful, as it saves you some bytes in transferring the combination of images. The spec says it
+          should also be possible to cross-fade colors and gradients (what are they if not automatically generated
+          images?). This means you could easily tint your images, plus it saves you the trouble of converting some of the
+          images to semi-transparant PNGs.
+        </p>
+        
+        <h2>Great, but can I use it today?</h2>
+        <p>
+          Not really, it works to some extent in Webkit browsers (Safari and Chrome), but only if you use two images. It
+          doesn't work with gradients or solid colors, despite what the spec claims. On another note: when we tried this
+          example with SVG images, we got some pretty strange results, so we had to resort to PNGs for now.
+        </p>
+        
+        <h2>Show me the source!</h2>
+        <p>
+          Feel free to look around the differente sourc files we used for this example.
+        </p>
+        <ul>
+          <li><a href="15.css">The stylesheet</a></li>
+        </ul>
       </div>
+      
+      <footer class="footer text">
+          
+        <section class="attribution">
+          <h2>Attribution</h2>
+        
+          <p>
+            We got this idea when we found Peter Beverloo's <a href="http://peter.sh/files/examples/cross-fading.html" target="_blank">CSS Images Level 4: cross-fade() example</a>
+          </p>
+        </section>
+        
+        <!-- [START:share] -->
+        <!-- [STOP:share] -->
+          
+      </footer>
+      
+      <!-- [START:layout/site-navigation] --> 
+      <!-- [STOP:layout/site-navigation] -->
+      
     </article>
         
   </div>
     
+  <script>  
+    var addthis_share = { 
+      templates: {
+        twitter: 'Go see "the background: cross-fade() Conundrum" in The HTML and CSS Advent 2012 #dpadvent {{url}}'
+      }
+    }
+  </script>
+  
   <!-- [START:javascripts] -->
   <!-- [STOP:javascripts] -->    
 </body>
