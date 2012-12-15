@@ -61,12 +61,68 @@
 
 .layout-home{
   
-  .page{
+  .page,
+  .footer{
     max-width: 650px;
     margin: 0 auto;
     text-align: left;
     position: relative;
     z-index: 1; /* Otherwise we lose the wingtips */    
+  }  
+  .bottom{
+    margin-top: -50px;
+    background-image: url(../images/snow-2.svg), url(../images/snow-3.svg);
+    background-repeat: repeat-x;
+  }
+  
+  .bottom .wrapper{
+    position: relative;
+    z-index: 2; /* Go above the .page */
+    padding-top: 65px;
+    background-image: url(../images/snow-1.svg);
+    background-repeat: repeat-x;   
+  }
+  
+  .bottom .footer{
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 20px 20px 0 20px;
+  }
+  
+  .bottom .wrapper:before,
+  .bottom .wrapper:after{
+    content: "";
+    width: -webkit-calc(50% - 650px/2);    
+    width: -moz-calc(50% - 650px/2);    
+    width: calc(50% - 650px/2);
+    background-image: -webkit-linear-gradient(right, rgba(#25002b, 0.04) 20%, rgba(#25002b, 0.08) 20%, rgba(#25002b, 0.08) 40%, rgba(#25002b, 0.12) 40%, rgba(#25002b, 0.12) 60%, rgba(#25002b, 0.16) 60%, rgba(#25002b, 0.16) 80%,rgba(#25002b, 0.2) 80%  );
+    background-image: -moz-linear-gradient(right, rgba(#25002b, 0.04) 20%, rgba(#25002b, 0.08) 20%, rgba(#25002b, 0.08) 40%, rgba(#25002b, 0.12) 40%, rgba(#25002b, 0.12) 60%, rgba(#25002b, 0.16) 60%, rgba(#25002b, 0.16) 80%,rgba(#25002b, 0.2) 80%  );
+    background-image: -ms-linear-gradient(right, rgba(#25002b, 0.04) 20%, rgba(#25002b, 0.08) 20%, rgba(#25002b, 0.08) 40%, rgba(#25002b, 0.12) 40%, rgba(#25002b, 0.12) 60%, rgba(#25002b, 0.16) 60%, rgba(#25002b, 0.16) 80%,rgba(#25002b, 0.2) 80%  );    
+    background-image: linear-gradient(right, 
+      rgba(#25002b, 0.04) 20%, 
+      rgba(#25002b, 0.08) 20%, rgba(#25002b, 0.08) 40%, 
+      rgba(#25002b, 0.12) 40%, rgba(#25002b, 0.12) 60%, 
+      rgba(#25002b, 0.16) 60%, rgba(#25002b, 0.16) 80%,
+      rgba(#25002b, 0.2) 80%  );
+    background-repeat: no-repeat;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    position: absolute;
+  }  
+  
+  .bottom .wrapper:after{
+    background-image: -webkit-linear-gradient(left, rgba(#25002b, 0.04) 20%, rgba(#25002b, 0.08) 20%, rgba(#25002b, 0.08) 40%, rgba(#25002b, 0.12) 40%, rgba(#25002b, 0.12) 60%, rgba(#25002b, 0.16) 60%, rgba(#25002b, 0.16) 80%,rgba(#25002b, 0.2) 80%  );
+    background-image: -moz-linear-gradient(left, rgba(#25002b, 0.04) 20%, rgba(#25002b, 0.08) 20%, rgba(#25002b, 0.08) 40%, rgba(#25002b, 0.12) 40%, rgba(#25002b, 0.12) 60%, rgba(#25002b, 0.16) 60%, rgba(#25002b, 0.16) 80%,rgba(#25002b, 0.2) 80%  );
+    background-image: -ms-linear-gradient(left, rgba(#25002b, 0.04) 20%, rgba(#25002b, 0.08) 20%, rgba(#25002b, 0.08) 40%, rgba(#25002b, 0.12) 40%, rgba(#25002b, 0.12) 60%, rgba(#25002b, 0.16) 60%, rgba(#25002b, 0.16) 80%,rgba(#25002b, 0.2) 80%  );
+    background-image: linear-gradient(left, 
+      rgba(#25002b, 0.04) 20%, 
+      rgba(#25002b, 0.08) 20%, rgba(#25002b, 0.08) 40%, 
+      rgba(#25002b, 0.12) 40%, rgba(#25002b, 0.12) 60%, 
+      rgba(#25002b, 0.16) 60%, rgba(#25002b, 0.16) 80%,
+      rgba(#25002b, 0.2) 80%  );
+    left: auto;
+    right: 0;
   }
   
   .main > header{
@@ -87,6 +143,11 @@
     background: $c_main_body_bg;
     padding: 20px;    
   }
+  
+  .main > .body{
+    padding-bottom: 100px;
+  }
+  
     
   /* =========== */
   /* = Sharing = */
