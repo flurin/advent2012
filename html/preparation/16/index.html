@@ -13,6 +13,10 @@
   <meta name="description" content="">
   
   <link rel="stylesheet" href="16.css" />
+  
+  <script src="flot/jquery.js"></script>
+  <script src="flot/jquery.flot.js"></script>  
+  
   <script src="16.js"></script>
   
 </head>
@@ -31,28 +35,72 @@
 
       <div class="body text">
         <p class="intro">
-          
+          Back in the day, your computer was mostly a static thing. It stood there
+          under or on your desk and pretty much stayed there. Even laptops don't move all
+          that much but your phone does! Wouldn't it be great if we could do something
+          with all that movement and rotation information? Good thing we can
+          with the DeviceOrientation Event!
         </p>
         
         <section class="examples">
           <h2>What are we talking about?</h2>
           <div class="row">
             <figure class="example">
-              <figcaption></figcaption>
+              <div id="rotator">
+                <div class="container">
+                  <div id="plane">Rotating plane</div>
+                </div>
+              
+                <div id="orientation-chart"></div>
+              </div>
+              <figcaption>
+                Rotate your device to see the angle of the plane change and the
+                chart plots your rotation axes
+              </figcaption>
             </figure>
           </div>
         </section>
         
         <h2>How does it work?</h2>          
         <p>
+          We add an event listener on the <code>window</code> object which has to listen to
+          the <code>deviceorientation</code> event. Every time the orientation of the device changes
+          the event get's called. Inside the event handler we get the following data:
         </p>
+        <ul>
+          <li><code>alpha</code> for the rotation around the z-axis (also known as the direction), ranges from 0 to 360 degrees</li>
+          <li><code>beta</code> for the rotation around the x-axis (also known as the front/back tilt), ranges from -180 to 180 degrees</li>
+          <li><code>gamma</code> for the rotation around the y-axis (also known as the left/right tilt), ranges from -90 to 90 degrees</li>                    
+          <li><code>absolute</code> whether the given degrees are provided as the differences between the Earth's coordinate frame and the device's coordinate frame or the given coordinates are provided relative to an arbitrary device specific coordinate frame.</li>
+        </ul>
         
         <h2>Useful?</h2>
         <p>
+          What do you think? Beside it being cool you can do a lot of usefull stuff with this. Gaming
+          comes to mind but there are a lot more applications like:
         </p>
+        <ul>
+          <li>
+            Augmented reality applications where the device orientation is factored in what you look at
+            to show you more relative information
+          </li>
+          <li>
+            Labyrinth style games (you know the one's where you have to direct a marble through a maze)
+          </li>
+          <li>
+            Use your phone as a controller for a game in combination with WebRTC
+          </li>
+        </ul>
         
         <h2>Great, but can I use it today?</h2>
         <p>
+          As the <code>deviceorientation</code> matters most on mobile platforms you can actually
+          use this because support for it has been around a while there, the only major exception is the Blackberry browser.
+        </p>
+        <p>
+          One thing to keep in mind though: the information you get may vary in accuracy per device and
+          even though the browser supports it, your device might not. This is the case for instance with
+          older iPhones that doe not have a gyroscope.
         </p>
         
         <h2>Show me the source!</h2>
@@ -60,18 +108,43 @@
           Feel free to look around the differente source files we used for this example.
         </p>
         <ul>
-          <li><a href="#">The javascripts</a></li>
-          <li><a href="#">The stylesheet</a></li>
+          <li><a href="16.js">The javascripts</a></li>
+          <li><a href="16.css">The stylesheet</a></li>
         </ul>
+        
+        <section class="help-needed">
+          <h2>We need your help!</h2>
+          <p>
+            We wanted to have Bob the alien slide left and right, accelerating
+            as you tilt your device more but we could not figure out how
+            to get to factor in the friction so he would stop moving when there
+            is no more acceleration (i.e. he was on a straight plane).
+          </p>
+          <p>
+            We created <a href="http://jsfiddle.net/ajNN7/5/" target="_blank">a jsfiddle</a> with we've got so far.
+          </p>
+          <p>
+            If you know a solution for our problem we would love to hear it! You can contact us via
+            twitter (<a href="http://twitter.com/flurin" target="_blank">@flurin</a> or <a href="http://twitter.com/digitpaint" target="_blank">@digitpaint</a>)
+            or via e-mail <a href="mailto:advent@digitpaint.nl">advent@digitpaint.nl</a>. 
+          </p>
+        </section>
+        
       </div>
       
       <footer class="footer text">
           
-        <section class="attrbution">
+        <section class="attribution">
           <h2>Attribution</h2>
         
           <p>
-            
+            The MDN article <a href="https://developer.mozilla.org/en-US/docs/Detecting_device_orientation" target="_blank">Detecting device orientation</a>
+            was a big help.
+          </p>
+          
+          <p>
+            Also "<a href="http://www.html5rocks.com/en/tutorials/device/orientation/" target="_blank">This end up: using device orientation</a>" by
+            Pete LePage on HTML5 Rocks is a great getting-started article.
           </p>
         </section>
         
