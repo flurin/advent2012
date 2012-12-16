@@ -3,14 +3,14 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>TITLE - HTML and CSS Advent 2012 by Digitpaint</title>
+  <title>Getting your bearings on DeviceOrientation - HTML and CSS Advent 2012 by Digitpaint</title>
   <meta name="author" content="All of us at Digitpaint">
   
-  <meta property="og:title" content="TITLE - HTML &amp; CSS Advent 2012">
+  <meta property="og:title" content="Getting your bearings on DeviceOrientation - HTML &amp; CSS Advent 2012">
   <meta property="og:url" content="http://advent2012.digitpaint.nl/16">
   <meta property="og:image" content="/assets/opengraph/16.png">
-  <meta property="og:description" content="">  
-  <meta name="description" content="">
+  <meta property="og:description" content="How to get the current device rotation from your browser with the DeviceOrientation event">  
+  <meta name="description" content="How to get the current device rotation from your browser with the DeviceOrientation event">
   
   <link rel="stylesheet" href="16.css" />
   
@@ -30,77 +30,77 @@
 
       
 
-      <!-- [START:layout/article-header?nr=16&title=&previous=/15/&next=/17/] -->
+      <!-- [START:layout/article-header?nr=16&title=Getting your bearings on DeviceOrientation&previous=/15/&next=/17/] -->
       <!-- [STOP:layout/article-header] -->    
 
       <div class="body text">
         <p class="intro">
-          Back in the day, your computer was mostly a static thing. It stood there
-          under or on your desk and pretty much stayed there. Even laptops don't move all
-          that much but your phone does! Wouldn't it be great if we could do something
-          with all that movement and rotation information? Good thing we can
-          with the DeviceOrientation Event!
+          Not too long ago, a 'computer" was a static object. Weighing a metric tonne, for the most part
+          it just stood there under your desk, gathering dustbunnies in peace. It changed somewhat with
+          the introduction of laptops — but compared to your phone it still doesn't move all that much.
+          And your smartphone records all kinds of interesting information, like movement and rotation
+          data. Wouldn't it be great if we could do something with this information? Good thing we can,
+          thanks to the deviceorientation event!
         </p>
         
         <section class="examples">
-          <h2>What are we talking about?</h2>
+          <h2>What are we on about?</h2>
           <div class="row">
             <figure class="example">
               <div id="rotator">
                 <div class="container">
-                  <div id="plane">Rotating plane</div>
+                  <img src="images/phone.svg" alt="Phone" id="plane">
                 </div>
               
                 <div id="orientation-chart"></div>
               </div>
               <figcaption>
-                Rotate your device to see the angle of the plane change and the
-                chart plots your rotation axes
+                Rotate your device to see the angle of the plane change while the graph plots your rotation axis.
               </figcaption>
             </figure>
           </div>
         </section>
         
-        <h2>How does it work?</h2>          
+        <h2>I'm dizzy now. How does it work?</h2>          
         <p>
-          We add an event listener on the <code>window</code> object which has to listen to
-          the <code>deviceorientation</code> event. Every time the orientation of the device changes
-          the event get's called. Inside the event handler we get the following data:
+          We add an event listener on the <code>window</code> object, which listens for the <code>deviceorientation</code> event.
+          Every time the orientation of the device changes, the event gets called. Inside the event
+          handler we get the following data:
         </p>
         <ul>
           <li><code>alpha</code> for the rotation around the z-axis (also known as the direction), ranges from 0 to 360 degrees</li>
           <li><code>beta</code> for the rotation around the x-axis (also known as the front/back tilt), ranges from -180 to 180 degrees</li>
           <li><code>gamma</code> for the rotation around the y-axis (also known as the left/right tilt), ranges from -90 to 90 degrees</li>                    
-          <li><code>absolute</code> whether the given degrees are provided as the differences between the Earth's coordinate frame and the device's coordinate frame or the given coordinates are provided relative to an arbitrary device specific coordinate frame.</li>
+          <li><code>absolute</code> defines whether the given degrees are provided as the differences between the Earth's and the device's coordinate frames, or the given coordinates are provided relative to an arbitrary (device specific) coordinate frame.</li>
         </ul>
         
-        <h2>Useful?</h2>
+        <h2>Okay, what would I use this for? Farming? Salad making?</h2>
         <p>
-          What do you think? Beside it being cool you can do a lot of usefull stuff with this. Gaming
-          comes to mind but there are a lot more applications like:
+          What do you think? Besides it being cool, you can do a lot of useful things with this. Gaming
+          is the first thing we thought of, but there are whole array of stuff to make with this feature:
         </p>
         <ul>
           <li>
-            Augmented reality applications where the device orientation is factored in what you look at
-            to show you more relative information
+            Augmented reality applications, where the device orientation is factored in what you look at to show you more relative information.
           </li>
           <li>
-            Labyrinth style games (you know the one's where you have to direct a marble through a maze)
+            Labyrinth style games (sort of like the ones where you direct a marble through a maze).
           </li>
           <li>
-            Use your phone as a controller for a game in combination with WebRTC
+            Using your phone as a controller for a game in combination with WebRTC (like o Wii controller).
           </li>
         </ul>
         
         <h2>Great, but can I use it today?</h2>
         <p>
-          As the <code>deviceorientation</code> matters most on mobile platforms you can actually
-          use this because support for it has been around a while there, the only major exception is the Blackberry browser.
+          As the DeviceOrientation matters most on mobile platforms, support for it has been around a
+          while there. Most (newer) smartphones should be able to handle this, the major exception being
+          the Blackberry browser.
         </p>
         <p>
-          One thing to keep in mind though: the information you get may vary in accuracy per device and
+          One thing to keep in mind though: the information you get may vary in accuracy per device, and
           even though the browser supports it, your device might not. This is the case for instance with
-          older iPhones that doe not have a gyroscope.
+          older iPhones (3GS, 3G and first-gen) that do not have a gyroscope. 
         </p>
         
         <h2>Show me the source!</h2>
@@ -115,18 +115,17 @@
         <section class="help-needed">
           <h2>We need your help!</h2>
           <p>
-            We wanted to have Bob the alien slide left and right, accelerating
-            as you tilt your device more but we could not figure out how
-            to get to factor in the friction so he would stop moving when there
-            is no more acceleration (i.e. he was on a straight plane).
+            We wanted to have Bob the Christmas alien slide left and right, accelerating as you increase
+            the tilt your device. However, we could not figure out how to get to factor in friction, so
+            he would stop moving when there is no more acceleration (i.e. he was on a straight plane).
           </p>
           <p>
             We created <a href="http://jsfiddle.net/ajNN7/5/" target="_blank">a jsfiddle</a> with we've got so far.
           </p>
           <p>
-            If you know a solution for our problem we would love to hear it! You can contact us via
+            If you know a solution for our problem, we would love to hear it! You can contact us via 
             twitter (<a href="http://twitter.com/flurin" target="_blank">@flurin</a> or <a href="http://twitter.com/digitpaint" target="_blank">@digitpaint</a>)
-            or via e-mail <a href="mailto:advent@digitpaint.nl">advent@digitpaint.nl</a>. 
+            or via e-mail <a href="mailto:advent@digitpaint.nl">advent@digitpaint.nl</a>. We will of course fully credit you if we use your solution.
           </p>
         </section>
         
@@ -143,8 +142,8 @@
           </p>
           
           <p>
-            Also "<a href="http://www.html5rocks.com/en/tutorials/device/orientation/" target="_blank">This end up: using device orientation</a>" by
-            Pete LePage on HTML5 Rocks is a great getting-started article.
+            "<a href="http://www.html5rocks.com/en/tutorials/device/orientation/" target="_blank">This end up: using device orientation</a>"
+            by Pete LePage on HTML5 Rocks is a great article to get started with.
           </p>
         </section>
         
@@ -164,7 +163,7 @@
   <script>  
     var addthis_share = { 
       templates: {
-        twitter: 'Awesome! The HTML and CSS Advent 2012 #dpadvent {{url}}'
+        twitter: 'Getting your bearings on DeviceOrientation. Check it out in the HTML & CSS Advent 2012 #dpadvent {{url}}'
       }
     }
   </script>

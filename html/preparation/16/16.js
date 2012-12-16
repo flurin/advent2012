@@ -26,6 +26,8 @@ document.addEventListener("DOMContentLoaded", function(){
     if(eventData.alpha === null){
       noSupport("Sorry, your browser/device does not seem to send sensible orientation data.")
     }
+    
+    var dx, dy //Actual rotation value
         
     // gamma is the left-to-right tilt in degrees, where right is positive
     tiltLR = eventData.gamma;
@@ -34,8 +36,29 @@ document.addEventListener("DOMContentLoaded", function(){
     tiltFB = eventData.beta;
 
     // alpha is the compass direction the device is facing in degrees
-    dir = eventData.alpha
-    
+    dir = eventData.alpha;
+        
+    // Compensate for device roration
+    if(window.orientation !== undefined){
+      var orient = window.orientation, dx, dy;
+      if (!orient || orient === 0) { // normal portrait orientation
+        dx = tiltLR;
+        dy = tiltFB;
+      } else if (orient === -90) { // landscape, rotated clockwise
+        dx = -1 * tiltFB;
+        dy = tiltLR;
+      } else if (orient === 90) { // landscape, rotated counterclockwise
+        dx = tiltFB;
+        dy = -1 * tiltLR;
+      } else if (orient === 180) { // portrait, upside down
+        dx = -1 * tiltLR;
+        dy = -1 * tiltFB;
+      }
+      
+      tiltLR = dx;
+      tiltFB = dy;
+    }
+        
     // Only detect changes greater than 1 degree
     var change = false;
     if(Math.abs(tiltLR - lTiltLR) > 1){

@@ -26,7 +26,8 @@ Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
 .container{
   position: relative;
   float: left;
-  width: 100px;
+  width: 75px;
+  height: 123px;
   padding: 10px;
 }
 
@@ -34,7 +35,6 @@ Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
   padding: 10px;
   width: 80px;
   height: 80px;
-  background: #f00;
 }
 
 
