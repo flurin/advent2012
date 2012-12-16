@@ -1,0 +1,14 @@
+.help-needed{
+  color: #fff;
+  padding: 1rem;
+  background-color: rgb(163,0,0);
+  background-image: -webkit-linear-gradient(top, rgb(196,0,0), rgb(163,0,0));
+  background-image: -moz-linear-gradient(top, rgb(196,0,0), rgb(163,0,0));
+  background-image: -ms-linear-gradient(top, rgb(196,0,0), rgb(163,0,0));
+  background-image: linear-gradient(top, rgb(196,0,0), rgb(163,0,0));  
+  border: 1rem solid $c_main_highlight_bg;
+}
+
+.help-needed a{
+  color: #fff;
+}
