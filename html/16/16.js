@@ -23,8 +23,9 @@ document.addEventListener("DOMContentLoaded", function(){
   
   var devOrientHandler = function(eventData){
 
-    if(eventData.alpha === null){
-      noSupport("Sorry, your browser/device does not seem to send sensible orientation data.")
+    if(eventData.gamma === null){
+      noSupport("Sorry, your browser/device does not seem to send sensible orientation data.");
+      return;
     }
     
     var dx, dy //Actual rotation value
