@@ -63,6 +63,7 @@ Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
   /* The background: linear gradient the -10px / + 10px stops make it look like there is "padding" around the content*/
   background: -webkit-linear-gradient(left, #8F0000 0, #C40000 -webkit-calc(50% - (100px/2) - 10px), #FDFBE5 -webkit-calc(50% - (100px/2) - 10px), #FDFBE5 -webkit-calc(50% + (100px/2) + 10px), #C40000 -webkit-calc(50% + (100px/2) + 10px), #8F0000 100%);
   background: -moz-linear-gradient(left, #8F0000 0, #C40000 -moz-calc(50% - (100px/2) - 10px), #FDFBE5 -moz-calc(50% - (100px/2) - 10px), #FDFBE5 -moz-calc(50% + (100px/2) + 10px), #C40000 -moz-calc(50% + (100px/2) + 10px), #8F0000 100%);
+  background: -moz-linear-gradient(left, #8F0000 0, #C40000 calc(50% - (100px/2) - 10px), #FDFBE5 calc(50% - (100px/2) - 10px), #FDFBE5 calc(50% + (100px/2) + 10px), #C40000 calc(50% + (100px/2) + 10px), #8F0000 100%);  
   background: -ms-linear-gradient(left, #8F0000 0, #C40000 calc(50% - (100px/2) - 10px), #FDFBE5 calc(50% - (100px/2) - 10px), #FDFBE5 calc(50% + (100px/2) + 10px), #C40000 calc(50% + (100px/2) + 10px), #8F0000 100%);
   background: linear-gradient(left,
     #8F0000 0, #C40000 calc(50% - (100px/2) - 10px), 
@@ -85,6 +86,8 @@ Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
   color: #fff;
   
   background:  -webkit-linear-gradient(top , #FF8080 1px, #DB0000 1px, #A10000 -webkit-calc(100% - 1px), #4A0000 -webkit-calc(100% - 1px)), -webkit-linear-gradient(top , #FF8080 1px, #AB0000 1px, #FF8080 1px, #AB0000 1px, #5E0000 -webkit-calc(100% - 1px), #4A0000 -webkit-calc(100% - 1px)), -webkit-linear-gradient(top , #FF8080 1px, #AB0000 1px, #5E0000 -webkit-calc(100% - 1px), #4A0000 -webkit-calc(100% - 1px));                
+  /* Fallback for older firefoxes*/
+  background:  -moz-linear-gradient(top , #DB0000, #A10000), -moz-linear-gradient(top , #AB0000, #5E0000),  -moz-linear-gradient(top , #AB0000, #5E0000);  
   background:  -moz-linear-gradient(top , #FF8080 1px, #DB0000 1px, #A10000 -moz-calc(100% - 1px), #4A0000 -moz-calc(100% - 1px)), -moz-linear-gradient(top , #FF8080 1px, #AB0000 1px, #FF8080 1px, #AB0000 1px, #5E0000 -moz-calc(100% - 1px), #4A0000 -moz-calc(100% - 1px)), -moz-linear-gradient(top , #FF8080 1px, #AB0000 1px, #5E0000 -moz-calc(100% - 1px), #4A0000 -moz-calc(100% - 1px));
   background:  -ms-linear-gradient(top , #FF8080 1px, #DB0000 1px, #A10000 calc(100% - 1px), #4A0000 calc(100% - 1px)), -ms-linear-gradient(top , #FF8080 1px, #AB0000 1px, #FF8080 1px, #AB0000 1px, #5E0000 calc(100% - 1px), #4A0000 calc(100% - 1px)), -ms-linear-gradient(top , #FF8080 1px, #AB0000 1px, #5E0000 calc(100% - 1px), #4A0000 calc(100% - 1px));  
   
