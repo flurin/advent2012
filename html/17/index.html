@@ -65,7 +65,7 @@
               </div>
               <figcaption>
                 Centering a fixed-width block with left and right spanning background and a gradient that
-                automatically adjusts to the width.
+                automatically adjusts to the width. <strong>Unfortunately does not work in regular Firefox yet.</strong>
               </figcaption>
             </figure>
           </div>
@@ -139,10 +139,11 @@
         
         <h2>Sweet, but can I use it today?</h2>
         <p>
-          Yes, almost all major browser vendors support <code>calc()</code> — the only absentee seems to be Opera. Chrome and
-          Safari still have a bit of trouble using them in combination with the new <code>vh</code> and <code>vw</code> units. Also, both of
-          the aforementioned don't seem to recalculate the values if used in a gradient (so you'd have to refresh
-          to see it properly).
+          Yes, almost all major browser vendors support <code>calc()</code> — the only absentee seems to be Opera. 
+        </p>
+        <p>
+          Chrome, Safari and Firefox still have a bit of trouble using them in combination with the new <code>vh</code> and <code>vw</code> units. Also, Chrome and Safari don't seem to recalculate the values if used in a gradient (so you'd have to refresh
+          to see it properly). Firefox does not seem to like <code>calc()</code> in a gradient, it works however in Firefox Aurora.
         </p>
         
         <h2>Show me the source!</h2>
