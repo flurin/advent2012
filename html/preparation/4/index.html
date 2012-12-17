@@ -94,33 +94,88 @@
             
             slide(0);
             
+            // var updatePos = function(){
+            //   var curUpdate = new Date();
+            //   var timeDelta = (curUpdate - lastUpdate)/1000;
+            //   
+            //   var accConstant = gravity * Math.sin(angle);
+            //   
+            //   if(angle > 0){
+            //     acceleration = accConstant - Math.min((Math.cos(angle) * friction), curSpeed + accConstant);
+            //   } else {
+            //     if(curSpeed > 0){
+            //       acceleration = accConstant - Math.max((-1 * Math.cos(angle) * friction), -1 * curSpeed + gravity * Math.sin(angle));
+            //     } else {
+            //       acceleration = accConstant - Math.max((-1 * Math.cos(angle) * friction), curSpeed + gravity * Math.sin(angle));
+            //     }
+            //   }
+            //   
+            //   console.log(acceleration, accConstant, curSpeed);
+            // 
+            //   var speedIncrease = acceleration * timeDelta;
+            //   curSpeed += speedIncrease;
+            //   var moveBy = curSpeed * timeDelta;
+            //   curPos += moveBy;
+            //   
+            //   // console.log(curPos);
+            //   block.style.left = curPos + "px";
+            //   
+            //   lastUpdate = curUpdate;
+            // }
+
+            //We'll take right to be +x direction and up to be the +y direction
+            var gravity = -9.8,
+                   friction = 5,
+                   mass = 1; //Set mass to whatever it needs to be to get good looking slides. This will make it more accurate
+                                        //to the Physics.
+
+            var lastUpdate = new Date();
+            var curSpeed = {x: 0, y: 0};
+            var acceleration = {x: 0, y: 0};
+            var angle = 0;
+            var curPos = 0;
+            
             var updatePos = function(){
               var curUpdate = new Date();
               var timeDelta = (curUpdate - lastUpdate)/1000;
               
-              var accConstant = gravity * Math.sin(angle);
-              
-              if(angle > 0){
-                acceleration = accConstant - Math.min((Math.cos(angle) * friction), curSpeed + accConstant);
-              } else {
-                if(curSpeed > 0){
-                  acceleration = accConstant - Math.max((-1 * Math.cos(angle) * friction), -1 * curSpeed + gravity * Math.sin(angle));
+              if(angle != 0) {
+                if(angle > 0 && Math.cos(angle) * mass * gravity * friction < Math.sin(angle) * mass * gravity) { //The second 
+                                                     //condition makes sure that the force of gravity exceeds the force of friction. You'll want
+                                                     //your friction variable to be a decimal number.
+                  //An positive angle leads to acceleration in the plus x and minus y directions 
+                  var totalAcc = (Math.sin(angle) * mass * gravity) - (Math.cos(angle) * mass * gravity * friction)
+                  acceleration.x += Math.sin(angle) * totalAcc;
+                  acceleration.y -= Math.cos(angle) * totalAcc;
+                } else if(Math.cos(-angle) * mass * gravity * friction < Math.sin(-angle) * mass * gravity) {
+                   //Here we expect acceleration in the minus x and minus y directions.
+                   var totalAcc = (Math.sin(angle) * mass * gravity) - (Math.cos(angle) * mass * gravity * friction)
+                   acceleration.x -= Math.sin(-angle) * totalAcc;
+                   acceleration.y -= Math.cos(angle) * totalAcc;
                 } else {
-                  acceleration = accConstant - Math.max((-1 * Math.cos(angle) * friction), curSpeed + gravity * Math.sin(angle));
+                   //here we handle the deceleration due to friction on a level plane
+                  acceleration = {x: mass * gravity * friction, y: 0}
+                  if(curSpeed > 0) {
+                    //If we are headed in the positive x direction we flip the sign of acceleration
+                    acceleration.x *= -1;
+                  }
                 }
               }
-              
-              console.log(acceleration, accConstant, curSpeed);
 
-              var speedIncrease = acceleration * timeDelta;
-              curSpeed += speedIncrease;
-              var moveBy = curSpeed * timeDelta;
-              curPos += moveBy;
+              //And now we update speed increases to incorporate x and y directions
+              var speedIncrease = {x: acceleration.x * timeDelta, y: acceleration.y * timeDelta};
+              curSpeed.x += speedIncrease.x;
+              curSpeed.y += speedIncrease.y;
+
+              //And that should be it. This won't slow down the block on small angles although it should in a real physical situation. Since this is an alien sliding around we can just assume that he has some hover capabilities that eliminate deceleration in that context (or add it in some time).   
               
-              // console.log(curPos);
-              block.style.left = curPos + "px";
-              
-              lastUpdate = curUpdate;
+                var moveBy = curSpeed.x * timeDelta;
+                curPos += moveBy;
+                
+                // console.log(curPos);
+                block.style.left = curPos + "px";
+                
+                lastUpdate = curUpdate;
             }
             
             var i = setInterval(updatePos, 1000);
