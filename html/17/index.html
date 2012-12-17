@@ -3,10 +3,17 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>Wait, you must. - HTML and CSS Advent 2012 by Digitpaint</title>
-  <meta name="description" content="24 days of HTML/CSS tips, brought to you by the front-end experts at Digitpaint.">
+  <title>Calc()ulating layouts &amp; backgrounds with CSS - HTML and CSS Advent 2012 by Digitpaint</title>
   <meta name="author" content="All of us at Digitpaint">
-
+  
+  <meta property="og:title" content="Calc()ulating layouts &amp; backgrounds with CSS - HTML &amp; CSS Advent 2012">
+  <meta property="og:url" content="http://advent2012.digitpaint.nl/17">
+  <meta property="og:image" content="/assets/opengraph/17.png">
+  <meta property="og:description" content="Building easy layouts and cool backgrounds with the CSS calc() function">  
+  <meta name="description" content="Building easy layouts and cool backgrounds with the CSS calc() function">
+  
+  <link rel="stylesheet" href="17.css" />
+  <script src="17.js"></script>
   
 </head>
 <body class="layout-article">
@@ -16,39 +23,184 @@
     <!-- [STOP:layout/ribbon] -->    
         
     <article class="main">
-      
-      <header class="header">
-        <div class="body">
-          <span class="day-number">
-            17
-          </span>
-          <h1>
-            Wait, you must.
-          </h1>
-        </div>
-        
-        <nav class="browse">
-          
-            <a href="/16/index.html" class="previous">
-              <span class="acc">Previous</span>
-            </a>
-          
-          
-            <a href="/18/index.html" class="next not-yet">
-              <span class="acc">Next</span>
-            </a>
-          
-        </nav>
-      </header>
-      
-      <div class="body text">
-        <p>Since you spend about 5 years during your lifetime waiting for stuff, we thought these few extra days wouldn’t matter much.</p>
 
+      <!-- [START:layout/article-header?nr=17&title=Calc%28%29ulating+layouts+%26+backgrounds&previous=/16/&next=/18/] -->
+      <!-- [STOP:layout/article-header] -->    
+
+      <div class="body text">
+        <p class="intro">
+          Using relative units of measurement like percentages is excellent for creating responsive and fluid
+          designs, but it's a pain to combine with absolute units (px, em, and such). The <code>calc()</code> CSS function
+          finally relieves that pain, and can give your layouts quite a kick!
+        </p>
+        
+        <section class="examples">
+          <h2>Stop! Demo-time!</h2>
+          <div class="row">
+            <figure class="example">
+              <div class="container">
+                
+                <div class="percentage-block">
+                  This  is a percentage width block, it should scale! The image next
+                  to it has a fixed width of 100px. The height is calculated automatically. We
+                  use <code class="language-css">calc(100% - 100px /* image width */ - 10px * 2 /* padding */ - 10px /* margin */)</code>
+                  
+                </div>
+                <img src="images/christmas_bokeh.jpg" class="pixel-block">
+                
+              </div>              
+              <figcaption> Two adjecent floats: one percentage width block next to fixed width image</figcaption>
+            </figure>
+          </div>
+          
+          <div class="row">
+            <figure class="example">
+              <div class="container backgroundscale">
+                
+                <div class="center">
+                  Content would go here...
+                </div>                
+                
+                
+              </div>
+              <figcaption>
+                Centering a fixed-width block with left and right spanning background and a gradient that
+                automatically adjusts to the width.
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="row">
+            <figure class="example">            
+              <div class="ribboney">
+                Some more content goes here...
+              </div>                
+              <figcaption>
+                Creating one-element flexible ribbons
+              </figcaption>
+            </figure>
+            
+          </div>
+
+          <div class="row">
+            <figure class="example">
+              <div class="ribboney max">
+                Going nuts with the vh/vw units
+              </div>                                    
+              <figcaption>
+                Using vh/vw units with calc(). <strong>Unfortunately, this won't work in Chrome or Safari (yet).</strong>
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+        
+        <h2>How does it work?</h2>
+        <p>
+          It's pretty easy — the <code>calc()</code> function can be used anywhere lengths are required. This means
+          it can be used in margin, padding, width, heights background-position, background-size, gradient-stops,
+          and a lot more. Plus you can nest multiple <code>calc()</code> calls if you want.
+        </p>
+        
+        <p>
+          The <code>calc()</code>  function accepts any regular arithmetic: addition (+), subtraction (-), multiplication (*) and
+          division (/). There are a few things to keep in mind: first off, you have to have a space between the
+          minus/plus/whatever signs, or the browser interprets it as a sign instead of an operator. Secondly, you
+          can't divide by a length, only by a number. For example, this would be a valid expression: <code>calc(100% -
+          1em + 1px)</code>.          
+        </p>
+        
+        <p>
+          It would get even better if we could use the code>min(a, b)</code> and <code>max(a, b)</code> functions, but they have not ye been
+          implemented by any browser vendor.
+        </p>
+        
+        <h2>Useful?</h2>
+        <p>
+          Ok, looks quite useful, but where would I need it? Here are some hands-on examples:
+        </p>
+        <ul>
+          <li>
+            Put a fixed width float next to a percentage width float:
+            <pre class="language-css code"><code>width: calc(100% - FIXED_FLOAT_WIDTHpx)</code></pre>
+          </li>          
+          <li>
+            Center content with retaining backgrounds by using:
+            <pre class="language-css code"><code>padding: 0 calc(50% - WIDTHpx / 2);</code></pre>
+          </li>
+          <li>
+            Making gradients that combine percentages and pixels and measure from both sides:
+            <pre class="language-css code"><code>background-image: linear-gradient(top, 
+  black 1px, 
+  powderblue 1px, skyblue calc(100% - 1px), 
+  black calc(100% - 1px)
+);</code></pre>            
+          </li>
+        </ul>
+        
+        <h2>Sweet, but can I use it today?</h2>
+        <p>
+          Yes, almost all major browser vendors support <code>calc()</code> — the only absentee seems to be Opera. Chrome and
+          Safari still have a bit of trouble using them in combination with the new <code>vh</code> and <code>vw</code> units. Also, both of
+          the aforementioned don't seem to recalculate the values if used in a gradient (so you'd have to refresh
+          to see it properly).
+        </p>
+        
+        <h2>Show me the source!</h2>
+        <p>
+          Feel free to look around the differente source files we used for this example.
+        </p>
+        <ul>
+          <li><a href="17.css">The stylesheet</a></li>
+        </ul>
       </div>
+      
+      <footer class="footer text">
+          
+        <section class="attribution">
+          <h2>Attribution</h2>
+        
+          <p>
+            We started playing around with the <code>calc()</code> function because
+            of <a href="http://vimeo.com/channels/fronteers12/52882799" target="_blank">Lea Verou's talk on Fronteers 2012</a>.
+          </p>
+        
+          <p>
+            A more generic introduction to the CSS3 calc function can be found in the article "<a href="http://www.sitepoint.com/css3-calc-function/" target="_blank">CSS3 Gems: The calc() Function</a>"
+            by Craig Buckler on Sitepoint.
+          </p>
+          
+          <p>
+            "<a href="http://lists.w3.org/Archives/Public/www-style/2010Sep/0356.html">dropping min()/max() on calc()</a>"
+            by François Remy on the www-style@w3.org mailinglist contains even more awesome (but not yet feasable) use-cases for calc().
+          </p>
+          
+          <p>
+            The picture in the example above is 
+            <a href="http://www.sxc.hu/photo/1375018">Christmas bokeh</a> by Florin Garoi
+          </p>
+        </section>
+        
+        
+        <!-- [START:share] -->
+        <!-- [STOP:share] -->
+          
+      </footer>
+      
+      <!-- [START:layout/site-navigation] --> 
+      <!-- [STOP:layout/site-navigation] -->
+      
     </article>
         
   </div>
     
+  <script>  
+    var addthis_share = { 
+      templates: {
+        twitter: 'Calc()ulating layouts & backgrounds with CSS! In the HTML and CSS Advent 2012 #dpadvent {{url}}'
+      }
+    }
+  </script>
+  
   <!-- [START:javascripts] -->
   <!-- [STOP:javascripts] -->    
 </body>

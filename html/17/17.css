@@ -1,0 +1,171 @@
+/*
+
+Digitpaint HTML and CSS Advent 2012
+
+       ....                                                                    ..                                                              s                
+   .xH888888Hx.                                                          . uW8"                                       oe    dL ud8Nu  :8c     :8      .uef^"    
+ .H8888888888888:                                       ..    .     :    `t888                     .u    .          .@88    8Fd888888L 8    .88    :d88E       
+ 888*"""?""*88888X        .u          .        .u     .888: x888  x888.   8888   .        .u     .d88B :@8c     ==*88888    4N88888888cuR   :888ooo `888E       
+'f     d8x.   ^88k    ud8888.   .udR88N    ud8888.  ~`8888~'888X`?888f`  9888.z88N    ud8888.  ="8888f8888r       88888    4F   ^""""d  -*8888888  888E .z8k  
+'>    <88888X   '?8  :888'8888. <888'888k :888'8888.   X888  888X '888>   9888  888E :888'8888.   4888>'88"        88888    d       .z8     8888     888E~?888L 
+ `:..:`888888>    8> d888 '88" 9888 'Y"  d888 '88"   X888  888X '888>   9888  888E d888 '88"   4888> '          88888    ^     z888      8888     888E  888E 
+        `"*88     X  8888.+"    9888      8888.+"      X888  888X '888>   9888  888E 8888.+"      4888>            88888        d8888'      8888     888E  888E 
+   .xHHhx.."      !  8888L      9888      8888L        X888  888X '888>   9888  888E 8888L       .d888L .+         88888       888888      .8888Lu=  888E  888E 
+  X88888888hx. ..!   '8888c. .+ ?8888u../ '8888c. .+  "*88""*88" '888!` .8888  888" '8888c. .+  ^"8888*"          88888      :888888      ^888*    888E  888E 
+ !   "*888888888"     "88888    "8888P'   "88888      `~    "    `"`    `888*"    "88888       "Y"            88888       888888        'Y"    m888N= 888> 
+        ^"***"`         "YP'       "P'       "YP'                            "`         "YP'                    '****    '**                 `Y"   888  
+                                                                                                                                                          J88"  
+                                                                                                                                                          @    
+                                                                                                                                                        :"      
+
+Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
+
+*/  
+
+.container{
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ================= */
+/* = Basic example = */
+/* ================= */
+
+.percentage-block{
+  padding: 10px;
+  margin-right: 10px;
+  background: #FDFBE5;
+  width: -webkit-calc(100% - 100px - 10px * 2 - 10px);
+  width: -moz-calc(100% - 100px - 10px * 2 - 10px);
+  width: calc(100% - 100px - 10px * 2 - 10px);
+  float: left;
+}
+              
+.pixel-block{
+  background: #0f0;
+  width: 100px;
+  float: left;
+}
+
+
+/* ================================== */
+/* = Calculated background-gradient = */
+/* ================================== */
+
+.backgroundscale .center{
+  height: 50px;
+  width: 100px;
+  padding: 10px -webkit-calc(50% - (100px/2));
+  padding: 10px -moz-calc(50% - (100px/2));
+  padding: 10px calc(50% - (100px/2));
+
+  /* The background: linear gradient the -10px / + 10px stops make it look like there is "padding" around the content*/
+  background: -webkit-linear-gradient(left, #8F0000 0, #C40000 -webkit-calc(50% - (100px/2) - 10px), #FDFBE5 -webkit-calc(50% - (100px/2) - 10px), #FDFBE5 -webkit-calc(50% + (100px/2) + 10px), #C40000 -webkit-calc(50% + (100px/2) + 10px), #8F0000 100%);
+  background: -moz-linear-gradient(left, #8F0000 0, #C40000 -moz-calc(50% - (100px/2) - 10px), #FDFBE5 -moz-calc(50% - (100px/2) - 10px), #FDFBE5 -moz-calc(50% + (100px/2) + 10px), #C40000 -moz-calc(50% + (100px/2) + 10px), #8F0000 100%);
+  background: -ms-linear-gradient(left, #8F0000 0, #C40000 calc(50% - (100px/2) - 10px), #FDFBE5 calc(50% - (100px/2) - 10px), #FDFBE5 calc(50% + (100px/2) + 10px), #C40000 calc(50% + (100px/2) + 10px), #8F0000 100%);
+  background: linear-gradient(left,
+    #8F0000 0, #C40000 calc(50% - (100px/2) - 10px), 
+    #FDFBE5 calc(50% - (100px/2) - 10px), #FDFBE5 calc(50% + (100px/2) + 10px), 
+    #C40000 calc(50% + (100px/2) + 10px), #8F0000 100%); 
+}   
+
+
+/* ================ */
+/* = Some ribbons = */
+/* ================ */
+              
+.ribboney{
+  position: relative;
+  min-width: 200px;
+  display: block;
+  padding: 20px 10% 10px 10%;
+  margin: 0;
+
+  color: #fff;
+  
+  background:  -webkit-linear-gradient(top , #FF8080 1px, #DB0000 1px, #A10000 -webkit-calc(100% - 1px), #4A0000 -webkit-calc(100% - 1px)), -webkit-linear-gradient(top , #FF8080 1px, #AB0000 1px, #FF8080 1px, #AB0000 1px, #5E0000 -webkit-calc(100% - 1px), #4A0000 -webkit-calc(100% - 1px)), -webkit-linear-gradient(top , #FF8080 1px, #AB0000 1px, #5E0000 -webkit-calc(100% - 1px), #4A0000 -webkit-calc(100% - 1px));                
+  background:  -moz-linear-gradient(top , #FF8080 1px, #DB0000 1px, #A10000 -moz-calc(100% - 1px), #4A0000 -moz-calc(100% - 1px)), -moz-linear-gradient(top , #FF8080 1px, #AB0000 1px, #FF8080 1px, #AB0000 1px, #5E0000 -moz-calc(100% - 1px), #4A0000 -moz-calc(100% - 1px)), -moz-linear-gradient(top , #FF8080 1px, #AB0000 1px, #5E0000 -moz-calc(100% - 1px), #4A0000 -moz-calc(100% - 1px));
+  background:  -ms-linear-gradient(top , #FF8080 1px, #DB0000 1px, #A10000 calc(100% - 1px), #4A0000 calc(100% - 1px)), -ms-linear-gradient(top , #FF8080 1px, #AB0000 1px, #FF8080 1px, #AB0000 1px, #5E0000 calc(100% - 1px), #4A0000 calc(100% - 1px)), -ms-linear-gradient(top , #FF8080 1px, #AB0000 1px, #5E0000 calc(100% - 1px), #4A0000 calc(100% - 1px));  
+  
+  /* The content, left and right gradients */
+  /* See how we add a "fake" 1px line with calc(100% - 1px) */
+  background: 
+    linear-gradient(top , #FF8080 1px, #DB0000 1px, #A10000 calc(100% - 1px), #4A0000 calc(100% - 1px)),
+    linear-gradient(top , #FF8080 1px, #AB0000 1px, #FF8080 1px, #AB0000 1px, #5E0000 calc(100% - 1px), #4A0000 calc(100% - 1px)),
+    linear-gradient(top , #FF8080 1px, #AB0000 1px, #5E0000 calc(100% - 1px), #4A0000 calc(100% - 1px));
+
+                
+  background-repeat: no-repeat;
+
+  background-size: -webkit-calc(80% + 2rem) -webkit-calc(100% - 10px), -webkit-calc(50% - (80%/2) + 40px - 10px) -webkit-calc(100% - 10px), -webkit-calc(50% - (80%/2) + 40px - 10px) -webkit-calc(100% - 10px);
+  background-size: -moz-calc(80% + 2rem) -moz-calc(100% - 10px), -moz-calc(50% - (80%/2) + 40px - 10px) -moz-calc(100% - 10px), -moz-calc(50% - (80%/2) + 40px - 10px) -moz-calc(100% - 10px);
+  background-size: calc(80% + 2rem) calc(100% - 10px), calc(50% - (80%/2) + 40px - 10px) calc(100% - 10px), calc(50% - (80%/2) + 40px - 10px) calc(100% - 10px);  
+  background-size: 
+    calc(80% + 2rem) calc(100% - 10px),                
+    calc(50% - (80%/2) + 40px - 10px) calc(100% - 10px),
+    calc(50% - (80%/2) + 40px - 10px) calc(100% - 10px);
+
+ background-position:
+   50% 10px,               
+   0 0,
+   100% 0;
+}              
+              
+.ribboney:before,
+.ribboney:after{
+  content: "";
+  position: absolute;
+  left: -webkit-calc(10% - 1rem);
+  left: -moz-calc(10% - 1rem);
+  left: calc(10% - 1rem);    
+  top: 0;
+  border-right: 40px solid #550000;
+  border-top: 10px solid transparent;
+  background: none;
+}
+              
+.ribboney:after{
+  left: auto;
+  right: -webkit-calc(10% - 1rem);
+  right: -moz-calc(10% - 1rem);
+  right: calc(10% - 1rem);    
+  border-right: 0;
+  border-left: 40px solid #550000;
+  border-top: 10px solid transparent;                
+}
+
+/* Let's maximize this ribbon */
+.ribboney.max{
+  max-width: none;
+  width: 630px;
+  
+  /* We use 650px here to add a "padding" of 10px on each side (630 + 2 x 10 = 650)*/
+  padding: 20px -webkit-calc(50vw - (650px/2)) 10px -webkit-calc(50vw - (650px/2));
+  padding: 20px -moz-calc(50vw - (650px/2)) 10px -moz-calc(50vw - (650px/2));
+  padding: 20px calc(50vw - (650px/2)) 10px calc(50vw - (650px/2));
+  
+  /* We have to add 10px to the margin because our parent wrapper has 10px padding */
+  margin: 0 -webkit-calc(-50vw + (650px/2) + 10px); 
+  margin: 0 -moz-calc(-50vw + (650px/2) + 10px);     
+  margin: 0 calc(-50vw + (650px/2) + 10px); 
+
+  /* The content, left and right gradients */
+  background-size: 650px  -webkit-calc(100% - 10px), -webkit-calc(50vw - (650px/2) + 40px - 10px) -webkit-calc(100% - 10px), -webkit-calc(50vw - (650px/2) + 40px - 10px) -webkit-calc(100% - 10px);
+  background-size: 650px  -moz-calc(100% - 10px), -moz-calc(50vw - (650px/2) + 40px - 10px) -moz-calc(100% - 10px), -moz-calc(50vw - (650px/2) + 40px - 10px) -moz-calc(100% - 10px);                
+  background-size: 
+    /* The content part */
+    650px  calc(100% - 10px), 
+    /* The left and right ribbons, we add 40px because thats how much the should be indented and subtract 10px because of the padding */
+    calc(50vw - (650px/2) + 40px - 10px) calc(100% - 10px),
+    calc(50vw - (650px/2) + 40px - 10px) calc(100% - 10px);
+
+ }
+              
+.ribboney.max:before{
+  left: calc(50% - 650px/2);
+}
+              
+.ribboney.max:after{
+  right: calc(50% - 650px/2);
+}
