@@ -25,9 +25,11 @@ pre.code code{
   padding: 0;
 }
 
+:not(pre) > code[class*="language-"],
 .text code{
   background: $c_main_highlight_bg;
   padding: 0.2em 0.5em;
+  white-space: normal;
 }
 
 @import "../../../javascripts/vendor/prism/prism.css";
