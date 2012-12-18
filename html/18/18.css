@@ -12,3 +12,14 @@ Digitpaint HTML and CSS Advent 2012
 Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
 
 */  
+
+
+.arrows{
+  background-color: #fffce6;
+  position: relative;
+  background-image: -webkit-canvas(arrows);
+  background-image: -moz-element(#arrows-bg);
+  background-position: 100% 0;
+  background-repeat: no-repeat;
+  padding: 10px;
+}

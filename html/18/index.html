@@ -3,10 +3,26 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>Halt! Zhis is ein secret area! - HTML and CSS Advent 2012 by Digitpaint</title>
-  <meta name="description" content="24 days of HTML/CSS tips, brought to you by the front-end experts at Digitpaint.">
+  <title>Painting on a Canvas background - HTML and CSS Advent 2012 by Digitpaint</title>
   <meta name="author" content="All of us at Digitpaint">
+  <meta name="description" content="Dynamic backgrounds by using a HTML canvas as CSS background-image">
+  
+  <meta property="og:title" content="Painting on a Canvas background - HTML &amp; CSS Advent 2012">
+  <meta property="og:url" content="http://advent2012.digitpaint.nl/18/">
+  <meta property="og:image" content="/assets/opengraph/18.png">
+  <meta property="og:description" content="Dynamic backgrounds by using a HTML canvas as CSS background-image">
 
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@digitpaint">
+  <meta name="twitter:creator" content="@flurin">
+  <meta name="twitter:title" content="Painting on a Canvas background - HTML &amp; CSS Advent 2012 by Digitpaint">
+  <meta name="twitter:url" content="http://advent2012.digitpaint.nl/18/">  
+  <meta name="twitter:image" content="/assets/opengraph/18.png">
+  <meta name="twitter:description" content="Dynamic backgrounds by using a HTML canvas as CSS background-image">
+ 
+  
+  <link rel="stylesheet" href="18.css" />
+  <script src="18.js"></script>
   
 </head>
 <body class="layout-article">
@@ -16,39 +32,144 @@
     <!-- [STOP:layout/ribbon] -->    
         
     <article class="main">
-      
-      <header class="header">
-        <div class="body">
-          <span class="day-number">
-            18
-          </span>
-          <h1>
-            Halt! Zhis is ein secret area!
-          </h1>
-        </div>
-        
-        <nav class="browse">
-          
-            <a href="/17/index.html" class="previous">
-              <span class="acc">Previous</span>
-            </a>
-          
-          
-            <a href="/19/index.html" class="next not-yet">
-              <span class="acc">Next</span>
-            </a>
-          
-        </nav>
-      </header>
-      
-      <div class="body text">
-        <p>&lt;German accent&gt; How zhid zou get here? Zou should not be here! Zhis secret bunker is off limits until the 18th! Guard! Schnell, Kartoffelstock! &lt;/German accent&gt;</p>
+    
 
+      <!-- [START:layout/article-header?nr=18&title=Painting on a Canvas background&previous=/17/&next=/19/] -->
+      <!-- [STOP:layout/article-header] -->    
+
+      <div class="body text">
+        <p class="intro">
+          Static backgrounds are old news, yet even the newer methods (however cool they might be) are still about static
+          images. Wouldn't it be great if we could create dynamic backgrounds? How about animated backgrounds — we could put
+          Nyancat everywhere! Or even creating content-dependent backgrounds? When we combine the power of Canvas with the
+          ability to use it as a background, we can!
+        </p>
+        
+        <section class="examples">
+          <h2>What are we talking about?</h2>
+          <div class="row">
+            <figure class="example">
+              
+              <div class="container arrows" id="container">
+                <p>
+                  This is some text that will be connected with an arrow to the next <span class="connect">paragraph!</span>
+                </p>
+                
+                <p>
+                  Another <span class="connect">paragraph</span> of sorts
+                </p>
+                
+                <p>
+                  And <span class="connect">the</span> last one
+                </p>
+                
+                <p>
+                  Some more connected text from <span class="connect">top</span> to <span class="connect">top</span>
+                </p>
+              </div>
+              <figcaption>
+                Live drawing on the canvas.
+                <button class="button" id="add-text-to-2nd-p">Add some text</button> Fun feature: try resizing your browser window!
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+        
+        <h2>So how do I cook this up?</h2>
+        <p>
+          There are some discrepancies between WebKit (Chrome/Safari) and Firefox so we'll describe each method separately. No
+          other browsers support this yet, as far as we know. 
+        </p>
+        
+        <h3>WebKit</h3>
+        <p>
+          The WebKit implementation is by far the easiest: in your CSS you set <code>background-image: -WebKit-canvas("mycanvas")</code>. In
+          the JS, instead of using an existing canvas context, you get the background canvas context with: var ctx =
+          <code>document.getCSSContext("2d", "mycanvas", width, height)</code>. You can now draw on this canvas.
+        </p>
+        
+        <h3>Firefox</h3>
+        <p>
+          Firefox works slightly differently in that it uses <code>background-image: -moz-element(#mycanvas)</code> instead of
+          <code>-webkit-canvas("mycanvas")</code>. The element() function can use any DOM element as a background, but you can also assign a
+          canvas element that's not even in the DOM to it. Assigning a canvas that's not in the DOM is done by calling
+          <code>document.mozSetImageElement("mycanvas", canvas);</code>. Don't forget to set the canvas width and height!
+        </p>
+        
+        <p>
+          Other than the things described above, it works like pretty much any regular canvas and regular canvas context.
+        </p>
+                
+        <h2>What's this for?</h2>
+        <p>
+          It's definitely useful, as it allows us to create flexible backgrounds. We could draw video on a background, improve
+          background-images with layering a canvas image on top of it, or just do the entire background in canvas. The example
+          above is just one of many applications.
+        </p>
+        
+        <h2>But is it ready to be served?</h2>
+        <p>
+          The WebKit variant is non-standard, and even though the <code>element()</code> function is defined in the CSS Image Values and
+          Replaced Content Module Level 4, the only current implementation is Firefox. Some use cases can be hacked around in
+          newer IE's by using the <code>toDataURL()</code> function of the canvas. This creates a data-URL and sets that as a background
+          image.
+        </p>
+        
+        <h2>Show me the source!</h2>
+        <p>
+          Feel free to look around the differente source files we used for this example.
+        </p>
+        <ul>
+          <li><a href="18.css">The javascripts</a></li>
+          <li><a href="18.js">The stylesheet</a></li>
+        </ul>
       </div>
+      
+      <footer class="footer text">
+          
+        <section class="attrbution">
+          <h2>Attribution &amp; sources</h2>
+        
+          <p>
+            "<a href="http://paul.kinlan.me/canvas-on-the-background/" target="_blank">Canvas on the Background</a>"
+            by Paul Kinlan explains how to make the canvas background work in WebKit.
+          </p>
+          <p>
+            "<a href="https://hacks.mozilla.org/2010/08/mozelement/" target="_blank">Firefox 4: Drawing arbitrary elements as backgrounds with -moz-element</a>"
+            by Paul Rouget demonstrates how it works in Firefox.
+          </p>
+          <p>
+            And then there is the spec: "<a href="http://dev.w3.org/csswg/css4-images/#element-notation" target="_blank">Using Elements as Images: the 'element()' notation</a>"
+            from the W3C CSS Image Values and Replaced Content Module Level 4.
+          </p>
+          <p>          
+            "<a href="http://updates.html5rocks.com/2012/12/Canvas-driven-background-images" target="_blank">Canvas-driven background images</a>"
+            by Eric Bidelman
+          </p>
+          
+        </section>
+        
+        
+        <!-- [START:share] -->
+        <!-- [STOP:share] -->
+          
+      </footer>
+      
+      <!-- [START:layout/site-navigation] --> 
+      <!-- [STOP:layout/site-navigation] -->
+      
     </article>
         
   </div>
     
+  <script>  
+    var addthis_share = { 
+      templates: {
+        twitter: 'Painting on a Canvas background! from the HTML and CSS Advent 2012 #dpadvent {{url}}'
+      }
+    }
+  </script>
+  
   <!-- [START:javascripts] -->
   <!-- [STOP:javascripts] -->    
 </body>
