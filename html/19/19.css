@@ -1,0 +1,210 @@
+/*
+
+Digitpaint HTML and CSS Advent 2012
+
+ #####                                        #                                      #      ####      #      #       
+ #    #                                       #                                     ##     #    #     #      #       
+ #     #   #####    #####    #####   ### ##   ######    #####    # ###               #     #    #   ######   ######  
+ #     #  #     #  #        #     #  #  #  #  #     #  #     #   ##                  #      #####     #      #     # 
+ #     #  #######  #        #######  #  #  #  #     #  #######   #                   #          #     #      #     # 
+ #    #   #        #        #        #  #  #  #     #  #         #                   #         #      #      #     # 
+ #####     #####    #####    #####   #     #  ######    #####    #                   #      ###        ###   #     # 
+                                                                                                                     
+
+Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
+
+*/  
+
+.example figcaption{
+  clear: both;
+}
+
+#region-source{
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  -ms-flow-into: regions;
+}
+
+#region-source2{
+  -webkit-flow-into: regions;
+  -moz-flow-into: regions;  
+  flow-into: regions;  
+}
+
+.no-support .container{
+  background: #fff;
+  text-align: center;
+  padding: 1rem;  
+  min-height: auto;
+}
+
+.hidden,
+.no-support #region-source,
+.no-support #region-source2{
+  display: none;
+}
+
+.container{
+  min-height: 250px;
+  position: relative;
+}
+
+.region{
+  -ms-flow-from: regions;
+  -webkit-flow-from: regions;
+  -webkit-region-overflow: break;
+  width: 100px;
+  height: 200px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.region:nth-child(1){
+  background: #B80000;
+}
+
+.region:nth-child(2){
+  background: #E79D00;
+}
+
+.region:nth-child(3){
+  background: #F7E939;
+}
+
+.region:nth-child(4){
+  background: #A2BD30;
+}
+
+.region:nth-child(5){
+  background: #00874A;
+}
+
+.region:nth-child(6){
+  background: #00A2A8;
+}
+
+/* ============== */
+/* = Formation1 = */
+/* ============== */
+
+.formation1 .region{
+  left: -webkit-calc(50% - 50px);  
+  left: -moz-calc(50% - 50px);  
+  left: calc(50% - 50px);
+  position: absolute;  
+}
+
+/* ============== */
+/* = Formation2 = */
+/* ============== */
+
+.formation2 .region{
+  position: static;
+  width: calc(20% - 10px);
+  margin-right: 10px;
+  float: left;
+}
+
+.formation2 .region:first-child:nth-last-child(1),
+.formation2 .region:first-child:nth-last-child(1) ~ .region{
+  width: 100%;
+  margin-right: 0;
+}
+
+.formation2 .region:first-child:nth-last-child(2),
+.formation2 .region:first-child:nth-last-child(2) ~ .region{
+  width: -webkit-calc(50% - 10px);
+  width: -moz-calc(50% - 10px);  
+  width: calc(50% - 10px);
+}
+
+.formation2 .region:first-child:nth-last-child(3),
+.formation2 .region:first-child:nth-last-child(3) ~ .region{
+  width: -webkit-calc(33.333% - 10px);
+  width: -moz-calc(33.333% - 10px);
+  width: calc(33.333% - 10px);
+}
+
+.formation2 .region:first-child:nth-last-child(4),
+.formation2 .region:first-child:nth-last-child(4) ~ .region{
+  width: -webkit-calc(25% - 10px);
+  width: -moz-calc(25% - 10px);
+  width: calc(25% - 10px);
+}
+
+.formation2 .region:first-child:nth-last-child(5),
+.formation2 .region:first-child:nth-last-child(5) ~ .region{
+  width: -webkit-calc(20% - 10px);
+  width: -moz-calc(20% - 10px);
+  width: calc(20% - 10px);    
+}
+
+.formation2 .region:first-child:nth-last-child(6),
+.formation2 .region:first-child:nth-last-child(6) ~ .region{
+  width: -webkit-calc(16.666% - 10px);  
+  width: -moz-calc(16.666% - 10px);  
+  width: calc(16.666% - 10px);
+}
+
+/* ============== */
+/* = Formation3 = */
+/* ============== */
+
+
+.formation3 .region{
+  position: absolute;
+  width: auto;
+  float: none;
+  left: 0;
+}
+
+.formation3 .region:nth-child(1){
+  width: -webkit-calc(100% * 100/650);  
+  width: calc(100% * 100/650);
+  height: 70px;
+  left: 0;
+  top: 0;
+}
+
+.formation3 .region:nth-child(2){
+  width: -webkit-calc(100% * 175/650);  
+  width: calc(100% * 175/650);
+  height: 100px;
+  left: 0;
+  top: 80px;
+}
+
+.formation3 .region:nth-child(3){
+  width: -webkit-calc(100% * 400/650);  
+  width: calc(100% * 400/650);
+  height: 70px;
+  left: -webkit-calc(100% * 110/650);
+  left: calc(100% * 110/650);
+  top: 0;
+}
+
+.formation3 .region:nth-child(4){
+  width: -webkit-calc(100% * 150/650);  
+  width: calc(100% * 150/650);
+  height: 100px;
+  left: -webkit-calc(100% * 185/650);
+  left: calc(100% * 185/650);  
+  top: 80px;
+}
+
+.formation3 .region:nth-child(5){
+  width: -webkit-calc(100% * 165/650);  
+  width: calc(100% * 165/650);
+  top: 80px;
+  left: -webkit-calc(100% * 345/650);
+  left: calc(100% * 345/650);  
+  height: 150px;
+}
+
+.formation3 .region:nth-child(6){
+  width: -webkit-calc(100% * 130/650);
+  width: calc(100% * 130/650);  
+  left: -webkit-calc(100% * 520/650);
+  left: calc(100% * 520/650);  
+}
