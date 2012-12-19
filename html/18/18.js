@@ -34,7 +34,11 @@ document.addEventListener("DOMContentLoaded", function(){
       ctx = document.getCSSCanvasContext("2d", "arrows", w, h);  
     } else {
       var canvas = document.createElement("canvas");
-      document.mozSetImageElement("arrows-bg", canvas);
+      if(document.mozSetImageElement){
+        document.mozSetImageElement("arrows-bg", canvas);
+      } else {
+        canvas.id = "arrows-bg";
+      }
       canvas.width = w;
       canvas.height = h;
       ctx = canvas.getContext("2d");
@@ -164,11 +168,13 @@ document.addEventListener("DOMContentLoaded", function(){
     
   // # Observering the dom
   var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
-  var observer = new MutationObserver(function(mutations){
-    drawArrows();
-  })
+  if(MutationObserver){
+    var observer = new MutationObserver(function(mutations){
+      drawArrows();
+    })
   
-  observer.observe(container, { subtree: true, characterData : true, childList: true });
+    observer.observe(container, { subtree: true, characterData : true, childList: true });    
+  }
   
   // Add more text button
   var txt = "By adding a lot more text you can see that this is totally dynamic, the arrows should stay connected to the text ellipses.";
