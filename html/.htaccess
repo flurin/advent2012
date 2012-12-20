@@ -5,3 +5,7 @@ RewriteRule ^(.*)index\.html?$ "/$1" [R=301,L]
 ErrorDocument 404 /404.html
 
 AddType application/rss+xml .rss
+
+<IfModule mod_headers.c>
+Header set X-UA-Compatible "IE=edge,chrome=1"
+</IfModule>
