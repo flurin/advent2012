@@ -15,3 +15,54 @@ Digitpaint HTML and CSS Advent 2012
 Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
 
 */  
+
+:required{
+  border: 2px solid #000;
+}
+
+:required:invalid{
+  border: 2px solid #f00;
+}
+
+
+input{
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+form input{
+  float: left;
+  width: -webkit-calc(100% - 50px);  
+  width: -moz-calc(100% - 50px);    
+  width: calc(100% - 50px);  
+}
+
+form input + button{  
+  float: left;  
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 45px;
+  margin-left: 5px;
+}
+
+label{
+  display: block;
+}
+
+.input{
+  min-height: 30px;
+  overflow: hidden;
+}
+
+.input > div{
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  width: 50%;
+  padding-right: 1em;
+}
+
+.input > div input{
+  width: 100%;
+}

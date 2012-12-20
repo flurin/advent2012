@@ -3,10 +3,24 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>Still trying, eh? - HTML and CSS Advent 2012 by Digitpaint</title>
-  <meta name="description" content="24 days of HTML/CSS tips, brought to you by the front-end experts at Digitpaint.">
+  <title>HTML5 Form Field Frenzy - HTML and CSS Advent 2012 by Digitpaint</title>
   <meta name="author" content="All of us at Digitpaint">
+  <meta name="description" content="Highlights of new form field input types and features in HTML5">
+  
+  <meta property="og:title" content="HTML5 Form Field Frenzy - HTML &amp; CSS Advent 2012">
+  <meta property="og:url" content="http://advent2012.digitpaint.nl/20/">
+  <meta property="og:image" content="http://advent2012.digitpaint.nl/assets/opengraph/20.png">
+  <meta property="og:description" content="Highlights of new form field input types and features in HTML5">
 
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@digitpaint">
+  <meta name="twitter:creator" content="@flurin">
+  <meta name="twitter:title" content="HTML5 Form Field Frenzy - HTML &amp; CSS Advent 2012 by Digitpaint">
+  <meta name="twitter:url" content="http://advent2012.digitpaint.nl/20/">  
+  <meta name="twitter:image" content="http://advent2012.digitpaint.nl/assets/opengraph/20.png">
+  <meta name="twitter:description" content="Highlights of new form field input types and features in HTML5">
+  
+  <link rel="stylesheet" href="20.css" />
   
 </head>
 <body class="layout-article">
@@ -16,39 +30,218 @@
     <!-- [STOP:layout/ribbon] -->    
         
     <article class="main">
-      
-      <header class="header">
-        <div class="body">
-          <span class="day-number">
-            20
-          </span>
-          <h1>
-            Still trying, eh?
-          </h1>
-        </div>
-        
-        <nav class="browse">
-          
-            <a href="/19/index.html" class="previous">
-              <span class="acc">Previous</span>
-            </a>
-          
-          
-            <a href="/21/index.html" class="next not-yet">
-              <span class="acc">Next</span>
-            </a>
-          
-        </nav>
-      </header>
-      
-      <div class="body text">
-        <p>You must be bored if you kept clicking. May we offer you some refreshing <a href="http://nyan.cat/" target="_blank">Nyan Cat</a> while you wait? We’re all out of everything else at the moment...</p>
 
+      <!-- [START:layout/article-header?nr=20&title=HTML5 Form Field Frenzy&previous=/19/&next=/21/] -->
+      <!-- [STOP:layout/article-header] -->    
+
+      <div class="body text">
+        <p class="intro">
+          Forms used to be pretty simple; you had your input boxes, textareas, selects, radio
+          buttons, check boxes, and of course file inputs. For a long time this was pretty
+          much it, they did their thing and did it well, but it was fairly limited. With
+          HTML5 Forms, forms got a pretty big update, here we demonstrate some highlights
+          (not all are standard).
+        </p>
+        
+        <section class="examples">
+          <h2>Let's see here...</h2>
+          <div class="row">
+                        
+            <figure class="example">
+              <div class="input">
+                <input type="text" lang="nl" spellcheck="true">
+              </div>
+              <figcaption>Spellcheck</figcaption>
+            </figure>
+            
+            <figure class="example">
+              <div class="input">
+                <input type="file" accept="image/*" multiple="multiple">
+              </div>
+              <figcaption>Only accept image files (select multiple)</figcaption>
+            </figure>
+            
+            <figure class="example">
+              <form action="#" method="get" class="input">
+                <input type="text" required="required" id="input-required">
+                <button type="submit">Go!</button>
+              </form>
+              <figcaption>You must fill in this field!</figcaption>
+            </figure>
+                        
+            
+          </div>
+          <div class="row">
+            <figure class="example">
+              <div class="input">              
+                <label for="input-star">Type a star (ie. "Proxima Centauri"):</label>
+                <input type="text" list="stars" id="input-star">
+                <datalist id="stars">
+                  <option value="Sun">
+                  <option value="Proxima Centauri">
+                  <option value="Barnard's Star">
+                  <option value="Wolf 359">
+                  <option value="Lalande 21185">                  
+                  <option value="Sirius">                  
+                  <option value="Luyten">                  
+                </datalist>
+              </div>
+              <figcaption>Hassle free autocomplete with <code>datalist</code></figcaption>
+            </figure>
+            
+            <figure class="example">
+              <div class="input">              
+                <input type="color">
+              </div>
+              <figcaption>Let's choose a color!</figcaption>
+            </figure>               
+            
+            <figure class="example">
+              <div class="input">
+                <div>
+                  <label for="input-english">English:</label>
+                  <input type="text" id="input-english" lang="en" x-webkit-speech="x-webkit-speech">
+                </div>
+                <div>
+                  <label for="input-dutch">Dutch:</label>
+                  <input type="text" id="input-dutch" lang="nl" x-webkit-speech="x-webkit-speech">                
+                </div>
+              </div>
+              <figcaption>Recognizes speech in English or Dutch (Chrome only)</figcaption>
+            </figure>            
+         
+          </div>
+        </section>
+        
+        <h2>Let's look under the hood then, shall we?</h2>          
+        <p>
+          The examples above are just some highlights of what you can do with the HTML5 form elements. We've split up the in-depth explanation according to topic.
+        </p>
+        
+        <h3>Spellcheck</h3>
+        <p>
+          Enabling spellcheck is easy as pie, you just add the <code>spellcheck="true"</code>
+          attribute to your <code>input</code> element. You can opt to specify the language with the
+           <code>lang</code> attribute like this:
+        </p>
+        <pre class="language-markup code"><code>&lt;input type="text" spellcheck="true" lang="en"&gt;</code></pre>
+        
+        <h3>Input accept/multiple files</h3>
+        <p>
+          The new and improved file selector does not only allow you to upload multiple files
+          at once (by setting the <code>multiple</code> attribute), but it also allows you to restrict
+          what types files can be selected with the <code>accept</code> attribute. The <code>accept</code> attribute
+          can be set to one or more mime-types (including wildcards). Of course you'd have to
+          validate this again on the server. To select multiple images, you use:
+        </p>
+        <pre class="language-markup code"><code>&lt;input type="file" multiple="multiple" accept="image/*"&gt;</code></pre>
+        
+        <h3>Required fields</h3>
+        <p>
+          Client-side validation that's baked right into your browser and you can style it,
+          too! To tell the browser a field is required, we simple set the <code>required</code> attribute
+          and the browser should validate that these fields are filled in before submitting.
+          We can style required fields by selecting them with the  <code>:required</code> CSS pseudoclass,
+          and if validation failed we can style them with the  <code>:invalid</code> pseudoclass.
+        </p>
+        <pre class="language-markup code"><code>&lt;input type="text" required="required"&gt;</code></pre>
+        
+        <h3>Datalist autocomplete</h3>
+        <p>
+          With datalist you can "upgrade" your text input boxes with autosuggestion data.
+          This kind of works like a list of set options, with an "other" option that you can
+          fill in yourself. It's pretty straightforward:
+        </p>
+        <pre class="language-markup code"><code>&lt;input type=&quot;text&quot; list=&quot;stars&quot; id=&quot;input-star&quot;&gt;
+&lt;datalist id=&quot;stars&quot;&gt;
+  &lt;option value=&quot;Sun&quot;&gt;
+  &lt;option value=&quot;Proxima Centauri&quot;&gt;
+  &lt;option value=&quot;Barnard&#x27;s Star&quot;&gt;              
+&lt;/datalist&gt;</code></pre>
+        
+        
+        <h3>Input color</h3>
+        <p>
+          The nicest way to input colors is by using a color picker. Instead of using complex
+          javascript libraries which could do that for us, we can use <code>type="color"</code>. The color
+          input type will pop-up a colorpicker to choose a color. As with all the new input
+          types, the browser will fall back to a default text input box if <code>type="color"</code> is
+          not supported.
+        </p>
+        <pre class="language-markup code"><code>&lt;input type="color"&gt;</code></pre>
+        
+        <h3>Webkit speech</h3>
+        <p>
+          Although speech input has not (yet) landed in any browser except Chrome, it's
+          pretty cool. And there is an Editor's Draft of a Speech Input API spec which would
+          allow us to do even cooler stuff, including speech synthesis. For now we can only
+          use the <code>x-webkit-speech</code> attribute to add a microphone icon, which pops up to accept
+          voice input. We can influence the recognition language by setting the <code>lang</code>
+          attribute.
+        </p>
+        <pre class="language-markup code"><code>&lt;input type=&quot;text&quot; lang=&quot;en&quot; x-webkit-speech=&quot;x-webkit-speech&quot;&gt;</code></pre>
+        
+        
+        <h2>Useful? Check. Fun? Check.</h2>
+        <p>
+          All these new input types make building interactive forms a lot easier. Client-side
+          validation or autocomplete functionality always required a lot of Javascript, and
+          multiple-file selections with a filter required a Flash, Silverlight or (mother of
+          god!) an Active-X control. 
+        </p>
+        
+        <h2>Great, but can I use it today?</h2>
+        <p>
+          Yes, you can! A lot of these features are enhancements that add extra usability to
+          the existing form elements. Almost all of these features can also be polyfilled
+          without too much trouble. 
+        </p>
+        
+        <h2>Show me the source!</h2>
+        <p>
+          Feel free to look around the differente source files we used for this example.
+        </p>
+        <ul>
+          <li><a href="20.css">The stylesheet</a></li>
+        </ul>
       </div>
+      
+      <footer class="footer text">
+          
+        <section class="attrbution">
+          <h2>Attribution</h2>
+        
+          <p>
+            "<a href="http://www.wufoo.com/html5/" target="_blank">The Current State of HTML5 Forms</a>"
+            by WUFOO is an excellent resource on all things HTML5 Forms
+          </p>
+          <p>
+            Edd Turtle has a nice roundup of the 
+            "<a href="http://www.eddturtle.co.uk/2012/html5-webkit-speech-input/" target="_blank">HTML5 WebKit Speech Input</a>"            
+          </p>
+        </section>
+        
+        
+        <!-- [START:share] -->
+        <!-- [STOP:share] -->
+          
+      </footer>
+      
+      <!-- [START:layout/site-navigation] --> 
+      <!-- [STOP:layout/site-navigation] -->
+      
     </article>
         
   </div>
     
+  <script>  
+    var addthis_share = { 
+      templates: {
+        twitter: 'HTML5 Form Field Frenzy! The HTML and CSS Advent 2012 #dpadvent {{url}}'
+      }
+    }
+  </script>
+  
   <!-- [START:javascripts] -->
   <!-- [STOP:javascripts] -->    
 </body>
