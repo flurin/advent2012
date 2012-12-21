@@ -13,3 +13,21 @@ Digitpaint HTML and CSS Advent 2012
 Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
 
 */  
+
+
+.container{
+  padding: 10px;
+  border: 1px solid #d00;
+}
+
+.over{
+  border: 1px dotted rgba(0,0,0,0.5);
+}
+
+#container1 li,
+#container2 li,
+.container li{
+  margin: 0.2em;
+  list-style: none;
+  background: #fffce6;
+}

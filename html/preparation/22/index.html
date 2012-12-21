@@ -37,7 +37,11 @@
 
       <div class="body text">
         <p class="intro">
-          Drag and drop.
+          Drag an drop used to be a about a lot of custom javascript built on mousedown,
+          mouseup, mousemove events. These drag and drop javascript libraries work pretty well within
+          their own environment but they can not really interact with system drag and drop. With the
+          HTML5 Drag and Drop we can handle dragging into the browser, dragging within the browser and
+          dragging out of the browser.
         </p>
         
         <section class="examples">
@@ -45,23 +49,23 @@
           <div class="row">
             <figure class="example">
               <h3>Christmas</h3>
-              <ul id="container1">
+              <ul id="container1" class="container">
                 <li draggable="true">Eggs</li>
                 <li draggable="true">Eggnog</li>
                 <li draggable="true">Winter</li>
                 <li draggable="true">Glühwein</li>
               </ul>
-              <figcaption>Drag from here</figcaption>
+              <figcaption>Drag from here (also to your mail client or texteditor)</figcaption>
             </figure>
             <figure class="example">
               <h3>Easter</h3>
-              <ul id="container2">
-                <li draggable="true">Santa Clause</li>
+              <ul id="container2" class="container">
+                <li draggable="true">Santa Claus</li>
                 <li draggable="true">Easterbunny</li>
                 <li draggable="true">Spring</li>
                 <li draggable="true">Presents</li>
               </ul>              
-              <figcaption>To here (or back)</figcaption>
+              <figcaption>To here (or back), or drag files, text or tweets in here</figcaption>
             </figure>
             <figure class="example">
               <span>A .txt file</span>
@@ -77,14 +81,57 @@
         
         <h2>How does it work?</h2>          
         <p>
+          When we're dealing with elements within the browser we have to tell the element that it's
+          draggable with the <code style="language-markup">draggable="true"</code> attribute. After
+          this the javascript fun starts! 
+        </p>
+        <p>
+          We can attach the <code style="language-javascript">dragstart</code> and 
+          <code style="language-javascript">dragend</code> events to the draggable to detect
+          when the dragging starts and ends. When the dragging starts you can set the data
+          that should be set with the dragging operation. This is important to do when you
+          want other programs to understand the thing you're dragging. You can attach your data
+          in multiple formats to the event's <code>dataTransfer</code> object with <code>dataTransfer.setData(CONTENTTYPE, DATA)</code>
+          the draggable data must always be a string. In the example above we did this:
+        </p>
+        <pre class="language-javascript"><code>event.dataTransfer.setData("text/plain", category + " : " + this.innerText);
+event.dataTransfer.setData("text/html", "&lt;strong&gt;" + category + "&lt;/strong&gt; : " + this.innerHTML);</code></pre>
+        <p>
+          to set the draggable data in plain text and in html.
+        </p>
+        
+        <p>
+          Drop targets receive the <code>dragenter</code> event when you enter the element while
+          dragging something or <code>dragleave</code> when you leave the element. When you move
+          your draggable over the drop target the <code>dragover</code> event get's called. Finally, if you drop
+          somthing, the <code>drop</code> event get's called and you can read out
+          the data with the event's <code>dataTransfer.getData(CONTENTTYPE)</code>. If you drop
+          a file there is a special <code>dataTransfer.files</code> property that contains
+          a <code>FileList</code> with the dropped files.
+        </p>
+          
+        <p>
+          In short that's it, there are some quirks in there that take some time to get used to but
+          in general it works pretty well.
         </p>
         
         <h2>Useful?</h2>
         <p>
+          This is very useful feature of your browser, of course doing everything with javascript is
+          fine as long as you don't want to interact with the user's system. With the HTML Drag and Drop API
+          you can do that and this makes it very useful for all kinds of operations, like:
         </p>
+        <ul>
+          <li>Uploading multiple files by drag and drop</li>
+          <li>Dragging contactinformation directly into a webapp</li>
+          <li>Dragging files out of your webapp (downloading them on demand)</li>
+          <li>Generally making easy drag and drop interfaces</li>
+        </ul>
         
         <h2>Great, but can I use it today?</h2>
         <p>
+          Actually you can: most of these API's are supported in all major browsers for some
+          time now, even though IE had only limited support until IE10. 
         </p>
         
         <h2>Show me the source!</h2>
@@ -103,7 +150,14 @@
           <h2>Attribution</h2>
         
           <p>
+            Simple Drag and Drop
+            http://html5demos.com/drag-anything
+            by Remy Sharp
             
+            
+            Native HTML5 Drag and Drop
+            http://www.html5rocks.com/en/tutorials/dnd/basics/
+            by Eric Bidelman
           </p>
         </section>
         
