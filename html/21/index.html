@@ -3,10 +3,25 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>“Infinity is a very long time, especially towards the end.” - HTML and CSS Advent 2012 by Digitpaint</title>
-  <meta name="description" content="24 days of HTML/CSS tips, brought to you by the front-end experts at Digitpaint.">
+  <title>Wrap-flow &amp; the CSS Exclusions! - HTML and CSS Advent 2012 by Digitpaint</title>
   <meta name="author" content="All of us at Digitpaint">
+  <meta name="description" content="Demo of wrap-flow (part of CSS Exclusions), which allows you to define how text flows around an element.">
+  
+  <meta property="og:title" content='Please welcome to the stage: "Wrap-flow &amp; the CSS Exclusions"! - HTML &amp; CSS Advent 2012 by Digitpaint'>
+  <meta property="og:url" content="http://advent2012.digitpaint.nl/21/">
+  <meta property="og:image" content="http://advent2012.digitpaint.nl/assets/opengraph/21.png">
+  <meta property="og:description" content="Demo of wrap-flow (part of CSS Exclusions), which allows you to define how text flows around an element.">
 
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@digitpaint">
+  <meta name="twitter:creator" content="@flurin">
+  <meta name="twitter:title" content='Please welcome to the stage: "Wrap-flow &amp; the CSS Exclusions"! - HTML &amp; CSS Advent 2012 by Digitpaint'>
+  <meta name="twitter:url" content="http://advent2012.digitpaint.nl/21/">  
+  <meta name="twitter:image" content="http://advent2012.digitpaint.nl/assets/opengraph/21.png">
+  <meta name="twitter:description" content="Demo of wrap-flow (part of CSS Exclusions), which allows you to define how text flows around an element.">
+  
+  <link rel="stylesheet" href="21.css" />
+  <script src="21.js"></script>
   
 </head>
 <body class="layout-article">
@@ -16,39 +31,168 @@
     <!-- [STOP:layout/ribbon] -->    
         
     <article class="main">
-      
-      <header class="header">
-        <div class="body">
-          <span class="day-number">
-            21
-          </span>
-          <h1>
-            “Infinity is a very long time, especially towards the end.”
-          </h1>
-        </div>
-        
-        <nav class="browse">
-          
-            <a href="/20/index.html" class="previous">
-              <span class="acc">Previous</span>
-            </a>
-          
-          
-            <a href="/22/index.html" class="next not-yet">
-              <span class="acc">Next</span>
-            </a>
-          
-        </nav>
-      </header>
-      
-      <div class="body text">
-        <p>No worries though. This post is just a few days away. Until then, read some of <a href="http://www.totalfilm.com/features/50-funniest-woody-allen-quotes" target="_blank">Woody Allen’s best quotes</a>.</p>
 
+      <!-- [START:layout/article-header?nr=21&title=Please+welcome+to+the+stage%3A+%22Wrap-flow+%26+the+CSS+Exclusions%22%21&previous=/20/&next=/22/] -->
+      <!-- [STOP:layout/article-header] -->    
+
+      <div class="body text">
+        <p class="intro">
+          Floats are pretty useful, but the only snag is that we can only float left or right and not
+          in the center (or anywhere else for that matter). And if we have two adjecent divs or
+          columns, we can't have the float affect the text-flow in both columns. Thankfully, this will
+          change with CSS Exclusions.
+        </p>
+        
+        <section class="examples">
+          <h2>Demo time!</h2>
+          <div class="row">
+            <figure class="example">
+              
+              <p class="warning">
+                The live demo only works in IE10 for now, but we've added screenshots for your viewing pleasure :)
+              </p>
+              
+              <div class="content layout-regular" id="container">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+              
+                <img src="images/alien.svg" alt="Bob, the floating alien!" id="float1" class="flow-both">
+              
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>              
+              </div>
+              
+              <figcaption>
+                <label for="wrap-flow">Wrap-flow:</label>
+                <select id="wrap-flow">
+                  <option value="flow-auto">auto</option>
+                  <option value="flow-both" selected="selected">both</option>
+                  <option value="flow-start">start</option>
+                  <option value="flow-end">end</option>
+                  <option value="flow-minimum">minimum</option>
+                  <option value="flow-maximum">maximum</option>
+                  <option value="flow-clear">clear</option>
+                </select>
+                
+                <label for="content-layout">Layout:</label>
+                <select id="content-layout">
+                  <option value="layout-regular">Regular flow</option>
+                  <option value="layout-columns">Multicolumns</option>
+                </select>
+                
+                <label for="wrap-through">
+                  <input type="checkbox" id="wrap-through">
+                  Ignore wrap on second paragraph
+                </label>
+                
+                <div class="bonus">Bonus feature: try moving the Bob the Alien around!</div>
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+        
+        <h2>But...how?</h2>
+        <p>
+          First thing to mention is that the image isn't a true float anymore, because it is actually
+          just positioned absolute. The image is now called an exclusion, and its shape should be
+          excluded from the text around it.
+        </p>
+        
+        <p>
+          To get this thing working we have to do two things: make the exclusion have <code class="language-css">position:
+          absolute;</code>, and define the way the content wraps around the exclusion with the <code class="language-css">wrap-flow</code> CSS
+          property. You can see the possible warp-flow values in the examples above.
+        </p>
+        
+        <p>
+          You can influence wether or not the surrounding content should wrap around the the exclusion
+          or not. Setting <code class="language-css">wrap-through: none</code> makes the element ignore any exclusion it encounters.
+        </p>
+        
+        <h2>Useful?</h2>
+        <p>
+          Very useful, and it's just the tip of the iceberg of what CSS Exclusions has to offer in the
+          future. These kind of features allow us to create layouts that were previously either
+          impossible, or only possible with ginormous amounts of hacking (which makes us feel dirty
+          inside afterwards).
+        </p>
+        
+        <h2>Is it real world proof then?</h2>
+        <p>
+          Cool as they might be, this is where they come up short. Nope. Sorry. You could,
+          theoretically, but the positioned floats only work in IE10. Thanks to Adobe there is
+          experimental support in Chrome Canary for some other (truly awesome) exclusion features, but
+          work is still in progress. And even in IE10 it's not the most stable feature out there — we
+          managed to crash the browser once or twice while playing with multiple exclusions. 
+        </p>
+        
+        <h2>Show me the source!</h2>
+        <p>
+          Feel free to look around the differente source files we used for this example.
+        </p>
+        <ul>
+          <li><a href="21.css">The stylesheet</a></li>          
+          <li><a href="21.js">The javascripts</a></li>
+        </ul>
       </div>
+      
+      <footer class="footer text">
+          
+        <section class="attrbution">
+          <h2>Attribution</h2>
+        
+          <p>
+            This entry was inspired by this Microsoft's positioned floats demo:
+            <a href="http://ie.microsoft.com/testdrive/html5/positionedfloats/default.html" target="_blank">Positioned Floats</a>
+          </p>
+          
+          <p>
+            More info on the IE10 implementation of exclusions can be found in the Internet Explorer
+            10 Guide for Developers, in the chapter about <a href="http://msdn.microsoft.com/en-gb/library/hh673558.aspx" target="_blank">Exclusions</a> on MSDN
+          </p>
+          <p>
+            While we didn't go into the other kinds of CSS Exclusions, the <a href="http://adobe.github.com/web-platform/samples/css-exclusions/" target="_blank">Adobe CSS
+              Exclusion demos and support tables</a> are quite exceptional.
+          </p>
+          <p>
+            The spec is a great read to find out what the different properties (should) do: <a href="http://dev.w3.org/csswg/css3-exclusions/" target="_blank">CSS Exclusions and Shapes
+            Module Level 3</a>
+          </p>
+        </section>
+        
+        
+        <!-- [START:share] -->
+        <!-- [STOP:share] -->
+          
+      </footer>
+      
+      <!-- [START:layout/site-navigation] --> 
+      <!-- [STOP:layout/site-navigation] -->
+      
     </article>
         
   </div>
     
+  <script>  
+    var addthis_share = { 
+      templates: {
+        twitter: 'Please welcome to the stage: "Wrap-flow &amp; the CSS Exclusions"! via the HTML and CSS Advent 2012 #dpadvent {{url}}'
+      }
+    }
+  </script>
+  
   <!-- [START:javascripts] -->
   <!-- [STOP:javascripts] -->    
 </body>
