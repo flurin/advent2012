@@ -26,8 +26,11 @@ Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
 
 #container1 li,
 #container2 li,
-.container li{
+.container li,
+.dragout{
+  display: block;
   margin: 0.2em;
   list-style: none;
   background: #fffce6;
+  cursor: move;
 }

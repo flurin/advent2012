@@ -3,10 +3,25 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>user@computer:~$ sudo comeback.later - HTML and CSS Advent 2012 by Digitpaint</title>
-  <meta name="description" content="24 days of HTML/CSS tips, brought to you by the front-end experts at Digitpaint.">
+  <title>Drag 'till you drop! - HTML and CSS Advent 2012 by Digitpaint</title>
   <meta name="author" content="All of us at Digitpaint">
+  <meta name="description" content="Using native system drag and drop in the browser with the HTML5 Drag and Drop API">
+  
+  <meta property="og:title" content="Drag 'till you drop! - HTML &amp; CSS Advent 2012">
+  <meta property="og:url" content="http://advent2012.digitpaint.nl/22/">
+  <meta property="og:image" content="http://advent2012.digitpaint.nl/assets/opengraph/22.png">
+  <meta property="og:description" content="Using native system drag and drop in the browser with the HTML5 Drag and Drop API">
 
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@digitpaint">
+  <meta name="twitter:creator" content="@flurin">
+  <meta name="twitter:title" content="Drag 'till you drop! - HTML &amp; CSS Advent 2012 by Digitpaint">
+  <meta name="twitter:url" content="http://advent2012.digitpaint.nl/22/">  
+  <meta name="twitter:image" content="http://advent2012.digitpaint.nl/assets/opengraph/22.png">
+  <meta name="twitter:description" content="Using native system drag and drop in the browser with the HTML5 Drag and Drop API">
+  
+  <link rel="stylesheet" href="22.css" />
+  <script src="22.js"></script>
   
 </head>
 <body class="layout-article">
@@ -16,38 +31,168 @@
     <!-- [STOP:layout/ribbon] -->    
         
     <article class="main">
-      
-      <header class="header">
-        <div class="body">
-          <span class="day-number">
-            22
-          </span>
-          <h1>
-            user@computer:~$ sudo comeback.later
-          </h1>
-        </div>
-        
-        <nav class="browse">
-          
-            <a href="/21/index.html" class="previous">
-              <span class="acc">Previous</span>
-            </a>
-          
-          
-            <a href="/23/index.html" class="next not-yet">
-              <span class="acc">Next</span>
-            </a>
-          
-        </nav>
-      </header>
-      
+
+      <!-- [START:layout/article-header?nr=22&title=Drag 'till you drop!&previous=/21/&next=/23/] -->
+      <!-- [STOP:layout/article-header] -->    
+
       <div class="body text">
-        <pre class="code"><code>date -j 12220000 +'%c'</code></pre>
+        <p class="intro">
+          Drag and drop used to be a lot of custom Javascript, relying on mousedown, mouseup, mousemove
+          events to work. These drag and drop Javascript libraries do a decent job within their own
+          environment, but they can't really interact with system drag and drop. With the HTML5 drag and drop API
+          we can handle dragging stuff into the browser, dragging within the browser and dragging out of
+          the browser.
+        </p>
+        
+        <section class="examples">
+          <h2>What are we talking about?</h2>
+          <div class="row">
+            <figure class="example">
+              <h3>Christmas</h3>
+              <ul id="container1" class="container">
+                <li draggable="true">Eggs</li>
+                <li draggable="true">Eggnog</li>
+                <li draggable="true">Winter</li>
+                <li draggable="true">Glühwein</li>
+              </ul>
+              <figcaption>
+                Drag from here... (also try dragging to a mail client or texteditor)
+              </figcaption>
+            </figure>
+            <figure class="example">
+              <h3>Easter</h3>
+              <ul id="container2" class="container">
+                <li draggable="true">Santa Claus</li>
+                <li draggable="true">Bunnies</li>
+                <li draggable="true">Spring</li>
+                <li draggable="true">Presents</li>
+              </ul>              
+              <figcaption>
+                ...to here, or vice versa. Or drag files, text or tweets in here.
+              </figcaption>
+            </figure>
+            <figure class="example">
+              <h3>Files to download</h3>
+              <span class="dragout" draggable="true" data-downloadpath="/22/files/merry_xmas.txt">A .txt file</span>
+              <span class="dragout" draggable="true" data-downloadpath="/22/files/merry_xmas.html">A .html file</span>
+              <span class="dragout" draggable="true" data-downloadpath="/22/files/merry_xmas.pdf">A .pdf file</span>
+              <figcaption>Drag out files to your desktop (Chrome only)</figcaption>
+            </figure>
+            
+          </div>
+          
+          
+        </section>
+        
+        <h2>How does it work?</h2>          
+        <p>
+          When we're dealing with elements within the browser, we have to tell
+          the element that it's draggable with the <code class="language-markup">draggable="true"</code> attribute.
+          After this the Javascript fun starts!
+        </p>
+        <p>
+          We can attach the <code class="language-javascript">dragstart</code> and <code class="language-javascript">dragend</code> events to the draggable
+          attribute to detect when the dragging starts and ends. When the
+          dragging starts, you can set the data that should be set with the
+          dragging operation. This is especially important if you want other
+          programs to understand the thing you're dragging. You can attach your
+          data in multiple formats to the event's <code class="language-javascript">dataTransfer</code> object
+          with <code class="language-javascript">dataTransfer.setData(CONTENTTYPE, DATA)</code> the draggable data must
+          always be a string. In the example above we did this:
+        </p>
+        <pre class="code language-javascript"><code>event.dataTransfer.setData("text/plain", category + " : " + this.innerText);
+event.dataTransfer.setData("text/html", "&lt;strong&gt;" + category + "&lt;/strong&gt; : " + this.innerHTML);</code></pre>
+        <p>
+          to set the draggable data in plain text and in html.
+        </p>
+        
+        <p>
+          Drop targets receive the <code class="language-javascript">dragenter</code> event when you enter the element
+          while dragging something, or <code class="language-javascript">dragleave</code> when you leave the element.
+          When you move your draggable over the drop target, the <code class="language-javascript">dragoverevent</code>
+          gets called. Finally, when you drop somthing, the <code class="language-javascript">drop</code> event gets
+          called. You can then read out the data with the event's
+          <code class="language-javascript">dataTransfer.getData(CONTENTTYPE)</code> function. When you drop a file there is a
+          special <code class="language-javascript">dataTransfer.files</code> property that contains a <code class="language-javascript">FileList</code> with the
+          dropped files.
+        </p>
+          
+        <p>
+          In short: that's it. There are some quirks that take some time to
+          figure out, but in general it works pretty well.
+        </p>
+        
+        <h2>Useful?</h2>
+        <p>
+          Doing everything with Javascript is fine as long as you don't want to
+          interact with the user's system. This is a very useful update to that
+          functionality. But you can use the HTML drag and drop API for all kinds
+          of operations, like: </p>
+        <ul>
+          <li>Uploading multiple files by drag and drop</li>
+          <li>Dragging contactinformation directly into a webapp</li>
+          <li>Dragging files out of your webapp (downloading them on demand) (Chrome only)</li>
+          <li>Generally making easy drag and drop interfaces</li>
+        </ul>
+        
+        <h2>Great, but can I use it today?</h2>
+        <p>
+          Yes sir (or madam), you can! Most of these API's have been supported
+          in all major browsers for some time now &mdash; even though IE had only
+          limited support until IE10. 
+        </p>
+        
+        <h2>Show me the source!</h2>
+        <p>
+          Feel free to look around the differente source files we used for this example.
+        </p>
+        <ul>
+          <li><a href="/22.js">The javascripts</a></li>
+          <li><a href="/22.css">The stylesheet</a></li>
+        </ul>
       </div>
+      
+      <footer class="footer text">
+          
+        <section class="attrbution">
+          <h2>Attribution</h2>
+        
+          <p>            
+            The HTML5 Rocks article "<a href="http://www.html5rocks.com/en/tutorials/dnd/basics/" target="_blank">Native HTML5 Drag and Drop</a>"
+            by Eric Bidelman is an excellent intro to Drag &amp; Drop.
+          </p>
+          <p>
+            Remy Sharp made a nice demo for dragging anything into your browser in
+            "<a href="http://html5demos.com/drag-anything" target="_blank">Simple Drag and Drop</a>"
+          </p>
+          <p>
+            We got the dragging files out of Chrome code and idea from 
+            the article "<a href="http://www.thecssninja.com/javascript/gmail-dragout">Drag out files like Gmail</a>"
+            by Ryan Seddon from The CSS Ninja blog.
+          </p>
+        </section>
+        
+        
+        <!-- [START:share] -->
+        <!-- [STOP:share] -->
+          
+      </footer>
+      
+      <!-- [START:layout/site-navigation] --> 
+      <!-- [STOP:layout/site-navigation] -->
+      
     </article>
         
   </div>
     
+  <script>  
+    var addthis_share = { 
+      templates: {
+        twitter: 'Drag \'till you drop! The HTML and CSS Advent 2012 #dpadvent {{url}}'
+      }
+    }
+  </script>
+  
   <!-- [START:javascripts] -->
   <!-- [STOP:javascripts] -->    
 </body>
