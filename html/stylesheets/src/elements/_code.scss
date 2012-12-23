@@ -23,10 +23,11 @@ pre.code:before{
 pre.code code{
   background: none;
   padding: 0;
+  white-space: pre;
 }
 
 :not(pre) > code[class*="language-"],
-.text > code{
+.text code{
   background: $c_main_highlight_bg;
   padding: 0.2em 0.5em;
   white-space: normal;
