@@ -3,10 +3,26 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>You asked for it. - HTML and CSS Advent 2012 by Digitpaint</title>
-  <meta name="description" content="24 days of HTML/CSS tips, brought to you by the front-end experts at Digitpaint.">
+  <title>Lock, Stock &amp; Pointer - the PointerLock API - HTML and CSS Advent 2012 by Digitpaint</title>
   <meta name="author" content="All of us at Digitpaint">
+  <meta name="description" content="Taking advantage of detailed mouse movement with the Pointer Lock API">
+  
+  <meta property="og:title" content="Lock, Stock &amp; Pointer - the PointerLock API - HTML &amp; CSS Advent 2012">
+  <meta property="og:url" content="http://advent2012.digitpaint.nl/23/">
+  <meta property="og:image" content="http://advent2012.digitpaint.nl/assets/opengraph/23.png">
+  <meta property="og:description" content="Taking advantage of detailed mouse movement with the Pointer Lock API">
 
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@digitpaint">
+  <meta name="twitter:creator" content="@flurin">
+  <meta name="twitter:title" content="Lock, Stock &amp; Pointer - the PointerLock API - HTML &amp; CSS Advent 2012 by Digitpaint">
+  <meta name="twitter:url" content="http://advent2012.digitpaint.nl/23/">  
+  <meta name="twitter:image" content="http://advent2012.digitpaint.nl/assets/opengraph/23.png">
+  <meta name="twitter:description" content="Taking advantage of detailed mouse movement with the Pointer Lock API">
+  
+  <link rel="stylesheet" href="23.css" />
+  <script src="javascripts/three.js"></script>  
+  <script src="23.js"></script>
   
 </head>
 <body class="layout-article">
@@ -16,40 +32,125 @@
     <!-- [STOP:layout/ribbon] -->    
         
     <article class="main">
-      
-      <header class="header">
-        <div class="body">
-          <span class="day-number">
-            23
-          </span>
-          <h1>
-            You asked for it.
-          </h1>
-        </div>
-        
-        <nav class="browse">
-          
-            <a href="/22/index.html" class="previous">
-              <span class="acc">Previous</span>
-            </a>
-          
-          
-            <a href="/24/index.html" class="next not-yet">
-              <span class="acc">Next</span>
-            </a>
-          
-        </nav>
-      </header>
-      
-      <div class="body text">
-        <iframe width="420" height="315" src="http://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-<p>You should’ve waited until it was actually the 23d to visit this page.</p>
 
+      <!-- [START:layout/article-header?nr=23&title=Lock%2C+Stock+%26+Pointer+-+the+PointerLock+API&previous=/22/&next=/24/] -->
+      <!-- [STOP:layout/article-header] -->    
+
+      <div class="body text">
+        <p class="intro">
+          Fashionably late entrance, thanks for sticking around! So, a mouse cursor and a chicken drumstick walk into a bar...wait wait wait, that's not
+          right. Wrong show.
+        </p>
+        <p class="intro">
+          Did you know your mouse has a lot more to offer than being "just" a cursor? Think about FPS games, and you'll know what we mean. Until
+          recently, we could not really properly take advantage of the mouse in that way, but with the new Pointer Lock API we can. 
+        </p>
+        
+        <section class="examples">
+          <h2>Start the show!</h2>
+          <p>
+            These examples will only work in Chrome and Firefox.
+          </p>
+          <div class="row">
+            <figure class="example">
+              <div id="panorama">
+              </div>
+              
+              <figcaption>Click above, then move your mouse to see the panorama in action (escape to quit)</figcaption>
+            </figure>
+                        
+            <figure class="example">
+              <canvas id="container"></canvas>
+              
+              <figcaption>Click above, then move your mouse (escape to quit)</figcaption>
+            </figure>
+          </div>
+        </section>
+        
+        <h2>How does it work?</h2>          
+        <p>
+          To activate PointerLock on an element. you call <code>element.requestPointerLock()</code>. The <code>pointerlockchange</code> event will be
+          triggered on the <code>document</code> element, if the pointer gets locked. If it fails the <code>pointerlockerror</code> will be triggered.
+        </p>
+        <p>
+          Once we've got the pointer locked, the cursor will disappear. As we want to do stuff with the actual mouse movement, we attach a <code>mousemove</code>
+          eventlisterener to the <code>document</code> element. The <code>screenX</code>, <code>screenY</code>, <code>clientX</code>, and <code>clientY</code> components of the mousemove event will all be constants
+          now, as there is no more pointer to move around a defined grid. Instead we get the <code>movementX</code> and <code>movementY</code> values which are deltas of the X
+          and Y movement of your mouse. Note: these values are not constrained by anything, this means that the mouse movement isn't constrained
+          by the browser window. Depending on mouse acceleration curve of the system, the deltas are bigger when you move your mouse faster
+        </p>
+        
+        <h2>Useful?</h2>
+        <p>
+          If you're building games or other 3D-stuff that requires different mouse handling, this is a must have. The examples above are just some of
+          the things you can do with this. But in general, if you'd wanted to build a game like Quake, you couldn't have done it without the Pointer Lock
+          API. 
+        </p>
+        
+        <h2>Great, but can I use it today?</h2>
+        <p>
+          The Pointer Lock API is currently only supported in Chrome and Firefox. In Firefox it only works in fullscreen mode. It also somehow crashes
+          Firefox Aurora when requesting fullscreen mode. So we're quite some time away from actually using it (safely). 
+        </p>
+        
+        <h2>What's behind the curtain?</h2>
+        <p>
+          Feel free to snoop around the different source files we used for this example.        
+        </p>
+        <ul>
+          <li><a href="23.js">The javascripts</a></li>
+          <li><a href="23.css">The stylesheet</a></li>
+        </ul>
       </div>
+      
+      <footer class="footer text">
+          
+        <section class="attrbution">
+          <h2>Attribution</h2>
+        
+          <p>
+            MDN has a <a href="https://developer.mozilla.org/en-US/docs/API/Pointer_Lock_API" target="_blank">useful page explaining how the Pointer Lock API works</a>.
+          </p>
+          
+          <p>
+            The panaroma view is built with <a href="http://mrdoob.github.com/three.js/" target="_blank">Three.js</a> based on the
+            article "<a href="http://aerotwist.com/tutorials/create-your-own-environment-maps/" target="_blank">
+            Create your own Environment Maps</a>" by Paul Lewis on his awesome website Aerotwist.
+          </p>
+          
+          <p>
+            A more polished version of the panorama view with the Pointer Lock API was built by Matt Hobbs
+            with an elaborate description in his blogpost:
+            <a href="http://nooshu.com/using-the-fullscreen-and-pointer-lock-apis" target="_blank">Using the fullscreen and pointer lock API's</a>
+          </p>
+          
+          <p>
+            The image used is <a href="http://www.humus.name/index.php?page=Textures&ID=47" target="_blank">Ice river</a>
+            by Emil Persson, aka Humus.
+          </p>
+        </section>
+        
+        
+        <!-- [START:share] -->
+        <!-- [STOP:share] -->
+          
+      </footer>
+      
+      <!-- [START:layout/site-navigation] --> 
+      <!-- [STOP:layout/site-navigation] -->
+      
     </article>
         
   </div>
     
+  <script>  
+    var addthis_share = { 
+      templates: {
+        twitter: 'Lock, Stock & Pointer - the PointerLock API! On the 23rd in the HTML & CSS Advent 2012 #dpadvent {{url}}'
+      }
+    }
+  </script>
+  
   <!-- [START:javascripts] -->
   <!-- [STOP:javascripts] -->    
 </body>

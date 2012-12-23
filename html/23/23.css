@@ -13,3 +13,15 @@ Digitpaint HTML and CSS Advent 2012
 Copyright 2012 by Digitpaint. This code is licensed under the MIT License.
 
 */  
+
+
+#container,
+#panorama{
+  width: 100%;
+  height: 200px;
+  background: #000;
+}
+
+#container{
+  background: #FFFCE6;
+}
