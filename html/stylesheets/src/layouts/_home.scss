@@ -61,14 +61,44 @@
 
 .layout-home{
   
-  .page,
+  .main > .body,
+  .page-header,
   .footer{
-    max-width: 650px;
-    margin: 0 auto;
-    text-align: left;
-    position: relative;
+    @extend %page-width-center;
     z-index: 1; /* Otherwise we lose the wingtips */    
   }  
+  
+  .page-header{
+    z-index: 2;
+  }  
+  
+  & > .page{
+    position: relative;
+  }
+
+  & > .page:after,
+  & > .page:before{
+    pointer-events: none;
+    background: url(../images/trees-front-left.svg) -150px 0 no-repeat;
+  
+    position: absolute;
+    bottom: 0;
+    content: "";
+    left: 0;
+    width: 474px;
+    height: 790px;
+    z-index: 500;
+  }
+
+  & > .page:after{
+    background: url(../images/trees-front-right.svg) 230px 0 no-repeat;
+    left: auto;
+    right: 0; 
+    width: 551px;
+    height: 776px;      
+  }  
+  
+  
   .bottom{
     margin-top: -50px;
     background-image: url(../images/snow-2.svg), url(../images/snow-3.svg);
@@ -92,9 +122,9 @@
   .bottom .wrapper:before,
   .bottom .wrapper:after{
     content: "";
-    width: -webkit-calc(50% - 650px/2);    
-    width: -moz-calc(50% - 650px/2);    
-    width: calc(50% - 650px/2);
+    width: -webkit-calc(50% - 690px/2);    
+    width: -moz-calc(50% - 690px/2);    
+    width: calc(50% - 690px/2);
     background-image: -webkit-linear-gradient(right, rgba(#25002b, 0.04) 20%, rgba(#25002b, 0.08) 20%, rgba(#25002b, 0.08) 40%, rgba(#25002b, 0.12) 40%, rgba(#25002b, 0.12) 60%, rgba(#25002b, 0.16) 60%, rgba(#25002b, 0.16) 80%,rgba(#25002b, 0.2) 80%  );
     background-image: -moz-linear-gradient(right, rgba(#25002b, 0.04) 20%, rgba(#25002b, 0.08) 20%, rgba(#25002b, 0.08) 40%, rgba(#25002b, 0.12) 40%, rgba(#25002b, 0.12) 60%, rgba(#25002b, 0.16) 60%, rgba(#25002b, 0.16) 80%,rgba(#25002b, 0.2) 80%  );
     background-image: -ms-linear-gradient(right, rgba(#25002b, 0.04) 20%, rgba(#25002b, 0.08) 20%, rgba(#25002b, 0.08) 40%, rgba(#25002b, 0.12) 40%, rgba(#25002b, 0.12) 60%, rgba(#25002b, 0.16) 60%, rgba(#25002b, 0.16) 80%,rgba(#25002b, 0.2) 80%  );    
@@ -125,12 +155,12 @@
     right: 0;
   }
   
-  .main > header{
+  .ribbon{
     padding-top: 10px;
     margin: 0 -20px 0 -20px;
   }
   
-  .no-flexbox & .main > header{
+  .no-flexbox & .ribbon{
     padding-top: 10px+28px;
   }
   
@@ -179,21 +209,24 @@
   $alien_position_right: 30%;
   $alien_beam_height: 90px;
   
-  .main > .alien{
+  .page-header > .alien{
     position: absolute;
     margin-top: -30px;
     right: -webkit-calc(30% - 60px);
     right: -moz-calc(30% - 60px);
     right: calc(30% - 60px);        
-    z-index: 1;
+    z-index: 5000;
   }
 
+  .article-header .page,
   .main > .body{
     position: relative;
     margin-top: $alien_beam_height - 25px;
   }
   
   /* The light cone */
+  .article-header .page:before,
+  .article-header .page:after,
   .main > .body:before,
   .main > .body:after{
     content: "";
@@ -202,6 +235,7 @@
     height: $alien_beam_height;    
   }
 
+  .article-header .page:before,
   .main > .body:before{
     left: 0;
     width: 100% - $alien_position_right; 
@@ -210,14 +244,26 @@
     background-size: 100% 100%;
   }
   
+  .article-header .page:after,
   .main > .body:after{
     right: 0;
     width: $alien_position_right;
     background: inline_image("/images/alien-ray-right.svg") no-repeat;
     background-position: 100% 100%;
-    background-size: 100% 100%;    
+    background-size: 100% 100%;  
+    visibility: visible;
   }
   
+  /* if it's already set on the header we don't need it on the body */
+  .article-header + .body:before,
+  .article-header + .body:after{
+    display: none;
+  }
+  
+  .article-header + .body{
+    margin-top: 0;
+  }
+    
   /* ============= */
   /* = Countdown = */
   /* ============= */
@@ -233,8 +279,7 @@
   .countdown strong{
     color: $c_ribbon_banner_strong;
   }
-  
-  
+    
 }
 
 @media($mq_mobile){
@@ -248,7 +293,7 @@
       margin-top: 90px + 25px;
     }
     
-    .main > header{
+    .ribbon{
       margin-top: 0;
       margin-left: 0;
       margin-right: 0;

@@ -3,70 +3,151 @@
 <head>
   <!-- [START:head] -->
   <!-- [STOP:head] -->
-  <title>List of things that you could do until the 24th - HTML and CSS Advent 2012 by Digitpaint</title>
-  <meta name="description" content="24 days of HTML/CSS tips, brought to you by the front-end experts at Digitpaint.">
+  <title>All good things yet to come - HTML and CSS Advent 2012 by Digitpaint</title>
   <meta name="author" content="All of us at Digitpaint">
+  <meta name="description" content="Today we'll have a short look at what (we hope) 2013 will bring us — browser-wise, that is">
+  
+  <meta property="og:title" content="All good things yet to come - HTML &amp; CSS Advent 2012">
+  <meta property="og:url" content="http://advent2012.digitpaint.nl/24/">
+  <meta property="og:image" content="http://advent2012.digitpaint.nl/assets/opengraph/24.png">
+  <meta property="og:description" content="Today we'll have a short look at what (we hope) 2013 will bring us — browser-wise, that is">
 
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@digitpaint">
+  <meta name="twitter:creator" content="@flurin">
+  <meta name="twitter:title" content="All good things yet to come - HTML &amp; CSS Advent 2012 by Digitpaint">
+  <meta name="twitter:url" content="http://advent2012.digitpaint.nl/24/">  
+  <meta name="twitter:image" content="http://advent2012.digitpaint.nl/assets/opengraph/24.png">
+  <meta name="twitter:description" content="Today we'll have a short look at what (we hope) 2013 will bring us — browser-wise, that is">
+  
+  <link rel="stylesheet" href="24.css" />
+  <script src="24.js"></script>
   
 </head>
-<body class="layout-article">
+<body class="layout-home">
   <div class="page">
+    <div class="page-header">
+      <!-- [START:layout/ribbon] -->
+      <!-- [STOP:layout/ribbon] -->    
 
-    <!-- [START:layout/ribbon] -->
-    <!-- [STOP:layout/ribbon] -->    
+      <div class="social share">
+        <p>Don't forget to spread the joy!</p>
         
-    <article class="main">
-      
-      <header class="header">
-        <div class="body">
-          <span class="day-number">
-            24
-          </span>
-          <h1>
-            List of things that you could do until the 24th
-          </h1>
+        <div class="buttons">
+          <div class="addthis_toolbox addthis_default_style addthis_16x16_style">
+            <a class="addthis_button_preferred_1"></a>
+            <a class="addthis_button_preferred_2"></a>
+            <a class="addthis_button_preferred_3"></a>
+            <a class="addthis_button_preferred_4"></a>
+            <a class="addthis_button_compact"></a>
+            <a class="addthis_counter addthis_bubble_style"></a>
+          </div>
         </div>
-        
-        <nav class="browse">
-          
-            <a href="/23/index.html" class="previous">
-              <span class="acc">Previous</span>
-            </a>
-          
-          
-        </nav>
-      </header>
-      
-      <div class="body text">
-        <ul>
-  <li>Get in touch with yourself</li>
-  <li>Rake the leaves</li>
-  <li>Start a baboon farm</li>
-  <li>Put up the Christmas lights</li>
-  <li>Go home, see your folks.</li>
-  <li>Read a book in one sitting</li>
-  <li>Write letters to random people</li>
-  <li>Clean out the attic</li>
-  <li>Try the Cinnamon Challenge (not recommended)</li>
-  <li>Learn Swahili</li>
-  <li>Get really, really, really drunk</li>
-  <li>Read all 24 404-pages on this calendar</li>
-  <li>Try every pizza topping Domino’s has to offer (definitely not recommended)</li>
-  <li>Get lost in the endless depths of YouTube</li>
-  <li>Build a working sequential transmission out of Lego</li>
-  <li>Eat cake</li>
-  <li>Volunteer somewhere. Anywhere.</li>
-  <li>Troll employees at the Genius Bar</li>
-  <li>Go to the dentist</li>
-  <li>Sleep</li>
-  <li>Check out all the other entries in our HTML &amp; CSS Advent calendar</li>
-</ul>
-<p>Have fun!</p>
+
       </div>
-    </article>
         
+      <img src="/assets/home/alien.svg" alt="Bob the Alien welcomes you!" class="alien">
+    </div>
+    
+    <article class="main">
+
+      <!-- [START:layout/article-header?nr=24&title=All good things yet to come&previous=/23/] -->
+      <!-- [STOP:layout/article-header] -->    
+
+      <div class="body text">
+        <p class="intro">
+          Today we'll have a short look at what (we hope) 2013 will bring us — browser-wise, that is. This is by no means a reliable prediction, and may
+          in some cases be plain old wishful thinking. Nevertheless, we want to make a short list of neat things that may or may not come to the web the
+          coming year(s). 
+        </p>
+        
+        
+        <h2>More layout options</h2>
+        <p>
+          Internet Explorer already debuted grid layout, flexbox is coming along nicely (the new spec, that is), and we might even get a glimpse of
+          template layout. Anyway, grid-layout is quite powerful; read the 24Ways article <a href="http://24ways.org/2012/css3-grid-layout/" target="_blank">Giving Content Priority with CSS3 Grid Layout</a> by Rachel Adams
+          for a more in-depth look at this.
+        </p>
+        <p>
+          So maybe in 2013 we may finally be able to build most layouts, including content-priority without having to resort to a bunch of wrapper divs
+          and dirty float hacks. We're sure that both we, our designers, and our clients would be happier for it.
+        </p>
+
+        <h2>Doing more with the flow</h2>
+        <p>
+          We've demonstrated some parts of <a href="/21/">exclusions</a> and <a href="/19/">regions</a>, but these are merely the tip of the iceberg. Especially exclusions is pretty damn high
+          on the most wanted list. We have long wanted to have content flow in or around arbitrary shapes, and exclusions will allow you to do that. Go
+          and have a look at Ryan Stewart's <a href="http://blog.digitalbackcountry.com/2012/03/experimenting-with-css-exclusions/" target="_blank">
+          Experimenting with CSS Exclusions</a>, and be amazed.
+        </p>
+        
+        <h2>Blending your images</h2>
+        <p>
+          How many times have you encountered a blend-mode in a file from your designer that wasn't set to normal, but to "screen" or "multiply"? We
+          have, more than once. And quite frankly, we were just as dissapointed as the designer when we have to send it back to get it "fixed". The
+          functionality described in the <a href="https://dvcs.w3.org/hg/FXTF/rawfile/tip/compositing/index.html" target="_blank">Compositing and Blending Level 1</a> spec would allow us to do this without too much fuss. Adobe even has an
+          experimental Webkit fork with the spec implemented. Find out more <a href="https://blogs.adobe.com/webplatform/category/features/css-compositing/" target="_blank">about compositing and blending</a> on the Adobe Web Platform Team Blog.
+        </p>
+        
+        <h2>CSS Selectors Level 4 </h2>
+        <p>
+          Work on the CSS Level 4 has started quite some time ago, and we may see some of the specs seep into browsers somewhere next year. The most
+          exiting selector will be the subject selector, with which we can select to which part of the css selectors our CSS should apply: <code>!ul >
+          li:only-child</code> would style any <code>ul</code> that only has one <code>li</code>. Read the <a href="http://dev.w3.org/csswg/selectors4/" target="_blank">Selectors Level 4</a> spec to see all the awesomeness in progress!
+        </p>
+        
+        <h2>Moar device API's</h2>
+        <p>
+          In this year's HTML &amp; CSS Advent we've seen quite some device APIs: <code>getUserMedia</code> for webcam and microphone, the Device Orientation API for
+          accessing the gyroscope/accelerometer, and the Battery API to get battery readings. And then there was the Geo Location API. We expect to get
+          access to more and more device APIs. An example of this is the Vibration API, which gets you access to a device's vibrator. David Walsh
+          already put out an extensive blogpost about the <a href="http://davidwalsh.name/vibration-api" target="_blank">Vibration API</a>.
+        </p>
+        
+      </div>
+      
+
+      <div class="bottom">
+        <div class="wrapper">
+          <footer class="footer text">
+            <section class="attrbution">
+              <h2>Finally...</h2>
+        
+              <p>
+                Thank you all for coming, reading, sharing, helping, checking and enjoying (or not? :) our Digitpaint HTML &amp; CSS Advent Calendar 2012.
+                It's great to know many people are interested in these new technologies, and we'll try our darnest to keep 'm coming! Merry Christmas
+                and a geeky new year! 
+              </p>
+              <p>
+                Much Love, 
+              </p>
+              <p>
+                The Digitpaint Team<br>
+                Ronald, Flurin, Adrian, Edwin, Joran, Byron &amp; Danny
+              </p>
+              
+            </section>
+        
+          </footer>
+    
+          <!-- [START:layout/site-navigation] --> 
+          <!-- [STOP:layout/site-navigation] -->
+        </div>
+      </div>          
+      
+    </article>
+
+
   </div>
     
+  <script>  
+    var addthis_share = { 
+      templates: {
+        twitter: 'All good things yet to come! The HTML and CSS Advent 2012 #dpadvent {{url}}'
+      }
+    }
+  </script>
+  
   <!-- [START:javascripts] -->
   <!-- [STOP:javascripts] -->    
 </body>

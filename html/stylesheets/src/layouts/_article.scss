@@ -9,17 +9,12 @@
   }
   
   .ribbon,
-  .main > .header .body,
   .main > .footer,
   .main > .body{
-    max-width: 650px;
-    margin: 0 auto;
-    text-align: left;
-    position: relative;
+    @extend %page-width-center;
   }
   
   .main > .body,
-  .main > .header .body,
   .main > .footer{
     padding: 20px;
   }
@@ -29,22 +24,7 @@
     background: $c_main_body_bg;
     position: relative;
   }  
-  
-  .main > .header{
-    background: rgba($c_corporate_deep, 0.6);
-    position: relative;
-  }
-  
-  .main > .header .body{
-    @extend %autoclear;    
-    @extend %font-main-header;
-    margin-top: -5px;    
-    background: $c_main_highlight_bg;
-    color: $c_corporate_dark;
-    position: relative;
-    z-index: 2;
-  }
-  
+    
   /* ================== */
   /* = Smaller ribbon = */
   /* ================== */
@@ -58,67 +38,6 @@
     font-size: 1.4rem;
   }
   
-  /* ===================== */
-  /* = Browse navigation = */
-  /* ===================== */
-  
-  .browse .previous,
-  .browse .next{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    padding-top: 5rem;
-    text-decoration: none;
-    vertical-align: middle;
-    color: #fff;
-    width: 50%;
-    z-index: 1;
-  }
-  
-  .browse .not-yet{
-    opacity: 0.5;
-  }
-  
-  .browse .previous{
-    left: 0;
-    text-align: right;
-  }
-  
-  .browse .next{
-    right: 0;
-    text-align: left;    
-  }
-  
-  .browse .previous:before,
-  .browse .next:after{    
-    @extend %font-icon;
-    color: $c_corporate_light;
-    background: #fff;
-    display: block;
-    width: 3.2rem;
-    height: 3.2rem;
-    line-height: 2;
-    text-decoration: none;
-    position: absolute;
-    overflow: hidden;
-  }
-  
-  .browse .previous:before{
-    content: "\E023";   
-    left: 0;
-    margin-right: 1em; 
-  }
-  
-  .browse .next:after{
-    content: "\E024";  
-    margin-left: 1em;
-    right: 0;
-  }
-  
-  .browse .acc{
-    @extend %font-text;    
-  }
-    
   /* =========== */
   /* = Sharing = */
   /* =========== */

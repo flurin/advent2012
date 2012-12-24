@@ -52,6 +52,13 @@
   background-image: linear-gradient(top, $c_button_light_bg 0, $c_button_dark_bg 100%);      
 }
 
+%page-width-center{
+  max-width: $page_width;
+  margin: 0 auto;
+  text-align: left;
+  position: relative;  
+}
+
 %autoclear:after{
 	content: "";
 	visibility: hidden;
