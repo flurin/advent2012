@@ -31,7 +31,7 @@ class RssGenerator
           doc = Hpricot(File.read(path + "#{day}/index.html"))
           
           xml.item do
-            xml.title       doc.at(".main > .header h1").inner_text.strip
+            xml.title       doc.at(".main > .article-header h1").inner_text.strip
             xml.link        "http://advent2012.digitpaint.nl/#{day}/"
             xml.description doc.at(".main > .body .intro").inner_text.strip
             xml.pubDate     CGI.rfc1123_date Time.new(2012,12,day,12,0,0)
